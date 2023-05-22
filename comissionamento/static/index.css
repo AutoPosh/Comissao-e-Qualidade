@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&display=swap');
+
+:root {
+    --bg-color: rgb(242, 242, 252);
+    --main-color: rgb(19, 20, 29);
+    --btn-color: rgb(21, 136, 36);
+    --font-color-light: ghostwhite;
+    --font-color-dark: rgb(11, 12, 20);
+    --menu-toggled: 0;
+}
+
+body {
+    min-width: 500px;
+    overflow-x: hidden;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    place-items: center;
+    place-content: center;
+    height: 70px;
+    background-color: var(--main-color);
+}
+
+html {
+    background-color: var(--bg-color);
+}
+
+.img-logo {
+    width: 125px;
+    place-self: left !important;
+    margin-left: 30px;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+#menu-check{
+    display: none;
+}
+
+nav {
+    padding-block: 10px 0;
+    height: 70px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+.div-nav {
+    margin: 16px auto 0 auto;
+    padding: 0;
+}
+
+.ul-nav {
+    margin: auto auto 0 auto;
+    padding: 0;
+    display: inline-flex;
+    gap: 5px;
+    list-style: none;
+    transform: translateX(0);
+}
+
+.li-nav {
+    padding: 10px 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.a-nav {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: var(--font-color-light);
+}
+
+.li-nav:hover {
+    background-color: brown;
+    transition: 350ms ease-in-out;
+}
+
+
+
+@media(max-width: 800px) {
+
+    header{
+        height: 100px;
+    }
+    nav{
+        height: 100px;
+    }
+
+    .ul-nav {
+        display: block;
+        background-color: rgb(0, 130, 252);
+        position: absolute;
+        top: 70px;
+        place-items: center;
+        text-align: center;
+        right: 0;
+        transform: translateX(150px);
+        transition: 0.5s all ease;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+
+    #menu-check:checked ~ .div-nav  .ul-nav {
+        opacity: 1;
+        display: block;
+        transform: translateX(0);
+        transition: all 500ms ease-in-out;
+    }
+
+    .img-logo {
+        transform: translateX(0px);
+        transition: all 500ms ease-in-out;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        display: grid;
+        right: 20px;
+        top: 50px;
+        padding: 18px;
+        place-content: center;
+        cursor: pointer;
+        gap: 5px;
+        width: 25px;
+        height: 5px;
+        z-index: 99;
+    }
+
+    .bar {
+        width: 24px;
+        height: 1.8px;
+        background-color: ghostwhite;
+    }
+
+    .menu-toggle span:nth-child(1),
+    .menu-toggle span:nth-child(3) {
+        transform-origin: 0 50%;
+    }
+    #menu-check:checked~.menu-toggle .barra-1{
+        transform: rotate(35deg);
+    }
+    #menu-check:checked~.menu-toggle .barra-3{
+        transform: rotate(-35deg)
+    }
+    #menu-check:checked~.menu-toggle .barra-2{
+        opacity: 0;
+    }
+
+    .bar{
+        transition: transform 300ms, opacity 300ms;
+    }
+    /* MENU ABERTO */
+
+}
+
+
