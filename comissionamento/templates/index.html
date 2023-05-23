@@ -23,31 +23,39 @@
 <!---->
 <header>
     <nav>
-        <input type="checkbox" id="menu-check">
         <img class="img-logo" src="../static/src/icons/logo_branca.png" draggable="false" onclick="logoClick()">
         <div class="div-nav">
-            <ul class="ul-nav menu-open">
-                <li class="li-nav"><a class='a-nav' href="" draggable="false">Home</a></li>
-                <li class="li-nav"><a class='a-nav' href="" draggable="false">Lançamentos</a></li>
-                <li class="li-nav"><a class='a-nav' href="" draggable="false">Qualidade</a></li>
-                <li class="li-nav"><a class='a-nav' href="" draggable="false">Consulta</a></li>
-                <li style="display: none;"><a href="" draggable="false">Estoque</a></li>
+            <ul class="ul-nav">
+                <li class="li-nav"><a class='a-nav' href="/" draggable="false">Home</a></li>
+                <li class="li-nav"><a class='a-nav' href="/service" draggable="false">Serviço</a></li>
+                <li class="li-nav"><a class='a-nav' href="/qualidade" draggable="false">Qualidade</a></li>
+                <li class="li-nav"><a class='a-nav' href="/consulta" draggable="false">Consulta</a></li>
             </ul>
         </div>
-
-        <label for="menu-check" id="menu-toggle" class="menu-toggle">
-            <span class="bar barra-1 menu-check"></span>
-            <span class="bar barra-2 menu-check"></span>
-            <span class="bar barra-3 menu-check"></span>
-        </label>
     </nav>
 </header>
 
 <body>
+    
+    <div class="buttons-svc">
+        <div>
+            <img id="svc" src="../static/src/icons/service.png" alt="..." draggable="false">
+            <div class="text-flutuante">Serviços</div>
+        </div>
+        <div>
+            <img id="qualidade" src="../static/src/icons/qualidade.png" alt="..." draggable="false">
+            <div class="text-flutuante">Qualidade</div>
+        </div>
+        <div>
+            <img id="consulta" src="../static/src/icons/Comissão.png" alt="..." draggable="false">
+            <div class="text-flutuante">Consulta</div>
+        </div>
+        <div>
+            <img id="painel" src="../static/src/icons/Painel.png" alt="..." draggable="false">
+            <div class="text-flutuante">Painel do Administrador</div>
+        </div>
+    </div>
 
 </body>
-<footer>
-
-</footer>
 
 </html>

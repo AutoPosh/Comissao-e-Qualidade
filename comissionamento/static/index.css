@@ -9,16 +9,20 @@
     --menu-toggled: 0;
 }
 
-body {
-    min-width: 500px;
-    overflow-x: hidden;
-}
-
 * {
     font-family: 'Poppins', sans-serif;
+    font-size: 12pt;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    background: url('../static/src/imgs/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
@@ -28,20 +32,12 @@ header {
     background-color: var(--main-color);
 }
 
-html {
-    background-color: var(--bg-color);
-}
-
 .img-logo {
     width: 125px;
     place-self: left !important;
     margin-left: 30px;
     cursor: pointer;
     transform: translateX(0);
-}
-
-#menu-check{
-    display: none;
 }
 
 nav {
@@ -82,84 +78,98 @@ nav {
     transition: 350ms ease-in-out;
 }
 
+.buttons-svc {
+    margin: 50px auto;
+    max-width: 600px;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bold;
+    color: brown;
+}
+/* Remove o user select */
+.buttons-svc {
+   user-select: none;
+  -webkit-touch-callout: none; /* Desativa a seleção no iOS Safari */
+  -webkit-user-select: none; /* Desativa a seleção no iOS Safari */
+  -moz-user-select: none; /* Desativa a seleção no Firefox */
+  -ms-user-select: none; /* Desativa a seleção no Internet Explorer */
+}
 
+.buttons-svc img {
+    display: inline-block;
+    object-fit: contain;
+    margin-inline: 20px;
+    margin-block: 10px;
+    width: 15rem;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
 
-@media(max-width: 800px) {
+.buttons-svc img:hover {
+    transform: scale(1.05);
+    background-color: rgba(165, 42, 42, 0.897);
+}
 
-    header{
-        height: 100px;
-    }
-    nav{
-        height: 100px;
-    }
+.buttons-svc img:hover ~ .text-flutuante {
+    background-color: brown;
+    color: white;
+    
+}
 
-    .ul-nav {
-        display: block;
-        background-color: rgb(0, 130, 252);
-        position: absolute;
-        top: 70px;
-        place-items: center;
-        text-align: center;
-        right: 0;
-        transform: translateX(150px);
-        transition: 0.5s all ease;
-    }
+.text-flutuante {
+    width: 250px;
+    display: flex;
+    padding: 5px 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    place-content: center;
+    margin: -3px auto 0 auto;
+    transition: all 300ms ease-in-out;
+}
 
-    body{
-        overflow-x: hidden;
-    }
-
-    #menu-check:checked ~ .div-nav  .ul-nav {
-        opacity: 1;
-        display: block;
-        transform: translateX(0);
-        transition: all 500ms ease-in-out;
-    }
-
-    .img-logo {
-        transform: translateX(0px);
-        transition: all 500ms ease-in-out;
-    }
-
-    .menu-toggle {
-        position: absolute;
-        display: grid;
-        right: 20px;
-        top: 50px;
-        padding: 18px;
-        place-content: center;
-        cursor: pointer;
-        gap: 5px;
-        width: 25px;
-        height: 5px;
-        z-index: 99;
-    }
-
-    .bar {
-        width: 24px;
-        height: 1.8px;
-        background-color: ghostwhite;
-    }
-
-    .menu-toggle span:nth-child(1),
-    .menu-toggle span:nth-child(3) {
-        transform-origin: 0 50%;
-    }
-    #menu-check:checked~.menu-toggle .barra-1{
-        transform: rotate(35deg);
-    }
-    #menu-check:checked~.menu-toggle .barra-3{
-        transform: rotate(-35deg)
-    }
-    #menu-check:checked~.menu-toggle .barra-2{
-        opacity: 0;
-    }
-
-    .bar{
-        transition: transform 300ms, opacity 300ms;
-    }
-    /* MENU ABERTO */
-
+#painel {
+    height: 240px;
 }
 
 
+@media(max-width: 550px) {
+    .buttons-svc img {
+        width: 9rem;
+        margin-inline: 10px;
+    }
+    #painel {
+        height: 144px;
+    }
+    .text-flutuante{
+        width: 144px;
+    }
+}
+
+
+
+@media(max-width: 850px) {
+
+    /* Responsividade para celular de toda a tela, não deixar margem para rolar */
+
+    .div-nav {
+        display: none;
+    }
+
+    .img-logo {
+        transform: translate(-20px);
+    }
+
+    header,
+    nav {
+        height: 100px;
+    }
+
+}
