@@ -20,6 +20,16 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Função para gerar um device_id único
+    function generateDeviceId() {
+        if (typeof uuidv4 !== 'undefined') {
+            return uuidv4();
+        } else {
+            console.error('Erro: A biblioteca UUID não está carregada.');
+            return null;
+        }
+    }
+
     const form = document.getElementById('formulario');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -27,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const passwordField = document.getElementById('password-field');
         const password = passwordField.value;
 
-        const response = await fetch('http://192.168.1.147:5000/authenticate', {
+        const device_id = generateDeviceId();
+
+        const response = await fetch(`http://192.168.0.34:5000/authenticate/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -38,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (response.ok) {
             const data = await response.text();
             console.log(data);
+            window.location.href = '/index'
         } else {
             console.error('Erro na solicitação:', response.status);
         }
