@@ -18,9 +18,11 @@
     overflow-x: hidden;
 }
 
-body{
+body {
     background: url('../static/src/imgs/bg.jpg');
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
@@ -83,31 +85,90 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    font-weight: bold;
+    color: brown;
+}
+/* Remove o user select */
+.buttons-svc {
+   user-select: none;
+  -webkit-touch-callout: none; /* Desativa a seleção no iOS Safari */
+  -webkit-user-select: none; /* Desativa a seleção no iOS Safari */
+  -moz-user-select: none; /* Desativa a seleção no Firefox */
+  -ms-user-select: none; /* Desativa a seleção no Internet Explorer */
 }
 
-.buttons-svc > img {
+.buttons-svc img {
     display: inline-block;
     object-fit: contain;
     margin-inline: 20px;
     margin-block: 10px;
     width: 15rem;
+    object-fit: cover;
     border-radius: 8px;
-  }
-  
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+
+.buttons-svc img:hover {
+    transform: scale(1.05);
+    background-color: rgba(165, 42, 42, 0.897);
+}
+
+.buttons-svc img:hover ~ .text-flutuante {
+    background-color: brown;
+    color: white;
+    
+}
+
+.text-flutuante {
+    width: 250px;
+    display: flex;
+    padding: 5px 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    place-content: center;
+    margin: -3px auto 0 auto;
+    transition: all 300ms ease-in-out;
+}
+
+#painel {
+    height: 240px;
+}
+
+
+@media(max-width: 550px) {
+    .buttons-svc img {
+        width: 9rem;
+        margin-inline: 10px;
+    }
+    #painel {
+        height: 144px;
+    }
+    .text-flutuante{
+        width: 144px;
+    }
+}
+
+
 
 @media(max-width: 850px) {
 
     /* Responsividade para celular de toda a tela, não deixar margem para rolar */
 
-    .div-nav{
+    .div-nav {
         display: none;
     }
 
-    .img-logo{
+    .img-logo {
         transform: translate(-20px);
     }
 
-    header, nav{
+    header,
+    nav {
         height: 100px;
     }
 
