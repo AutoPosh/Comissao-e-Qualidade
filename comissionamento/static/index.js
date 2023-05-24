@@ -1,4 +1,4 @@
-function logoClick() {
+/* function logoClick() {
     location.href = 'http://192.168.0.34:5000'
 }
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     painel.addEventListener('click', function() {
         window.location.href = '/adm'; // Redirecionar para a página '/painel'
     });
-  });
+  }); */
   
 
 
