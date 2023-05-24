@@ -9,7 +9,7 @@ Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
     [ ] cargo
     [ ] grade
     [ ] patente
-    [ ] Current Date();
+    [ ] Current Date()
 
 []Criar as solicitações para os botões da HOMEPAGE para as outras páginas
 []Testar se as solicitações são realizadas de acordo com as permissões de cargo
