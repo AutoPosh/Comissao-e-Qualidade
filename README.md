@@ -4,7 +4,7 @@ Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
 
 # Proximas Tarefas
 <ul>
-    <li>[] Criar um DB com os seguintes itens:</li>
+    <li>[ ] Criar um DB com os seguintes itens:</li>
     <ul>
     <li style="list-style: none">[] ID <-- PK</li>
     <li style="list-style: none">[] colaborador</li> 
