@@ -4,14 +4,16 @@ Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
 
 # Proximas Tarefas
 <ul>
-    <li>[X] Criar um DB com os seguintes itens:</li>
-    <li>[] ID <-- PK</li>
-    <li>[] colaborador</li> 
-    <li>[] senha </li>
-    <li>[] cargo</li>
-    <li>[] grade</li>
-    <li>[] patente</li>
-    <li>[] Current Date()</li>
+    <li>[] Criar um DB com os seguintes itens:</li>
+    <ul>
+    <li style="list-style: none">[] ID <-- PK</li>
+    <li style="list-style: none">[] colaborador</li> 
+    <li style="list-style: none">[] senha </li>
+    <li style="list-style: none">[] cargo</li>
+    <li style="list-style: none">[] grade</li>
+    <li style="list-style: none">[] patente</li>
+    <li style="list-style: none">[] Current Date()</li>
+        </ul>
     </ul>
 
 []Criar as solicitações para os botões da HOMEPAGE para as outras páginas
