@@ -1,3 +1,5 @@
+![Snake animation](https://github.com/autoposh/autoposh/blob/output/github-contribution-grid-snake.svg)
+
 # Comissao-e-Qualidade
 Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
 
