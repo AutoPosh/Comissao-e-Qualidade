@@ -3,13 +3,13 @@ Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
 
 # Proximas Tarefas
 [X] Criar um DB com os seguintes itens:
-    [ ] ID <-- PK
-    [ ] colaborador 
-    [ ] senha 
-    [ ] cargo
-    [ ] grade
-    [ ] patente
-    [ ] Current Date()
+    [] ID <-- PK
+    [] colaborador 
+    [] senha 
+    [] cargo
+    [] grade
+    [] patente
+    [] Current Date()
 
 []Criar as solicitações para os botões da HOMEPAGE para as outras páginas
 []Testar se as solicitações são realizadas de acordo com as permissões de cargo
