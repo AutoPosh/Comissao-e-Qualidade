@@ -1,6 +1,6 @@
 /* function logoClick() {
     location.href = 'http://192.168.0.34:5000'
-}
+}*/
 
 //Ao clicar nos ids svc, qualidade, consulta, painel o site deve redirecionar para a página correspondente
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const painel = document.getElementById('painel');
   
     svc.addEventListener('click', function() {
-        window.location.href = '/service'; // Redirecionar para a página '/service'
+        window.location.href = '/operacional'; // Redirecionar para a página '/service'
     });
   
     qualidade.addEventListener('click', function() {
@@ -23,12 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   
     painel.addEventListener('click', function() {
-        window.location.href = '/adm'; // Redirecionar para a página '/painel'
+        window.location.href = '/painel'; // Redirecionar para a página '/painel'
     });
-  }); */
+  }); 
   
-
-
 
 /*document.addEventListener("DOMContentLoaded", function () {
     const contentDiv = document.getElementById("content");

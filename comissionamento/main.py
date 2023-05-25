@@ -1,5 +1,6 @@
 import uvicorn
 import socket
+import dotenv
 
 #Pega o IP da máquina
 hostname = socket.gethostname()
