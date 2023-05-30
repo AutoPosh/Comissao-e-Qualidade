@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/pesquisa.css">
+    <script src="../../static/pesquisa.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <title>Pesquisa de Satisfação</title>
+</head>
+
+<header>
+</header>
+
+<body>
+    <div id="container">
+        
+        <div id="form-container">
+            <form action="/send-pesquisa" method="POST" id="formulario">
+                <h3>Pesquisa de Satisfação</h3>
+                <div class="header-form cont-div">
+                    <p class="form-label">CPF/CNPJ</p>
+                    <input type="text" id="cpf-field" placeholder="Digite CPF" name="cpf" class="cpf"
+                        inputmode="numeric">
+                </div>
+                <div id="atentimento" class="cont-div">
+                    <p class="form-label">Como foi sua experiência com o atendimento?
+                    </p>
+                    <input type="radio" id="pont-atendimento-1" value="1" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-1">1</label>
+                    <input type="radio" id="pont-atendimento-2" value="2" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-2">2</label>
+                    <input type="radio" id="pont-atendimento-3" value="3" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-3">3</label>
+                    <input type="radio" id="pont-atendimento-4" value="4" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-4">4</label>
+                    <input type="radio" id="pont-atendimento-5" value="5" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-5">5</label>
+                    <input type="radio" id="pont-atendimento-6" value="6" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-6">6</label>
+                    <input type="radio" id="pont-atendimento-7" value="7" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-7">7</label>
+                    <input type="radio" id="pont-atendimento-8" value="8" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-8">8</label>
+                    <input type="radio" id="pont-atendimento-9" value="9" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-9">9</label>
+                    <input type="radio" id="pont-atendimento-10" value="10" class="pont-at" name="pont-atendimento" />
+                    <label class="pont-label" for="pont-atendimento-10">10</label>
+                </div>
+                <div id="services" class="cont-div">
+                    <p class="form-label">Está satisfeito com os serviços?</p>
+                    <input type="radio" id="pont-service-1" name="pont-service" value="1" class="pont-serv" />
+                    <label class="pont-sv"for="pont-service-1">1</label>
+                    <input type="radio" id="pont-service-2" name="pont-service" value="2" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-2">2</label>
+                    <input type="radio" id="pont-service-3" name="pont-service" value="3" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-3">3</label>
+                    <input type="radio" id="pont-service-4" name="pont-service" value="4" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-4">4</label>
+                    <input type="radio" id="pont-service-5" name="pont-service" value="5" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-5">5</label>
+                    <input type="radio" id="pont-service-6" name="pont-service" value="6" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-6">6</label>
+                    <input type="radio" id="pont-service-7" name="pont-service" value="7" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-7">7</label>
+                    <input type="radio" id="pont-service-8" name="pont-service" value="8" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-8">8</label>
+                    <input type="radio" id="pont-service-9" name="pont-service" value="9" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-9">9</label>
+                    <input type="radio" id="pont-service-10" name="pont-service" value="10" class="pont-serv" />
+                    <label class="pont-sv" for="pont-service-10">10</label>
+                </div>
+                <div id="sugestoes" class="cont-div">
+                    <p class="sugestoes" for="sugestoes">Sugestões:</p>
+                    <textarea name="sugestoes" id="" cols="40" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+  
+<!-- Adicione um botão que chama a função para abrir o modal -->
+<button type="button" class="btn btn-primary" onclick="openModal()">Abrir Modal</button>
+
+<!-- Modal -->
+<div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="success-modal-label">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        eita
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>

@@ -149,8 +149,20 @@ def rota_sem_permissao():
     error = 'Não possui permissões!'
     return render_template('home.html', usuario=usuario, error=error)
 
+
+@app.route('/pesquisa-nps', methods=['POST', 'GET'])
+def rota_pesquisa():
+    return render_template('pesquisa-nps/pesquisa.html')
+
+@app.route('/send-pesquisa', methods=['POST', 'GET'])
+def send_pesquisa():
+    return jsonify({'resposta': 'Enviado com sucesso!'})
+    
+
+
 if __name__ == '__main__':
-    app.run(host = os.getenv("WORK_IP"), port=5000)
+    app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
+
 
 
 
