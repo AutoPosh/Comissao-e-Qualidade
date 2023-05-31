@@ -1,6 +1,4 @@
-/* function logoClick() {
-    location.href = 'http://192.168.0.34:5000'
-}*/
+
 
 //Ao clicar nos ids svc, qualidade, consulta, painel o site deve redirecionar para a página correspondente
 

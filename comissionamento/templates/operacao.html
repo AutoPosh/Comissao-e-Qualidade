@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--------------------- BootStrap --------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="../static/operacao.css">
     <title>Operacional</title>
+
+    <style>
+        body {
+            background-image: radial-gradient(circle 592px at 48.2% 50%, rgba(255, 255, 255, 0.6) 0%, rgb(223, 236, 255) 74.6%);
+        }
+    </style>
+
 </head>
 
 <body>
-        <h1>Página do Operacional</h1>
+
+    <header>
+        <nav>
+            <img class="img-logo" src="../static/src/icons/logo_branca.png" draggable="false" onclick="logoClick()">
+        </nav>
+    </header>
+
+    <div class="janela-title">
+        <h4> Olá, {{usuario}}</h3>
+        <h4> Sou o de numero: {{id_user}}</h2>
+    </div>
+
+    <div class="container-itens">
+        <div class="itens">
+            <label for="os">O.S.</label>
+            <input type="text" id="os" class="os">
+
+            <label for="etapa">Cod. Etapa</label>
+            <input type="text" id="etapa" class="etapa">
+
+            <label for="colab2">Colaborador 2</label>
+            <select name="colab2" id="colab2" class="select">
+                <option value=""></option>
+                <option value="1">Joao</option>
+                <option value="2">italo</option>
+                <option value="3">Francisco</option>
+                <option value="4">Ramon</option>
+                <option value="5">Junior</option>
+            </select>
+
+            <label for="colab3">Colaborador 3</label>
+            <select name="colab3" id="colab3" class="select">
+                <option value=""></option>
+                <option value="1">Joao</option>
+                <option value="2">italo</option>
+                <option value="3">Francisco</option>
+                <option value="4">Ramon</option>
+                <option value="5">Junior</option>
+            </select>
+        </div>
+        <button class="btn btn-danger">Play</button>
+    </div>
+
+
+    <script>
+        function logoClick() {
+            location.href = 'http://192.168.0.34:5000/homepage'
+        }
+
+    </script>
 </body>
+
 </html>

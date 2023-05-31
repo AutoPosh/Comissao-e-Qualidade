@@ -79,12 +79,14 @@ def login():
         user = cursor.fetchone()
 
         if user:
+            id_user = user[0]
             usuario = user[1]
             cargo = user[3]
             grade = user[4]
             nivel = user[5]
             data_cadastro = user[6]
             
+            session['id_user'] = id_user
             session['usuario'] = usuario
             session['cargo'] = cargo
             session['login_time'] = datetime.now(timezone.utc)
@@ -95,7 +97,7 @@ def login():
 
             # Define o tempo máximo de sessão para 1 minutos a partir do momento atual
             session.permanent = True
-            app.permanent_session_lifetime = timedelta(minutes=1)
+            app.permanent_session_lifetime = timedelta(minutes=10)
 
             return redirect(url_for('rota_homepage'))
         else:
@@ -112,43 +114,61 @@ def login():
 @proteger_rota(['Administrador', 'Operacional', 'Qualidade'])
 def rota_homepage():
     usuario = session.get('usuario')
-    return render_template('home.html', usuario = usuario)
+    if usuario != None:
+        return render_template('home.html', usuario = usuario)
+    else:
+        return redirect(url_for('index'))
 
 # ----------- Rotas Protegidas ----------- #
 @app.route('/operacional', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def rota_operacao():
-    return render_template('operacao.html')
+    usuario = session.get('usuario')
+    id_user = session.get('id_user')
+    if usuario != None:
+        return render_template('operacao.html', usuario = usuario, id_user = id_user)
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route('/consulta', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def rota_consulta():
-    return render_template('consulta.html')
+    usuario = session.get('usuario')
+    if usuario != None:
+        return render_template('consulta.html', usuario = usuario)
+    else:
+        return redirect(url_for('index'))
 
 
 @app.route('/qualidade', methods=['POST', 'GET'])
 @proteger_rota(['Qualidade', 'Administrador'])
 def rota_qualidade():
-    return render_template('qualidade.html')
+    usuario = session.get('usuario')
+    if usuario != None:
+        return render_template('qualidade.html', usuario = usuario)
+    else:
+        return redirect(url_for('index'))
 
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
 def rota_painel():
-    return render_template('painel-adm.html')
+    usuario = session.get('usuario')
+    if usuario != None:
+        return render_template('painel-adm.html', usuario = usuario)
+    else:
+        return redirect(url_for('index'))
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 def logout():
-    session.pp('usuario', None)             #Remove a sessão do usuário
+    session.pop('usuario', None)            #Remove a sessão do usuário
     return 'Logout realizado com sucesso!'  #Criar tela de logout com redirect automatico a tela de login.
-
 
 @app.route('/sem_permissao')
 def rota_sem_permissao():
     usuario = session.get('usuario')
     error = 'Não possui permissões!'
     return render_template('home.html', usuario=usuario, error=error)
-
 
 @app.route('/pesquisa-nps', methods=['POST', 'GET'])
 def rota_pesquisa():
@@ -158,7 +178,6 @@ def rota_pesquisa():
 def send_pesquisa():
     return jsonify({'resposta': 'Enviado com sucesso!'})
     
-
 
 if __name__ == '__main__':
     app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)

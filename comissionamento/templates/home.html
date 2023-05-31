@@ -32,8 +32,29 @@
                 <li class="li-nav"><a class='a-nav' href="/consulta" draggable="false">Consulta</a></li>
             </ul>
         </div>
-        <button type="button" class="btn btn-danger btn-md">Finalizar Sessão</button>
+        <button type="button" class="btn btn-danger btn-md" onclick="logout()">Finalizar Sessão</button>
     </nav>
+    <script>
+            function logout(){
+                fetch("/logout",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                .then(response => {
+                if(response.ok){
+                    console.log("Logou realizado com sucesso");
+                    window.location.href = "/";
+                } else {
+                console.log("Erro ao realizar logout"); }
+            })
+            .catch(error =>{
+            console.log("erro em logout", error);
+        });
+        }
+                
+    </script>
 </header>
 
 <body>

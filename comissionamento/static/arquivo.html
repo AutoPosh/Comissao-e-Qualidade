@@ -1,0 +1,59 @@
+<style>
+    .table-container {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #filterInput,
+    #sortButton {
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<input type="text" id="nameFilterInput" placeholder="Filtrar por nome">
+<input type="text" id="ageFilterInput" placeholder="Filtrar por idade">
+<input type="text" id="dateFilterStart" placeholder="Data de nascimento inicial (DD/MM/AAAA)">
+<input type="text" id="dateFilterEnd" placeholder="Data de nascimento final (DD/MM/AAAA)">
+<button id="filterButton">Filtrar</button>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Data de Nascimento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João</td>
+                <td>25</td>
+                <td>01/01/1995</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>30</td>
+                <td>15/06/1990</td>
+            </tr>
+            <tr>
+                <td>Carlos</td>
+                <td>28</td>
+                <td>10/09/1993</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
