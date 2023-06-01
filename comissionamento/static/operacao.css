@@ -1,12 +1,88 @@
-.janela-title{
-    background-color: yellowgreen;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand&display=swap');
+
+
+.logout{
+    position: absolute;
+    right: 100px;
+}
+
+.janela-title {
+    background-color: var(--main-color);
+    color: ghostwhite;
 }
 
 
-.itens label{
+.janela-title h4 {
+    margin-left: 20px;
+}
+
+* {
+    font-family: 'Quicksand', 'sans serif';
+    overflow: hidden;
+}
+
+.itens label {
     text-align: center;
 }
 
-.btn {
-    margin-top: 20px;
+.container-itens {
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    min-width: 300px;
+    max-width: 330px;
+    height: 100vh;
+    padding: 10px;
+    transform: translateX(0);
 }
+
+
+.itens {
+    display: flex;
+    width: 280px;
+    background-color: ghostwhite;
+    border-radius: 5px;
+    padding-bottom: 50px;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+    margin: 30px auto 0 auto;
+}
+
+.itens label {
+    margin-bottom: -20px;
+    font-family: 'Poppins', 'sans serif';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.itens select,
+.itens input {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+
+}
+
+.btn-op {
+    background-color: green;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 280px;
+    margin: 20px auto 0 auto;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-op:hover {
+    background-color: green;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.63);
+}
+
+.active-bar{
+    position: relative;
+    margin: 30px 5px 0 0;
+    align-self: end;
+}
+

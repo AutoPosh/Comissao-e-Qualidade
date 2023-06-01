@@ -13,6 +13,8 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
+    <script src="https://kit.fontawesome.com/73cc2295d4.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../static/login.css">
     <link rel="stylesheet" href="../static/operacao.css">
     <title>Operacional</title>
@@ -30,20 +32,43 @@
     <header>
         <nav>
             <img class="img-logo" src="../static/src/icons/logo_branca.png" draggable="false" onclick="logoClick()">
+            <button type="button" class="logout btn btn-danger btn-md" onclick="logout()">Finalizar Sessão</button>
         </nav>
+        <script>
+            function logout() {
+                fetch("/logout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Logou realizado com sucesso");
+                            window.location.href = "/";
+                        } else {
+                            console.log("Erro ao realizar logout");
+                        }
+                    })
+                    .catch(error => {
+                        console.log("erro em logout", error);
+                    });
+            }
+        </script>
+
     </header>
 
-    <div class="janela-title">
-        <h4> Olá, {{usuario}}</h3>
-        <h4> Sou o de numero: {{id_user}}</h2>
-    </div>
-
     <div class="container-itens">
+        <div class="janela-title">
+            <h4> Olá, {{usuario}}</h3>
+                <h4> Seu ID é: {{id_user}}</h2>
+        </div>
         <div class="itens">
-            <label for="os">O.S.</label>
+
+            <label for="os">O.S.: </label>
             <input type="text" id="os" class="os">
 
-            <label for="etapa">Cod. Etapa</label>
+            <label for="etapa">Etapa:</label>
             <input type="text" id="etapa" class="etapa">
 
             <label for="colab2">Colaborador 2</label>
@@ -66,9 +91,10 @@
                 <option value="5">Junior</option>
             </select>
         </div>
-        <button class="btn btn-danger">Play</button>
-    </div>
+        <button class="btn btn-success btn-op">Inicializar</button>
 
+        <img class="active-bar" src="../static/src/icons/prox.png" width=50px onclick="vMenu()">
+    </div>
 
     <script>
         function logoClick() {
