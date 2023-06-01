@@ -9,12 +9,12 @@ app = Flask(__name__)
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=60)
 
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=5)
+    app.permanent_session_lifetime = timedelta(minutes=60)
 
     # Check if the session has expired
     if 'login_time' in session and \
@@ -97,7 +97,7 @@ def login():
 
             # Define o tempo máximo de sessão para 1 minutos a partir do momento atual
             session.permanent = True
-            app.permanent_session_lifetime = timedelta(minutes=10)
+            app.permanent_session_lifetime = timedelta(minutes=60)
 
             return redirect(url_for('rota_homepage'))
         else:
@@ -129,6 +129,23 @@ def rota_operacao():
         return render_template('operacao.html', usuario = usuario, id_user = id_user)
     else:
         return redirect(url_for('index'))
+    
+# ------------ Rota Inicialização de serviços ------------- #
+@app.route('/inicializar', methods=['POST', 'GET'])
+@proteger_rota(['Operacional', 'Administrador'])
+def inicializar():
+    id_user = session.get('id_user')
+
+    #estabelece a conexão
+    conn = get_db_connection()
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            f"INSERT INTO servicos (numero_os, id_colaborador_1, id_colaborador_2, id_colaborador_3, descricao, etapa_servico, servico, status_servico, tempo_inicio, tempo_fim, tempo_decorrido, roxo_qtd, roseo_qtd) VALUES (4312, 1, 2, 3, Uma descrição para este teste, 293, Etapa do teste de serviço, Inicializado, 2023-06-01 10:30:00, 2023-06-01 10:50:00, 20, , );")
+        response = cursor.fetchone()
+    except:
+        print('É rapaz')
 
 
 @app.route('/consulta', methods=['POST', 'GET'])
@@ -150,6 +167,7 @@ def rota_qualidade():
     else:
         return redirect(url_for('index'))
 
+
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
 def rota_painel():
@@ -159,10 +177,12 @@ def rota_painel():
     else:
         return redirect(url_for('index'))
 
+
 @app.route('/logout', methods=['POST'])
 def logout():
     session.pop('usuario', None)            #Remove a sessão do usuário
     return 'Logout realizado com sucesso!'  #Criar tela de logout com redirect automatico a tela de login.
+
 
 @app.route('/sem_permissao')
 def rota_sem_permissao():
@@ -170,9 +190,11 @@ def rota_sem_permissao():
     error = 'Não possui permissões!'
     return render_template('home.html', usuario=usuario, error=error)
 
+# --------------------- PESQUISA DE SATISFAÇÃO ---------------------#
 @app.route('/pesquisa-nps', methods=['POST', 'GET'])
 def rota_pesquisa():
     return render_template('pesquisa-nps/pesquisa.html')
+
 
 @app.route('/send-pesquisa', methods=['POST', 'GET'])
 def send_pesquisa():

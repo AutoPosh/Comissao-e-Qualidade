@@ -10,6 +10,7 @@
 }
 
 * {
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     font-size: 12pt;
     margin: 0;
