@@ -134,7 +134,7 @@ def rota_operacao():
 @app.route('/inicializar', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
-    id_user = session.get('id_user')
+    '''id_user = session.get('id_user')
 
     #estabelece a conexão
     conn = get_db_connection()
@@ -145,7 +145,9 @@ def inicializar():
             f"INSERT INTO servicos (numero_os, id_colaborador_1, id_colaborador_2, id_colaborador_3, descricao, etapa_servico, servico, status_servico, tempo_inicio, tempo_fim, tempo_decorrido, roxo_qtd, roseo_qtd) VALUES (4312, 1, 2, 3, Uma descrição para este teste, 293, Etapa do teste de serviço, Inicializado, 2023-06-01 10:30:00, 2023-06-01 10:50:00, 20, , );")
         response = cursor.fetchone()
     except:
-        print('É rapaz')
+        print('É rapaz')'''
+    
+    
 
 
 @app.route('/consulta', methods=['POST', 'GET'])

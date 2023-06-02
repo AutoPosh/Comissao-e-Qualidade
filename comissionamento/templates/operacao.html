@@ -15,15 +15,10 @@
 
     <script src="https://kit.fontawesome.com/73cc2295d4.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../static/login.css">
     <link rel="stylesheet" href="../static/operacao.css">
     <title>Operacional</title>
 
-    <style>
-        body {
-            background-image: radial-gradient(circle 592px at 48.2% 50%, rgba(255, 255, 255, 0.6) 0%, rgb(223, 236, 255) 74.6%);
-        }
-    </style>
+
 
 </head>
 
@@ -57,49 +52,177 @@
         </script>
 
     </header>
+    <div class="container">
+        <div class="container-itens container-inactive">
+            <div class="janela-title">
+                <h4> Olá, {{usuario}}</h3>
+                    <h4> Seu ID é: {{id_user}}</h2>
+            </div>
+            <div class="itens">
 
-    <div class="container-itens">
-        <div class="janela-title">
-            <h4> Olá, {{usuario}}</h3>
-                <h4> Seu ID é: {{id_user}}</h2>
+                <label for="os">O.S.: </label>
+                <input type="text" id="os" class="os">
+
+                <label for="etapa">Etapa:</label>
+                <input type="text" id="etapa" class="etapa">
+
+                <label for="colab2">Colaborador 2</label>
+                <select name="colab2" id="colab2" class="select">
+                    <option value=""></option>
+                    <option value="1">Joao</option>
+                    <option value="2">italo</option>
+                    <option value="3">Francisco</option>
+                    <option value="4">Ramon</option>
+                    <option value="5">Junior</option>
+                </select>
+
+                <label for="colab3">Colaborador 3</label>
+                <select name="colab3" id="colab3" class="select">
+                    <option value=""></option>
+                    <option value="1">Joao</option>
+                    <option value="2">italo</option>
+                    <option value="3">Francisco</option>
+                    <option value="4">Ramon</option>
+                    <option value="5">Junior</option>
+                </select>
+            </div>
+            <button class="btn btn-success btn-op">Inicializar</button>
+            <img class="active-bar rotate-inactive" src="../static/src/icons/prox.png" width=40px">
         </div>
-        <div class="itens">
-
-            <label for="os">O.S.: </label>
-            <input type="text" id="os" class="os">
-
-            <label for="etapa">Etapa:</label>
-            <input type="text" id="etapa" class="etapa">
-
-            <label for="colab2">Colaborador 2</label>
-            <select name="colab2" id="colab2" class="select">
-                <option value=""></option>
-                <option value="1">Joao</option>
-                <option value="2">italo</option>
-                <option value="3">Francisco</option>
-                <option value="4">Ramon</option>
-                <option value="5">Junior</option>
-            </select>
-
-            <label for="colab3">Colaborador 3</label>
-            <select name="colab3" id="colab3" class="select">
-                <option value=""></option>
-                <option value="1">Joao</option>
-                <option value="2">italo</option>
-                <option value="3">Francisco</option>
-                <option value="4">Ramon</option>
-                <option value="5">Junior</option>
-            </select>
-        </div>
-        <button class="btn btn-success btn-op">Inicializar</button>
-
-        <img class="active-bar" src="../static/src/icons/prox.png" width=50px onclick="vMenu()">
     </div>
 
+    <div class="container-tables">
+        <div class="view-tables">
+            <p>Lugar para texto</p>
+            <p>Tables Tables</p>
+        </div>
+    </div>
+
+
     <script>
+
+        // Selecionando os elementos HTML
+        const osInput = document.getElementById('os');
+        const etapaInput = document.getElementById('etapa');
+        const colab2Select = document.getElementById('colab2');
+        const colab3Select = document.getElementById('colab3');
+        const button = document.querySelector('.btn-op');
+
+        // Event listener para o botão "Inicializar"
+        button.addEventListener('click', () => {
+            // Obtendo os valores dos inputs e selects
+            const osValue = osInput.value;
+            const etapaValue = etapaInput.value;
+            const colab2Value = colab2Select.value;
+            const colab3Value = colab3Select.value;
+
+            // Verificando se algum valor é vazio
+            if (osValue === "" || etapaValue === "") {
+                alert("Preencha todos os campos antes de continuar");
+                return; // Interrompe a execução do código
+            }
+
+            // Criando o objeto de dados a ser enviado para a API
+            const data = {
+                os: osValue,
+                etapa: etapaValue,
+                colab2: colab2Value,
+                colab3: colab3Value
+            };
+
+            // Enviando a solicitação POST para a API
+            fetch('sua_api_endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    // Manipular a resposta da API, se necessário
+                    console.log(result);
+                })
+                .catch(error => {
+                    // Lidar com erros na solicitação
+                    console.error('Erro:', error);
+                });
+        });
+
+
         function logoClick() {
             location.href = 'http://192.168.0.34:5000/homepage'
         }
+
+        var containerItens = document.querySelector(".container-itens");
+        var activeBar = document.querySelector(".active-bar");
+        var startTouchX; // Posição inicial do toque
+        var isDragging = false;
+
+        activeBar.addEventListener("touchstart", function (event) {
+            startTouchX = event.touches[0].clientX;
+            isDragging = false;
+        });
+
+        activeBar.addEventListener("touchmove", function (event) {
+            var currentTouchX = event.touches[0].clientX;
+            var distance = currentTouchX - startTouchX;
+
+            if (distance > 0 && !containerItens.classList.contains("container-active")) {
+                isDragging = true;
+            } else if (distance < 0 && containerItens.classList.contains("container-active")) {
+                isDragging = true;
+            }
+        });
+
+        activeBar.addEventListener("touchend", function (event) {
+            if (isDragging) {
+                var currentTouchX = event.changedTouches[0].clientX;
+                var distance = currentTouchX - startTouchX;
+
+                if (distance > 0 && !containerItens.classList.contains("container-active")) {
+                    containerItens.classList.remove("container-inactive");
+                    containerItens.classList.add("container-active");
+                    activeBar.classList.remove("rotate-inactive");
+                    activeBar.classList.add("rotate-active");
+                } else if (distance < 0 && containerItens.classList.contains("container-active")) {
+                    containerItens.classList.remove("container-active");
+                    containerItens.classList.add("container-inactive");
+                    activeBar.classList.remove("rotate-active");
+                    activeBar.classList.add("rotate-inactive");
+                }
+            }
+        });
+
+        activeBar.addEventListener("click", function () {
+            if (!isDragging) {
+                if (containerItens.classList.contains("container-active")) {
+                    containerItens.classList.remove("container-active");
+                    containerItens.classList.add("container-inactive");
+                    activeBar.classList.remove("rotate-active");
+                    activeBar.classList.add("rotate-inactive");
+                } else {
+                    containerItens.classList.remove("container-inactive");
+                    containerItens.classList.add("container-active");
+                    activeBar.classList.remove("rotate-inactive");
+                    activeBar.classList.add("rotate-active");
+                }
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            var container = document.querySelector(".container-itens");
+            var toggleIcon = document.querySelector(".active-bar");
+
+            // Verifica se o clique ocorreu dentro da div .container-itens
+            if (!container.contains(event.target)) {
+                container.classList.remove("container-active");
+                container.classList.add("container-inactive");
+                toggleIcon.classList.remove("rotate-active");
+                toggleIcon.classList.add("rotate-inactive");
+            }
+        });
+
 
     </script>
 </body>
