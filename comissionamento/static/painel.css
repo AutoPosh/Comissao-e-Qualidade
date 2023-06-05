@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'sans serif';
+}
+
+.header{
+    display: flex;
+    background-color: #13141D;
+    padding-block: 10px;
+    place-content: center;
+    margin-bottom: 10px;
+}
+
+.img-logo{
+    place-content: center;
+    cursor: pointer;
+}
+
+body {
+    background-color: ghostwhite;
+}
+
+.titulo-painel {
+    text-align: center;
+    font-weight: 600;
+    background-color: yellowgreen;
+}
+

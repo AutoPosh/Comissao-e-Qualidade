@@ -201,7 +201,7 @@ def rota_pesquisa():
 @app.route('/send-pesquisa', methods=['POST', 'GET'])
 def send_pesquisa():
     return jsonify({'resposta': 'Enviado com sucesso!'})
-    
+
 
 if __name__ == '__main__':
     app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
