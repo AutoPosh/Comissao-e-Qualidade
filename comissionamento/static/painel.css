@@ -9,9 +9,15 @@
 
 .header {
     display: flex;
+    position: relative;
     background-color: #1a1c27;
     padding-block: 10px;
     place-content: center;
+}
+
+.btn-danger{
+    position: absolute;
+    right: 10px;
 }
 
 .img-logo {
@@ -97,3 +103,12 @@ body {
     position: relative;
     display: grid;
 }
+
+
+@media(max-width: 700px){
+    .img-logo{
+        justify-content: space-between;
+        transition: 400ms ease;
+    }
+}
+

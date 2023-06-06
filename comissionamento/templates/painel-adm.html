@@ -24,6 +24,7 @@
 <body>
     <header class="header">
         <img class="img-logo" src="../static/src/icons/logo_branca.png" height="50px">
+        <button type="button" class="btn btn-danger btn-md" onclick="logout()">Finalizar Sessão</button>
     </header>
     <h1 class="titulo-painel">PAINEL DO ADMINISTRADOR</h1>
     <div class="bar-place">
@@ -60,7 +61,7 @@
                         <div class="modal-body custom-modal-dialog">
                             <div class="cadastro-colab">
                                 <label for="nome-completo" class="label-cad">Nome Completo</label>
-                                <input id="nome-modal" type="text" name="nome-completo" id="nome-completo" required>
+                                <input id="nome-completo" type="text" name="nome-completo" required>
                                 <label for="cpf-colaborador" class="label-cad">CPF</label>
                                 <input id="cpf-colaborador" type="text" inputmode="numeric" required>
                                 <label for="data-nascimento" class="label-cad" id="dt-nascimento">Data
@@ -107,10 +108,10 @@
         </div>
 
         <script>
-            
+
             // Remover a classe d-none do modal com o clique no botão
             document.querySelector(".add-colab-btn").addEventListener("click", function () {
-                
+
                 var modalElement = document.getElementById("exampleModal");
                 modalElement.classList.remove("d-none");
             });
@@ -120,14 +121,36 @@
             document.getElementById("saveChangesBtn").addEventListener("click", function () {
 
                 // Obtenha o valor do input no modal
-                var inputValue = document.getElementById("nome-modal").value;
+                var nomeCompleto = document.getElementById("nome-completo").value;
+                var cpf = document.getElementById("cpf-colaborador").value;
+                var dataNascimento = document.getElementById("data-nascimento").value;
 
-                if (inputValue === '') {
+                var optionsElement = document.getElementById("select-cargo");
+                var selectCargo = optionsElement.value;
+
+                var optionsGrade = document.getElementById("select-grade");
+                var selectGrade = optionsGrade.value;
+
+                var optionsNivel = document.getElementById("select-nivel");
+                var selectNivel = optionsNivel.value;
+
+
+                if (nomeCompleto === '') {
                     return; // Sai da função se o inputValue estiver vazio
                 }
 
+                var dataAtual = new Date();
+
+                // Obtém as informações da data
+                var dia = dataAtual.getDate();
+                var mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de zero, por isso é adicionado +1
+                var ano = dataAtual.getFullYear();
+
+                // Formata a data como string (no formato dd/mm/aaaa)
+                var dataAtualFormatada = ano + '-' + mes + '-' + dia;
+                var senha = cpf.substring(0, 4);
                 // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
-                console.log("Valor do input:", inputValue);
+                console.log(`Valores do input: ${nomeCompleto}, ${cpf}, ${senha}, ${dataNascimento}, ${selectCargo}, ${selectGrade}, ${selectNivel}, ${dataAtualFormatada}`);
 
                 // Feche o modal
                 var modalElement = document.getElementById("exampleModal");
@@ -144,6 +167,26 @@
                     event.preventDefault();
                 }
             });
+
+            function logout() {
+                fetch("/logout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Logou realizado com sucesso");
+                            window.location.href = "/";
+                        } else {
+                            console.log("Erro ao realizar logout");
+                        }
+                    })
+                    .catch(error => {
+                        console.log("erro em logout", error);
+                    });
+            }
 
         </script>
 </body>
