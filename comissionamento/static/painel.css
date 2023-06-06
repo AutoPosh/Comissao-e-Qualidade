@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand:wght@400;500;600;700&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Quicksand', 'sans serif';
 }
 
-.header{
+.header {
     display: flex;
-    background-color: #13141D;
+    background-color: #1a1c27;
     padding-block: 10px;
     place-content: center;
-    margin-bottom: 10px;
 }
 
-.img-logo{
+.img-logo {
     place-content: center;
     cursor: pointer;
 }
@@ -27,6 +26,74 @@ body {
 .titulo-painel {
     text-align: center;
     font-weight: 600;
-    background-color: yellowgreen;
+    margin: 0;
+    font-size: 20px;
+    background-color: #BF213E;
+    color: ghostwhite;
 }
 
+.toolbar-items {
+    display: flex;
+    place-content: center;
+    padding-block: 5px;
+    z-index: -1;
+    background-color: #BF213E;
+}
+
+.add-colab-btn {
+    background-color: transparent !important;
+    position: relative;
+    color: ghostwhite !important;
+    border: 1px solid rgba(128, 128, 128, 0.712) !important;
+    background-color: #242735 !important;
+}
+
+.add-colab-btn span {
+    background-color: transparent;
+    color: ghostwhite;
+    z-index: 999;
+}
+
+.add-colab-btn::after{
+    content: '';
+    background-color: rgb(0, 140, 255) !important;
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    border-radius: 10px;
+    width: 40px;
+    height: 5px;
+    transform: translateX(0);
+    transition: all 500ms ease;
+}
+
+.add-colab-btn:hover::after{
+    transform: translateX(130%);
+    background-color: #BF213E !important;
+    transition: all 400ms ease-in-out;
+}
+
+.add-colab-btn:hover{
+    background-color: rgb(0, 140, 255) !important;
+}
+
+.cadastro-colab {
+    background-color: ghostwhite;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-modal-dialog {
+    width: 100%;
+}
+
+.body-cadastro{
+    padding: 10px;
+    background-color: ghostwhite;
+}
+
+.cargo-container, .grade-container, .nivel-container {
+    position: relative;
+    display: grid;
+}

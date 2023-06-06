@@ -102,7 +102,7 @@ def login():
             return redirect(url_for('rota_homepage'))
         else:
             return render_template('index.html', error='Senha incorreta')
-    except mysql.connector.Error as error:
+    except Exception as error:
         #buscar como tratar erros de conexão ou consulta
         return f'Erro de banco de dados: {error}'
 
@@ -134,6 +134,7 @@ def rota_operacao():
 @app.route('/inicializar', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
+
     '''id_user = session.get('id_user')
 
     #estabelece a conexão
@@ -147,8 +148,6 @@ def inicializar():
     except:
         print('É rapaz')'''
     
-    
-
 
 @app.route('/consulta', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
@@ -191,6 +190,7 @@ def rota_sem_permissao():
     usuario = session.get('usuario')
     error = 'Não possui permissões!'
     return render_template('home.html', usuario=usuario, error=error)
+
 
 # --------------------- PESQUISA DE SATISFAÇÃO ---------------------#
 @app.route('/pesquisa-nps', methods=['POST', 'GET'])

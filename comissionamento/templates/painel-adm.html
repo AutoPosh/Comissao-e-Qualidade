@@ -30,66 +30,120 @@
         <div class="toolbar-items">
             <div class="cad-colab">
 
-                <button class="toolbar-item add-colab-btn">
-                    <i class="fa-solid fa-plus fa-lg"></i><span> Colaborador</span>
+                <button type="button" class="btn add-colab-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class=" fa-solid fa-plus fa-lg"></i><span class="botoes"> Colaborador</span>
                 </button>
 
-                <button class="toolbar-item comissao-btn">
-                    <i class="fa-solid fa-plus fa-lg"></i><span>Comissionamento</span>
+                <button class="toolbar-item comissao-btn btn add-colab-btn">
+                    <i class="fa-solid fa-plus fa-lg"></i><span> Comissão Sys</span>
                 </button>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <!--button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
-                </button>
+                </button-->
 
-                <!-- Modal -->
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal modal-dialog modal-dialog-centered fade" id="exampleModal" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal modal-dialog-2xl modal-dialog-centered fade d-none" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Colaborador</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body custom-modal-dialog">
+                            <div class="cadastro-colab">
+                                <label for="nome-completo" class="label-cad">Nome Completo</label>
+                                <input id="nome-modal" type="text" name="nome-completo" id="nome-completo" required>
+                                <label for="cpf-colaborador" class="label-cad">CPF</label>
+                                <input id="cpf-colaborador" type="text" inputmode="numeric" required>
+                                <label for="data-nascimento" class="label-cad" id="dt-nascimento">Data
+                                    Nascimento</label>
+                                <input id="data-nascimento" type="date" required>
+                            </div>
+                            <div class="body-cadastro">
+                                <div class="cargo-container">
+                                    <label for="select-cargo" id="grade-label">Selecione o Cargo</label>
+                                    <select id="select-cargo" class="select-cargo">
+                                        <option value="Operacional">Operacional</option>
+                                        <option value="Qualidade">Qualidade</option>
+                                        <option value="Supervisor">Supervisor</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select>
                                 </div>
-                                <div class="modal-body">
-                                    <input id="nome-modal" type="text" name="" id="">
+                                <div class="grade-container">
+                                    <label for="select-grade" id="grade-label">Selecione a Grade</label>
+                                    <select id="select-grade" class="select-grade">
+                                        <option value="1">Grade 1</option>
+                                        <option value="2">Grade 2</option>
+                                        <option value="3">Grade 3</option>
+                                    </select>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" onclick="SaveChanges()">Save
-                                        changes</button>
+                                <div class="nivel-container">
+                                    <label for="select-nivel" id="grade-label">Selecione o Nível</label>
+                                    <select id="select-nivel" class="select-nivel">
+                                        <option value="Junior">Junior</option>
+                                        <option value="Pleno">Pleno</option>
+                                        <option value="Senior">Sênior</option>
+                                        <option value="Especialista">Especialista</option>
+                                    </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveChangesBtn">Save
+                                changes</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <script>
-
-            function SaveChanges() {
-
-                // Obtém o elemento input-text pelo id
-                var inputElement = document.getElementById("nome-modal");
-
-                // Obtém o valor do input-text
-                var valor = inputElement.value;
-                console.log(valor);
+            
+            // Remover a classe d-none do modal com o clique no botão
+            document.querySelector(".add-colab-btn").addEventListener("click", function () {
                 
-                CloseModal();
-            }
-            function CloseModal() {
-                // Obtém o elemento do modal pelo id
-                var modal = document.getElementById("modal-dialog");
+                var modalElement = document.getElementById("exampleModal");
+                modalElement.classList.remove("d-none");
+            });
 
-                // Fecha o modal
-                modal.style.display = "none";
-            }
 
+            // A função será executada quando o botão "Save changes" for clicado
+            document.getElementById("saveChangesBtn").addEventListener("click", function () {
+
+                // Obtenha o valor do input no modal
+                var inputValue = document.getElementById("nome-modal").value;
+
+                if (inputValue === '') {
+                    return; // Sai da função se o inputValue estiver vazio
+                }
+
+                // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
+                console.log("Valor do input:", inputValue);
+
+                // Feche o modal
+                var modalElement = document.getElementById("exampleModal");
+                var bootstrapModal = bootstrap.Modal.getInstance(modalElement);
+                bootstrapModal.hide();
+            });
+
+            // Type event listener para aceitar apenas numeros no campo de CPF
+            var inputCpf = document.getElementById("cpf-colaborador");
+
+            inputCpf.addEventListener("keydown", function (event) {
+                // Verifica se a tecla pressionada é um número
+                if (event.key !== "Backspace" && isNaN(Number(event.key))) {
+                    event.preventDefault();
+                }
+            });
 
         </script>
 </body>
