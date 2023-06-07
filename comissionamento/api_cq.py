@@ -3,7 +3,7 @@ import mysql.connector
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 from functools import wraps
-from datetime import datetime, timedelta, timezone, time
+from datetime import datetime, timedelta, timezone, date
 load_dotenv()
 app = Flask(__name__)
 
@@ -129,11 +129,17 @@ def rota_operacao():
         return render_template('operacao.html', usuario = usuario, id_user = id_user)
     else:
         return redirect(url_for('index'))
-    
+
 # ------------ Rota Inicialização de serviços ------------- #
-@app.route('/inicializar', methods=['POST', 'GET'])
+@app.route('/operacional/inicializar-servico', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
+    responsavel = session.get('usuario')
+    dados_cadastro = request.get_json()
+    dados_cadastro['Resposavel'] = responsavel
+    dados_cadastro['dtCadastro'] = date.today()
+    print(dados_cadastro)
+    return jsonify({'sucess': True, 'Dados': dados_cadastro})
 
     '''id_user = session.get('id_user')
 
@@ -177,6 +183,15 @@ def rota_painel():
         return render_template('painel-adm.html', usuario = usuario)
     else:
         return redirect(url_for('index'))
+    
+@app.route('/painel/cadastro-colaborador', methods=['POST', 'GET'])
+@proteger_rota(['Administrador'])
+def cadastro_colaborador():
+    usuario = session.get('usuario')
+    dados = request.get_json()
+    dados['cadastrado_por'] = usuario
+    print(dados)
+    return jsonify({'sucess': True})
 
 
 @app.route('/logout', methods=['POST'])
@@ -205,8 +220,5 @@ def send_pesquisa():
 
 if __name__ == '__main__':
     app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
-
-
-
 
 

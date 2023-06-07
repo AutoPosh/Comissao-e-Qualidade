@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="../static/operacao.css">
     <title>Operacional</title>
 
-
-
 </head>
 
 <body>
@@ -86,30 +84,46 @@
                     <option value="5">Junior</option>
                 </select>
             </div>
-            <button class="btn btn-success btn-op">Inicializar</button>
+            <button class="btn btn-success btn-op" id="init-btn">Inicializar</button>
             <img class="active-bar rotate-inactive" src="../static/src/icons/prox.png" width=40px" draggable="false">
         </div>
     </div>
 
     <div class="container-tables">
         <div class="view-tables">
-            <p>Lugar para texto</p>
-            <p>Tables Tables</p>
+            <div class="div-os"><strong>OS</strong></div>
+            <div class="div-etapa"><strong>Etapa</strong></div>
+            <div class="div-servico"><strong>Serviço</strong></div>
+            <div class="div-colabs"><strong>Colaborador</strong></div>
+            <div class="div-status"><strong>Status</strong></div>
+            <div class="container-controles"><strong>Controles</strong></div>
+        </div>
+        <div class="data-values">
+            <div class="os-data">4980</div>
+            <div class="etapa-data">235</div>
+            <div class="servico-data">Servico da Etapa -> Descrição Resumida</div>
+            <div class="colab-data">
+                <div class="index1">Edneython</div>
+                <div class="index2">Ana Gabriela</div>
+                <div class="index3">Raiana</div>
+            </div>
+            <div class="status-servico">Inicializado</div>
+            <div class="controles"><i class="fa-regular fa-circle-play"></i> <i class="fa-regular fa-circle-pause"></i>
+                <i class="fa-regular fa-circle-stop"></i></div>
         </div>
     </div>
 
 
     <script>
-
+        let operacional
         // Selecionando os elementos HTML
         const osInput = document.getElementById('os');
         const etapaInput = document.getElementById('etapa');
         const colab2Select = document.getElementById('colab2');
         const colab3Select = document.getElementById('colab3');
-        const button = document.querySelector('.btn-op');
 
         // Event listener para o botão "Inicializar"
-        button.addEventListener('click', () => {
+        document.getElementById("init-btn").addEventListener('click', () => {
             // Obtendo os valores dos inputs e selects
             const osValue = osInput.value;
             const etapaValue = etapaInput.value;
@@ -123,7 +137,7 @@
             }
 
             // Criando o objeto de dados a ser enviado para a API
-            const data = {
+            const dadosInicializar = {
                 os: osValue,
                 etapa: etapaValue,
                 colab2: colab2Value,
@@ -131,22 +145,32 @@
             };
 
             // Enviando a solicitação POST para a API
-            fetch('sua_api_endpoint', {
+            fetch('/operacional/inicializar-servico', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(dadosInicializar)
             })
                 .then(response => response.json())
-                .then(result => {
-                    // Manipular a resposta da API, se necessário
-                    console.log(result);
+                .then(data => {
+                    // Verifica se a resposta foi bem sucedida e Manipula a resposta da API, se necessário
+                    if (data.sucess) {
+                        alert("Serviço Inicializado");
+                        operacional = data
+                        console.log(data); // Exibir a resposta no console
+                        console.log(operacional)
+                    } else {
+                        alert("Erro ao inicializar");
+                        return; //Interrompe.
+                    }
+
                 })
                 .catch(error => {
                     // Lidar com erros na solicitação
                     console.error('Erro:', error);
                 });
+
         });
 
 
@@ -223,6 +247,19 @@
             }
         });
 
+        // Obtenha a referência para os elementos
+        const statusServico = document.querySelector('.status-servico');
+        const dataValues = document.querySelector('.data-values');
+
+        // Verifique se o conteúdo da classe .status-servico é "Finalizado"
+        if (statusServico.textContent === 'Finalizado') {
+            // Altere a cor de fundo da classe .data-values para a cor de parada
+            dataValues.style.backgroundColor = 'var(--stop-color)';
+        } else if(statusServico.textContent === 'Inicializado'){
+            dataValues.style.backgroundColor = 'var(--progress-color)'
+        } else {
+            dataValues.style.backgroundColor = 'var(--pause-color)'
+        }
 
     </script>
 </body>

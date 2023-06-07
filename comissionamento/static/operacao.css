@@ -5,6 +5,9 @@
     --bg-color: rgb(242, 242, 252);
     --main-color: rgb(19, 20, 29);
     --btn-color: rgb(21, 136, 36);
+    --progress-color: rgba(221, 224, 15, 0.733);
+    --pause-color: rgb(0, 217, 255);
+    --stop-color: rgba(0, 184, 24, 0.664);
     --font-color-light: ghostwhite;
     --font-color-dark: rgb(11, 12, 20);
     --menu-toggled: 0;
@@ -17,7 +20,7 @@
 
 body {
     width: 100%;
-    background-color: blue;
+    height: 100vh;
 }
 
 .janela-title {
@@ -110,14 +113,104 @@ body {
 
 .container-tables{
     width: 100%;
-    height: 100vh;
-    padding-left: 250px;
-    background-color: yellow;
+    height: 88vh;
+    padding-left: 245px;
+    margin: 2% auto auto auto;
+    overflow: auto;
+}
+
+.view-tables{
+    display: flex;
+    place-items: center;
+    background-color: #DC3545;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #DC3545;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.445);
+}
+
+.view-tables div{
+    place-content: center;
+    place-items: center;
+    padding: 0;
+    padding-block: 5px;
+}
+
+.view-tables, .data-values{
+    width: 80%;
     margin: auto;
+    
+}
+.data-values {
+    background-color: ghostwhite;
+}
+
+.data-values {
+    background-color: var(--progress-color);
+    transition: all 1s;
+}
+
+.data-values{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid slategray;
+    border-left: 1px solid slategray;
+    border-right: 1px solid slategray;
+}
+
+.data-values div{
+    padding: 1px;
+}
+
+.view-tables, .data-values {
+    min-width: 768px;
+}
+
+.div-os, .os-data{
+    width: 8%;
+    min-width: 50px;
+}
+.div-etapa, .etapa-data{
+    width: 5%;
+    min-width: 50px;
+   
+}
+
+.div-servico, .servico-data{
+    width: 37%;
+   
+}
+.div-colabs, .colab-data{
+    width: 15%;
+}
+
+.div-status, .status-servico{
+    width: 15%;
+}
+
+.container-controles, .controles{
+    width: 20%;
+    min-width: 100px;
+}
+
+.controles {
+    display: inline-flex;
+    place-content: center;
+    gap: 15px;
+}
+
+.controles i {
+    font-size: 40px;
 }
 
 
-@media(max-width: 700px) {
+@media(max-width: 980px) {
+    .container-tables{
+        overflow-x: scroll;
+    }
     .img-logo {
         display: relative;
         margin: auto auto auto 50px;
@@ -160,7 +253,7 @@ body {
         width: 170px;
     }
     .container-tables {
-        padding-left: 80px;
+        padding-left: 54px;
         transition: 300ms ease;
     }
 
@@ -199,7 +292,7 @@ nav {
 
     header,
     nav {
-        height: 100px;
+        height: 80px;
     }
 
 }

@@ -14,7 +14,6 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
-
     <script src="https://kit.fontawesome.com/73cc2295d4.js" crossorigin="anonymous"></script>
     <script src="../static/painel.js"></script>
 
@@ -38,12 +37,6 @@
                 <button class="toolbar-item comissao-btn btn add-colab-btn">
                     <i class="fa-solid fa-plus fa-lg"></i><span> Comissão Sys</span>
                 </button>
-
-                <!-- Button trigger modal -->
-                <!--button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                </button-->
-
 
             </div>
         </div>
@@ -98,9 +91,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="saveChangesBtn">Save
-                                changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                            <button type="button" class="btn btn-primary" id="saveChangesBtn">Cadastrar</button>
                         </div>
                     </div>
                 </div>
@@ -135,7 +127,8 @@
                 var selectNivel = optionsNivel.value;
 
 
-                if (nomeCompleto === '') {
+                if (nomeCompleto === '' || cpf === '' || dataNascimento === '') {
+                    alert('Todos os campos devem ser preenchidos')
                     return; // Sai da função se o inputValue estiver vazio
                 }
 
@@ -151,6 +144,44 @@
                 var senha = cpf.substring(0, 4);
                 // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
                 console.log(`Valores do input: ${nomeCompleto}, ${cpf}, ${senha}, ${dataNascimento}, ${selectCargo}, ${selectGrade}, ${selectNivel}, ${dataAtualFormatada}`);
+
+                let dados = {
+                    nomeCompleto,
+                    senha,
+                    selectCargo,
+                    selectGrade,
+                    selectNivel
+                }
+
+                //settings da solicitação
+                const options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dados)
+                };
+
+                //envia solicitação
+                fetch("/painel/cadastro-colaborador", options)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Verifica se a resposta foi bem sucedida
+                        if (data.sucess) {
+                            alert("Usuário Cadastrado");
+                        } else {
+                            alert("Erro ao cadastrar usuário");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro na solicitação", error);
+                        alert("Erro na solicitação");
+                    });
+
+                // Limpa os valores dos inputs
+                document.getElementById("nome-completo").value = '';
+                document.getElementById("cpf-colaborador").value = '';
+                document.getElementById("data-nascimento").value = '';
 
                 // Feche o modal
                 var modalElement = document.getElementById("exampleModal");
