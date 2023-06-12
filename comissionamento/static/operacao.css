@@ -179,28 +179,34 @@ body {
    
 }
 
+
 .div-servico, .servico-data{
-    width: 37%;
-   
+    width: 37%;   
 }
+
+
 .div-colabs, .colab-data{
     width: 15%;
 }
 
+
 .div-status, .status-servico{
     width: 15%;
 }
+
 
 .container-controles, .controles{
     width: 20%;
     min-width: 100px;
 }
 
+
 .controles {
     display: inline-flex;
     place-content: center;
     gap: 15px;
 }
+
 
 .controles i {
     font-size: 40px;

@@ -119,6 +119,7 @@ def rota_homepage():
     else:
         return redirect(url_for('index'))
 
+
 # ----------- Rotas Protegidas ----------- #
 @app.route('/operacional', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
@@ -130,14 +131,17 @@ def rota_operacao():
     else:
         return redirect(url_for('index'))
 
+
 # ------------ Rota Inicialização de serviços ------------- #
 @app.route('/operacional/inicializar-servico', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
     responsavel = session.get('usuario')
+    id_colaborador_1 = session.get('id_user')
     dados_cadastro = request.get_json()
     dados_cadastro['Resposavel'] = responsavel
     dados_cadastro['dtCadastro'] = date.today()
+    dados_cadastro['id_colaborador_1'] = id_colaborador_1
     print(dados_cadastro)
     return jsonify({'sucess': True, 'Dados': dados_cadastro})
 
@@ -153,7 +157,7 @@ def inicializar():
         response = cursor.fetchone()
     except:
         print('É rapaz')'''
-    
+
 
 @app.route('/consulta', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
@@ -183,7 +187,8 @@ def rota_painel():
         return render_template('painel-adm.html', usuario = usuario)
     else:
         return redirect(url_for('index'))
-    
+
+
 @app.route('/painel/cadastro-colaborador', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
 def cadastro_colaborador():
