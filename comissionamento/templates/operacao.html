@@ -192,15 +192,18 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    // Verifica se a resposta foi bem sucedida e Manipula a resposta da API, se necessário
+
+                    console.log('Dados: ', data.dados);
                     if (data.sucess) {
                         alert("Serviço Inicializado");
-                        operacional = data
-                        console.log(data); // Exibir a resposta no console
-                        console.log(operacional)
+
                         osInput.value = "";
                         etapaInput.value = "";
-                    } else {
+                    } else if(data.exists) {
+                        alert('Dados já constam na base de dados')
+                        console.log(data.dados)
+                    }
+                     else {
                         alert("Erro ao inicializar");
                         return; //Interrompe.
                     }

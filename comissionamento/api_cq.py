@@ -1,4 +1,4 @@
-import os
+import os, traceback
 import mysql.connector
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
@@ -137,27 +137,65 @@ def rota_operacao():
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
     responsavel = session.get('usuario')
-    id_colaborador_1 = session.get('id_user')
+    colab_1 = session.get('id_user')
+    colab_1 = str(colab_1)
     dados_cadastro = request.get_json()
     dados_cadastro['Resposavel'] = responsavel
     dados_cadastro['dtCadastro'] = date.today()
-    dados_cadastro['id_colaborador_1'] = id_colaborador_1
+    dados_cadastro['id_colaborador_1'] = colab_1
     print(dados_cadastro)
-    return jsonify({'sucess': True, 'Dados': dados_cadastro})
 
-    '''id_user = session.get('id_user')
+    data = datetime.now()
 
+    data_formatada = data.strftime("%Y-%m-%d %H:%M:%S")
+    
     #estabelece a conexão
     conn = get_db_connection()
 
+    init_response = {}
+
     try:
         cursor = conn.cursor()
-        cursor.execute(
-            f"INSERT INTO servicos (numero_os, id_colaborador_1, id_colaborador_2, id_colaborador_3, descricao, etapa_servico, servico, status_servico, tempo_inicio, tempo_fim, tempo_decorrido, roxo_qtd, roseo_qtd) VALUES (4312, 1, 2, 3, Uma descrição para este teste, 293, Etapa do teste de serviço, Inicializado, 2023-06-01 10:30:00, 2023-06-01 10:50:00, 20, , );")
-        response = cursor.fetchone()
-    except:
-        print('É rapaz')'''
 
+        cursor.execute(
+            f"SELECT numero_os, etapa_servico, servico, id_colaborador_1, status_servico, tempo_inicio FROM servicos WHERE numero_os = '{dados_cadastro['os']}' AND etapa_servico = '{dados_cadastro['etapa']}';")
+        
+        verificar = cursor.fetchone()
+
+        if verificar:
+            print(verificar)
+            conn.close()
+            return jsonify({'exists': True, 'dados': verificar})
+
+
+        cursor.execute(
+            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, 'Descrição teste relacionada', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
+            )
+          
+        
+        cursor.execute(
+           f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']});"
+        )
+
+        conn.commit()
+
+        init_response = {
+        "os": dados_cadastro['os'],
+        "etapa": dados_cadastro['etapa'],
+        "descricao": 'Descrição do Serviço',
+        "colab_1": dados_cadastro['id_colaborador_1'],
+        "colab_2": dados_cadastro['colab2'],
+        "colab_3": dados_cadastro['colab3'],
+        "status": "Inicializado"
+        }
+
+        return jsonify({'sucess': True, 'dados': init_response})
+
+    except Exception as e:
+        print('Ocorreu um erro:', str(e))
+        traceback.print_exc()
+    
+    return jsonify({'sucess': True, 'dados': init_response})
 
 @app.route('/consulta', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
