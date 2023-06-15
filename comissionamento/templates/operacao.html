@@ -115,6 +115,12 @@
                 <i class="fa-regular fa-circle-stop" style=" cursor: pointer;"></i>
             </div>
         </div>
+        {% for items in lista_send %}
+            <div class="data-values">
+                <div class="os-data">{{ items }}</div>
+                
+            </div>
+        {% endfor %}
     </div>
 
 
@@ -171,6 +177,61 @@
                 porc_colab3 = (1.00 / 3.00).toFixed(2);
             }
 
+            //Função que cria os elementos ao inicializar o serviço
+            function criarElementos(dados) {
+                var container = document.querySelector('.container-tables');
+                var dataValues = document.createElement('div');
+                dataValues.className = 'data-values';
+
+                var osData = document.createElement('div');
+                osData.className = 'os-data';
+                osData.textContent = dados.os;
+
+                var etapaData = document.createElement('div');
+                etapaData.className = 'etapa-data';
+                etapaData.textContent = dados.etapa;
+
+                var servicoData = document.createElement('div');
+                servicoData.className = 'servico-data';
+                servicoData.textContent = dados.descricao;
+
+                var colabData = document.createElement('div');
+                colabData.className = 'colab-data';
+
+                var colab1 = document.createElement('div');
+                colab1.className = 'index1';
+                colab1.textContent = dados.colab_1;
+
+                var colab2 = document.createElement('div');
+                colab2.className = 'index2';
+                colab2.textContent = dados.colab_2;
+
+                var colab3 = document.createElement('div');
+                colab3.className = 'index3';
+                colab3.textContent = dados.colab_3;
+
+                colabData.appendChild(colab1);
+
+                if (dados.colab_2) {
+                    colabData.appendChild(colab2);
+                }
+
+                if (dados.colab_3) {
+                    colabData.appendChild(colab3);
+                }
+
+                var statusServico = document.createElement('div');
+                statusServico.className = 'status-servico';
+                statusServico.textContent = dados.status;
+
+                dataValues.appendChild(osData);
+                dataValues.appendChild(etapaData);
+                dataValues.appendChild(servicoData);
+                dataValues.appendChild(colabData);
+                dataValues.appendChild(statusServico);
+                container.appendChild(dataValues);
+            }
+
             // Criando o objeto de dados a ser enviado para a API
             const dadosInicializar = {
                 os: osValue,
@@ -196,14 +257,16 @@
                     console.log('Dados: ', data.dados);
                     if (data.sucess) {
                         alert("Serviço Inicializado");
-
                         osInput.value = "";
                         etapaInput.value = "";
-                    } else if(data.exists) {
+                        criarElementos(data.dados)
+
+                    } else if (data.exists) {
                         alert('Dados já constam na base de dados')
                         console.log(data.dados)
                     }
-                     else {
+
+                    else {
                         alert("Erro ao inicializar");
                         return; //Interrompe.
                     }

@@ -124,9 +124,20 @@ def rota_homepage():
 @app.route('/operacional', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def rota_operacao():
+    lista_operac = []
     usuario = session.get('usuario')
     id_user = session.get('id_user')
+
+
+    lista_send = lista_operac
     if usuario != None:
+        #estabelece a conexão
+        conn = get_db_connection()
+
+        
+
+        lista_operac.append(usuario)
+        lista_operac.append(id_user)
         return render_template('operacao.html', usuario = usuario, id_user = id_user)
     else:
         return redirect(url_for('index'))
@@ -137,12 +148,12 @@ def rota_operacao():
 @proteger_rota(['Operacional', 'Administrador'])
 def inicializar():
     responsavel = session.get('usuario')
-    colab_1 = session.get('id_user')
-    colab_1 = str(colab_1)
+    colab_id_1 = session.get('id_user')
+    colab_id_1 = str(colab_id_1)
     dados_cadastro = request.get_json()
     dados_cadastro['Resposavel'] = responsavel
     dados_cadastro['dtCadastro'] = date.today()
-    dados_cadastro['id_colaborador_1'] = colab_1
+    dados_cadastro['id_colaborador_1'] = colab_id_1
     print(dados_cadastro)
 
     data = datetime.now()
@@ -169,7 +180,7 @@ def inicializar():
 
 
         cursor.execute(
-            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, 'Descrição teste relacionada', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
+            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, 'Descrição de Teste', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
             )
           
         
@@ -177,15 +188,34 @@ def inicializar():
            f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']});"
         )
 
+        cursor.execute(
+            f"SELECT nome FROM colaboradores WHERE id_colaborador = '{dados_cadastro['id_colaborador_1']}' or id_colaborador = '{dados_cadastro['colab2']}' or id_colaborador = '{dados_cadastro['colab3']}'"
+            )
+
+        response = cursor.fetchall()
+
+        lista = []
+        for i in response:
+            lista.append(i[0])
+
+        if len(lista) > 0:
+            colab_1 = lista[0]
+
+        if len(lista) > 1:
+            colab_2 = lista[1]
+
+        if len(lista) > 2:
+            colab_3 = lista[2]
+        
         conn.commit()
 
         init_response = {
         "os": dados_cadastro['os'],
         "etapa": dados_cadastro['etapa'],
         "descricao": 'Descrição do Serviço',
-        "colab_1": dados_cadastro['id_colaborador_1'],
-        "colab_2": dados_cadastro['colab2'],
-        "colab_3": dados_cadastro['colab3'],
+        "colab_1": colab_1,
+        "colab_2": colab_2,
+        "colab_3": colab_3,
         "status": "Inicializado"
         }
 
@@ -196,6 +226,7 @@ def inicializar():
         traceback.print_exc()
     
     return jsonify({'sucess': True, 'dados': init_response})
+
 
 @app.route('/consulta', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
@@ -234,7 +265,27 @@ def cadastro_colaborador():
     dados = request.get_json()
     dados['cadastrado_por'] = usuario
     print(dados)
-    return jsonify({'sucess': True})
+
+    # Obter a data atual
+    data_atual = datetime.datetime.now()
+
+    # Formatar a data no formato desejado (YYYY-MM-DD)
+    data_formatada = data_atual.strftime('%Y-%m-%d')
+
+    #estabelece a conexão
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        cursor.execute(f"INSERT INTO colaboradores (id_colaborador, nome, senha, cargo, grade, nivel, data_cadastro) VALUES ('{dados['nomeCompleto']}', '{dados['senha']}', '{dados['selectCargo']}', '{dados['selectGrade']}', '{dados['selectNivel']}', '{data_formatada}') ")
+
+        conn.commit()
+        
+        return jsonify({'sucess': True, 'dados': 'Colaborador Cadastrado!'})
+
+    except Exception as e:
+        print('Ocorreu um erro:', str(e))
+        traceback.print_exc()
+        return jsonify({'sucess': True, 'dados': f'Erro de conexão com o banco + {str(e)}'})
 
 
 @app.route('/logout', methods=['POST'])
