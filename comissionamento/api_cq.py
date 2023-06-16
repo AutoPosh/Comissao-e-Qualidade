@@ -115,6 +115,7 @@ def login():
 def rota_homepage():
     usuario = session.get('usuario')
     if usuario != None:
+
         return render_template('home.html', usuario = usuario)
     else:
         return redirect(url_for('index'))
@@ -124,21 +125,25 @@ def rota_homepage():
 @app.route('/operacional', methods=['POST', 'GET'])
 @proteger_rota(['Operacional', 'Administrador'])
 def rota_operacao():
-    lista_operac = []
     usuario = session.get('usuario')
     id_user = session.get('id_user')
+    cargo = session.get('cargo')
 
-
-    lista_send = lista_operac
     if usuario != None:
+        #Carregamento dos serviços
+        usuario = session.get('usuario')
         #estabelece a conexão
         conn = get_db_connection()
+        cursor = conn.cursor()
 
-        
+        cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = '{usuario}' AND status_servico = 'Inicializado'")
+        carregar_servicos = cursor.fetchall()
 
-        lista_operac.append(usuario)
-        lista_operac.append(id_user)
-        return render_template('operacao.html', usuario = usuario, id_user = id_user)
+        cursor.execute(f"SELECT nome FROM colaboradores WHERE cargo = 'Operacional'")
+        colaboradores = cursor.fetchall()
+
+        conn.commit()
+        return render_template('operacao.html', usuario = usuario, id_user = id_user, lista_svc = carregar_servicos, colaboradores = colaboradores)
     else:
         return redirect(url_for('index'))
 
@@ -153,7 +158,7 @@ def inicializar():
     dados_cadastro = request.get_json()
     dados_cadastro['Resposavel'] = responsavel
     dados_cadastro['dtCadastro'] = date.today()
-    dados_cadastro['id_colaborador_1'] = colab_id_1
+    dados_cadastro['id_colaborador_1'] = responsavel
     print(dados_cadastro)
 
     data = datetime.now()
@@ -188,7 +193,7 @@ def inicializar():
            f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']});"
         )
 
-        cursor.execute(
+        '''cursor.execute(
             f"SELECT nome FROM colaboradores WHERE id_colaborador = '{dados_cadastro['id_colaborador_1']}' or id_colaborador = '{dados_cadastro['colab2']}' or id_colaborador = '{dados_cadastro['colab3']}'"
             )
 
@@ -200,22 +205,33 @@ def inicializar():
 
         if len(lista) > 0:
             colab_1 = lista[0]
+            colab_2 = ""
+            colab_3 = ""
 
         if len(lista) > 1:
             colab_2 = lista[1]
+            colab_3 = ""
 
         if len(lista) > 2:
-            colab_3 = lista[2]
-        
+            colab_3 = lista[2]'''
+   
+
+        cursor.execute(f"SELECT id_servico FROM servicos WHERE numero_os = '{dados_cadastro['os']}' AND etapa_servico = '{dados_cadastro['etapa']}';")
+        resposta_id = cursor.fetchall()
+
+        id_servico = resposta_id[0]
+        #print(f'ID: {id_servico}\n Resposta: {resposta_id}')
+
         conn.commit()
 
         init_response = {
+        "id_servico": id_servico,
         "os": dados_cadastro['os'],
         "etapa": dados_cadastro['etapa'],
         "descricao": 'Descrição do Serviço',
-        "colab_1": colab_1,
-        "colab_2": colab_2,
-        "colab_3": colab_3,
+        "colab_1": dados_cadastro['id_colaborador_1'],
+        "colab_2": dados_cadastro['colab2'],
+        "colab_3": dados_cadastro['colab3'],
         "status": "Inicializado"
         }
 

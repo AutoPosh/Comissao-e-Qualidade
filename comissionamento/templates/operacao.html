@@ -67,21 +67,21 @@
                 <label for="colab2">Colaborador 2</label>
                 <select name="colab2" id="colab2" class="select">
                     <option value=""></option>
-                    <option value="1">Joao</option>
-                    <option value="2">italo</option>
-                    <option value="3">Francisco</option>
-                    <option value="4">Ramon</option>
-                    <option value="5">Junior</option>
+                    <option value="Joao">Joao</option>
+                    <option value="Italo">italo</option>
+                    <option value="Francisco">Francisco</option>
+                    <option value="Ramon">Ramon</option>
+                    <option value="Junior">Junior</option>
                 </select>
-
+                
                 <label for="colab3">Colaborador 3</label>
                 <select name="colab3" id="colab3" class="select">
                     <option value=""></option>
-                    <option value="1">Joao</option>
-                    <option value="2">italo</option>
-                    <option value="3">Francisco</option>
-                    <option value="4">Ramon</option>
-                    <option value="5">Junior</option>
+                    <option value="Joao">Joao</option>
+                    <option value="Italo">italo</option>
+                    <option value="Francisco">Francisco</option>
+                    <option value="Ramon">Ramon</option>
+                    <option value="Junior">Junior</option>
                 </select>
             </div>
             <button class="btn btn-success btn-op" id="init-btn">Inicializar</button>
@@ -98,7 +98,7 @@
             <div class="div-status"><strong>Status</strong></div>
             <div class="container-controles"><strong>Controles</strong></div>
         </div>
-        <div class="data-values">
+        <!-- div class="data-values">
             <div class="os-data">4980</div>
             <div class="etapa-data">235</div>
             <div class="servico-data">Servico da Etapa -> Descrição Resumida</div>
@@ -114,12 +114,28 @@
                     style="color: red; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
                 <i class="fa-regular fa-circle-stop" style=" cursor: pointer;"></i>
             </div>
-        </div>
-        {% for items in lista_send %}
-            <div class="data-values">
-                <div class="os-data">{{ items }}</div>
-                
+        </div -->
+        {% for svc in lista_svc %}
+        <div class="data-values" id="{{svc[0]}}">
+            <div class="os-data">{{ svc[1] }}</div>
+            <div class="etapa-data"> {{ svc[2] }} </div>
+            <div class="servico-data">{{ svc[3] }}</div>
+            <div class="colab-data">
+                <div class="index1"> {{ svc[4] }} </div>
+                <div class="index2"> {{ svc[5] }} </div>
+                <div class="index3"> {{ svc[6] }} </div>
             </div>
+            <div class="status-servico">{{ svc[7] }}</div>
+            <div class="controles"><i class="fa-solid fa-arrow-rotate-left"
+                    style="color: green; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
+                <i class="fa-regular fa-circle-pause"
+                    style="color: red; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
+                <i class="fa-regular fa-circle-stop" style=" cursor: pointer;"></i>
+            </div>
+        </div>
+        {% endfor %}
+        {% for i in colaboradores %}
+        <p>{{ colaboradores[0] }}</p>
         {% endfor %}
     </div>
 
@@ -177,11 +193,11 @@
                 porc_colab3 = (1.00 / 3.00).toFixed(2);
             }
 
-            //Função que cria os elementos ao inicializar o serviço
             function criarElementos(dados) {
                 var container = document.querySelector('.container-tables');
                 var dataValues = document.createElement('div');
-                dataValues.className = 'data-values';
+                dataValues.className = 'data-values ' + dados.id_servico;
+                dataValues.id = dados.id_servico;
 
                 var osData = document.createElement('div');
                 osData.className = 'os-data';
@@ -229,8 +245,35 @@
                 dataValues.appendChild(servicoData);
                 dataValues.appendChild(colabData);
                 dataValues.appendChild(statusServico);
+
+                var controles = document.createElement('div');
+                controles.className = 'controles';
+
+                var arrowLeftIcon = document.createElement('i');
+                arrowLeftIcon.className = 'fa-solid fa-arrow-rotate-left';
+                arrowLeftIcon.style.color = 'green';
+                arrowLeftIcon.style.textShadow = '0px 0px 2px rgba(0, 0, 0, 0.466)';
+                arrowLeftIcon.style.cursor = 'pointer';
+
+                var pauseIcon = document.createElement('i');
+                pauseIcon.className = 'fa-regular fa-circle-pause';
+                pauseIcon.style.color = 'red';
+                pauseIcon.style.textShadow = '0px 0px 2px rgba(0, 0, 0, 0.466)';
+                pauseIcon.style.cursor = 'pointer';
+
+                var stopIcon = document.createElement('i');
+                stopIcon.className = 'fa-regular fa-circle-stop';
+                stopIcon.style.cursor = 'pointer';
+
+                controles.appendChild(arrowLeftIcon);
+                controles.appendChild(pauseIcon);
+                controles.appendChild(stopIcon);
+
+                dataValues.appendChild(controles);
+
                 container.appendChild(dataValues);
             }
+
 
             // Criando o objeto de dados a ser enviado para a API
             const dadosInicializar = {
