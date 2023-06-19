@@ -67,21 +67,17 @@
                 <label for="colab2">Colaborador 2</label>
                 <select name="colab2" id="colab2" class="select">
                     <option value=""></option>
-                    <option value="Joao">Joao</option>
-                    <option value="Italo">italo</option>
-                    <option value="Francisco">Francisco</option>
-                    <option value="Ramon">Ramon</option>
-                    <option value="Junior">Junior</option>
+                    {% for k in pessoas %}
+                    <option value="{{k}}">{{k}}</p>
+                        {% endfor %}
                 </select>
 
                 <label for="colab3">Colaborador 3</label>
                 <select name="colab3" id="colab3" class="select">
                     <option value=""></option>
-                    <option value="Joao">Joao</option>
-                    <option value="Italo">italo</option>
-                    <option value="Francisco">Francisco</option>
-                    <option value="Ramon">Ramon</option>
-                    <option value="Junior">Junior</option>
+                    {% for k in pessoas %}
+                    <option value="{{k}}">{{k}}</p>
+                        {% endfor %}
                 </select>
             </div>
             <button class="btn btn-success btn-op" id="init-btn">Inicializar</button>
@@ -134,13 +130,9 @@
                 <i class="fa-regular fa-circle-stop finalizar-button" data-id="{{svc[0]}}" style="cursor: pointer;"></i>
             </div>
         </div>
-        { % endfor % }
-        { % for i in colaboradores % }
-        <p>{{ colaboradores[0] }}</p>
         {% endfor %}
     </div>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         let operacional
         // Selecionando os elementos HTML
@@ -397,19 +389,140 @@
             }
         });
 
-        // Obtenha a referência para os elementos
-        const statusServico = document.querySelector('.status-servico');
-        const dataValues = document.querySelector('.data-values');
+        // Obtenha uma lista de todos os elementos com a classe .data-values
+        const dataValuesList = document.querySelectorAll('.data-values');
 
-        // Verifique se o conteúdo da classe .status-servico é "Finalizado"
-        if (statusServico.textContent === 'Finalizado') {
-            // Altere a cor de fundo da classe .data-values para a cor de parada
-            dataValues.style.backgroundColor = 'var(--stop-color)';
-        } else if (statusServico.textContent === 'Inicializado') {
-            dataValues.style.backgroundColor = 'var(--progress-color)'
-        } else {
-            dataValues.style.backgroundColor = 'var(--pause-color)'
+        // Iterar sobre cada elemento da lista
+        dataValuesList.forEach(dataValues => {
+            // Obtenha a referência para o elemento .status-servico dentro do elemento .data-values atual
+            const statusServico = dataValues.querySelector('.status-servico');
+
+            // Verifique o conteúdo da classe .status-servico e aplique o estilo correspondente
+            if (statusServico.textContent === 'Finalizado') {
+                dataValues.style.backgroundColor = 'var(--stop-color)';
+            } else if (statusServico.textContent === 'Inicializado') {
+                dataValues.style.backgroundColor = 'var(--progress-color)';
+            } else {
+                dataValues.style.backgroundColor = 'var(--pause-color)';
+            }
+        });
+
+        // Aguarde até que o documento esteja totalmente carregado
+        /*$(document).ready(function () {
+            // Adicione eventos de clique para os botões
+            $('.reiniciar-button').click(function () {
+                var id = $(this).data('id'); // ID do elemento "data-values" correspondente
+                var action = $(this).data('action'); // Ação específica para o botão
+
+                solicitarAcaoAPI(id, action);
+            });
+
+            // Adicione eventos de clique para os botões de pausar
+            $('.pausar-button').click(function () {
+                var id = $(this).data('id'); // ID do elemento "data-values" correspondente
+                var action = $(this).data('action'); // Ação específica para o botão
+
+                solicitarAcaoAPI(id, action);
+            });
+
+            // Adicione eventos de clique para os botões de finalizar
+            $('.finalizar-button').click(function () {
+                var id = $(this).data('id'); // ID do elemento "data-values" correspondente
+                var action = $(this).data('action'); // Ação específica para o botão
+
+                solicitarAcaoAPI(id, action);
+            });
+        });
+
+        // Função para fazer a solicitação à API com a ação específica
+        function solicitarAcaoAPI(id, action) {
+            var url = ''; // Defina a URL correta da API com base na ação
+
+            if (action === 'reiniciar') {
+                url = '/operacional/reiniciar';
+            } else if (action === 'pausar') {
+                url = '/operacional/pausar'; 
+            } else if (action === 'finalizar') {
+                url = '/operacional/finalizar';
+            }
+
+            // Faça a solicitação à API
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    // Lógica a ser executada em caso de sucesso na solicitação
+                    console.log('Solicitação enviada com sucesso!');
+                },
+                error: function (error) {
+                    // Lógica a ser executada em caso de erro na solicitação
+                    console.log('Erro na solicitação:', error);
+                }
+            });
+        }*/
+
+        // Função para lidar com o clique no botão "Reiniciar"
+        function handleReiniciarButtonClick(event) {
+            const divId = event.target.dataset.id;
+            enviarSolicitacaoAPI(divId, "reiniciar");
         }
+
+        // Função para lidar com o clique no botão "Pausar"
+        function handlePausarButtonClick(event) {
+            const divId = event.target.dataset.id;
+            enviarSolicitacaoAPI(divId, "pausar");
+        }
+
+        // Função para lidar com o clique no botão "Finalizar"
+        function handleFinalizarButtonClick(event) {
+            const divId = event.target.dataset.id;
+            enviarSolicitacaoAPI(divId, "finalizar");
+        }
+
+        // Função para enviar a solicitação para sua API
+        function enviarSolicitacaoAPI(divId, acao) {
+            // Faça a solicitação para sua rota da API com o ID da div e a ação
+            // Você pode usar o objeto XMLHttpRequest ou a função fetch para fazer a solicitação AJAX
+            // Por exemplo, usando fetch:
+            fetch(`/operacional/alterar_status?id=${divId}&acao=${acao}`, {
+                method: 'POST',
+                // Se houver necessidade de passar algum cabeçalho ou corpo na solicitação, você pode adicionar aqui
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Solicitação realizada com sucesso');
+                        location.reload();
+                    } else {
+                        alert("algo deu errado")
+                    }
+                })
+                .catch(error => {
+                    // Trate os erros, se houver
+                    console.error(error);
+                });
+        }
+
+        // Obtenha uma lista de todos os botões de reiniciar, pausar e finalizar
+        const reiniciarButtons = document.getElementsByClassName('reiniciar-button');
+        const pausarButtons = document.getElementsByClassName('pausar-button');
+        const finalizarButtons = document.getElementsByClassName('finalizar-button');
+
+        // Adicione um event listener para cada botão
+        for (const button of reiniciarButtons) {
+            button.addEventListener('click', handleReiniciarButtonClick);
+        }
+
+        for (const button of pausarButtons) {
+            button.addEventListener('click', handlePausarButtonClick);
+        }
+
+        for (const button of finalizarButtons) {
+            button.addEventListener('click', handleFinalizarButtonClick);
+        }
+
 
     </script>
 </body>

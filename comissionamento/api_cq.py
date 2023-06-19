@@ -1,4 +1,4 @@
-import os, traceback
+import os, traceback, json
 import mysql.connector
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
@@ -136,14 +136,18 @@ def rota_operacao():
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = '{usuario}' AND status_servico = 'Inicializado'")
+        cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = '{usuario}' AND status_servico != 'Finalizado'")
         carregar_servicos = cursor.fetchall()
 
-        cursor.execute(f"SELECT nome FROM colaboradores WHERE cargo = 'Operacional'")
-        colaboradores = cursor.fetchall()
-
+        #Cadastrar funcionarios da operação
+        cursor.execute(f"SELECT nome FROM colaboradores WHERE id_colaborador != '{id_user}' AND cargo = 'Operacional'")
+        funcionarios = cursor.fetchall()
+        pessoas = []
+        for k in funcionarios:
+            #print(str(k[0]))
+            pessoas.append(k[0])
         conn.commit()
-        return render_template('operacao.html', usuario = usuario, id_user = id_user, lista_svc = carregar_servicos, colaboradores = colaboradores)
+        return render_template('operacao.html', usuario = usuario, id_user = id_user, lista_svc = carregar_servicos, pessoas = pessoas)
     else:
         return redirect(url_for('index'))
 
@@ -159,7 +163,6 @@ def inicializar():
     dados_cadastro['Resposavel'] = responsavel
     dados_cadastro['dtCadastro'] = date.today()
     dados_cadastro['id_colaborador_1'] = responsavel
-    print(dados_cadastro)
 
     data = datetime.now()
 
@@ -183,38 +186,20 @@ def inicializar():
             conn.close()
             return jsonify({'exists': True, 'dados': verificar})
 
+        with open('static/json/base_servicos.json', 'r', encoding="utf-8") as f:
+            #printar o conteudo do json
+            svc_json = json.load(f)
+            etapa_descricao = svc_json[f"{dados_cadastro['etapa']}"]
 
         cursor.execute(
-            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, 'Descrição de Teste', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
+            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, '{etapa_descricao}', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
             )
-          
-        
+
+
         cursor.execute(
            f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']});"
         )
 
-        '''cursor.execute(
-            f"SELECT nome FROM colaboradores WHERE id_colaborador = '{dados_cadastro['id_colaborador_1']}' or id_colaborador = '{dados_cadastro['colab2']}' or id_colaborador = '{dados_cadastro['colab3']}'"
-            )
-
-        response = cursor.fetchall()
-
-        lista = []
-        for i in response:
-            lista.append(i[0])
-
-        if len(lista) > 0:
-            colab_1 = lista[0]
-            colab_2 = ""
-            colab_3 = ""
-
-        if len(lista) > 1:
-            colab_2 = lista[1]
-            colab_3 = ""
-
-        if len(lista) > 2:
-            colab_3 = lista[2]'''
-   
 
         cursor.execute(f"SELECT id_servico FROM servicos WHERE numero_os = '{dados_cadastro['os']}' AND etapa_servico = '{dados_cadastro['etapa']}';")
         resposta_id = cursor.fetchall()
@@ -228,7 +213,7 @@ def inicializar():
         "id_servico": id_servico,
         "os": dados_cadastro['os'],
         "etapa": dados_cadastro['etapa'],
-        "descricao": 'Descrição do Serviço',
+        "descricao": etapa_descricao,
         "colab_1": dados_cadastro['id_colaborador_1'],
         "colab_2": dados_cadastro['colab2'],
         "colab_3": dados_cadastro['colab3'],
@@ -242,6 +227,58 @@ def inicializar():
         traceback.print_exc()
     
     return jsonify({'sucess': True, 'dados': init_response})
+
+
+@app.route('/operacional/alterar_status', methods=['POST'])
+@proteger_rota(['Operacional', 'Administrador'])
+def alterar_status():
+    div_id = request.args.get('id')
+    acao = request.args.get('acao')
+    conn = get_db_connection()
+    
+    print(div_id, acao)
+
+    try:
+        cursor = conn.cursor()
+
+        if acao == 'pausar':
+            status = 'Em Pausa'
+
+            # Obtem a data e hora atual
+            agora = datetime.now()
+
+            #Formatada
+            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+            cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_pausa = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
+            conn.commit()
+            return jsonify({"sucesso": True, "status": status})
+
+        elif acao == 'reiniciar':
+            status = 'Inicializado'
+
+            # Obtem a data e hora atual
+            agora = datetime.now()
+
+            #Formatada
+            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+            cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_reinicio = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
+
+        elif acao == 'finalizar':
+            status = 'Finalizado'
+            # Obtem a data e hora atual
+            agora = datetime.now()
+
+            #Formatada
+            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+            cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_fim = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
+            cursor.execute(f"UPDATE comissao SET status_avaliacao = 'Aguardando Avaliação' WHERE id_comissao = '{div_id}'")
+            #cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '{div_id}'")
+            conn.commit()
+    except Exception as e:
+        print(f'Erro no banco: {e}')
+        traceback.print_exc()
+    return acao
+
 
 
 @app.route('/consulta', methods=['POST', 'GET'])
@@ -259,6 +296,11 @@ def rota_consulta():
 def rota_qualidade():
     usuario = session.get('usuario')
     if usuario != None:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT numero_os, etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_avaliacao from comissao WHERE status_avaliacao = 'Aguardando Avaliação' ")
+
         return render_template('qualidade.html', usuario = usuario)
     else:
         return redirect(url_for('index'))
@@ -269,7 +311,13 @@ def rota_qualidade():
 def rota_painel():
     usuario = session.get('usuario')
     if usuario != None:
-        return render_template('painel-adm.html', usuario = usuario)
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT nome, cargo, grade, nivel, data_cadastro FROM colaboradores")
+        colaboradores = cursor.fetchall()
+
+        return render_template('painel-adm.html', usuario = usuario, funcionarios = colaboradores)
     else:
         return redirect(url_for('index'))
 
@@ -283,7 +331,7 @@ def cadastro_colaborador():
     print(dados)
 
     # Obter a data atual
-    data_atual = datetime.datetime.now()
+    data_atual = datetime.now()
 
     # Formatar a data no formato desejado (YYYY-MM-DD)
     data_formatada = data_atual.strftime('%Y-%m-%d')
@@ -292,7 +340,7 @@ def cadastro_colaborador():
     conn = get_db_connection()
     try:
         cursor = conn.cursor()
-        cursor.execute(f"INSERT INTO colaboradores (id_colaborador, nome, senha, cargo, grade, nivel, data_cadastro) VALUES ('{dados['nomeCompleto']}', '{dados['senha']}', '{dados['selectCargo']}', '{dados['selectGrade']}', '{dados['selectNivel']}', '{data_formatada}') ")
+        cursor.execute(f"INSERT INTO colaboradores (nome, senha, cargo, grade, nivel, data_cadastro) VALUES ('{dados['nomeCompleto']}', '{dados['senha']}', '{dados['selectCargo']}', '{dados['selectGrade']}', '{dados['selectNivel']}', '{data_formatada}')")
 
         conn.commit()
         

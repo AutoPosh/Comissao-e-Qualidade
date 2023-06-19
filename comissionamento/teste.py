@@ -24,9 +24,12 @@ def get_db_connection():
 conn = get_db_connection()
 
 cursor = conn.cursor()
+cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '1'")
+resultado = cursor.fetchone()
 
+print(resultado)
 
-cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = 'Ed Campos' and status_servico = 'Inicializado'")
+'''cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = 'Ed Campos' and status_servico = 'Inicializado'")
 servicos = cursor.fetchall()
 
 
@@ -35,7 +38,7 @@ lista_servicos = {}
 for i in servicos:
     print(i[0])
 
-'''for tupla in servicos:
+for tupla in servicos:
     servico = {
         'numero_os': tupla[1],
         'etapa': tupla[2],
@@ -91,6 +94,4 @@ print(colab_2)
 print(colab_3)
 
 print(id_servico)'''
-
-
 

@@ -53,7 +53,7 @@
                         </div>
                         <div class="modal-body custom-modal-dialog">
                             <div class="cadastro-colab">
-                                <label for="nome-completo" class="label-cad">Nome Completo</label>
+                                <label for="nome-completo" class="label-cad">Nome (Nome e Sobrenome)</label>
                                 <input id="nome-completo" type="text" name="nome-completo" required>
                                 <label for="cpf-colaborador" class="label-cad">CPF</label>
                                 <input id="cpf-colaborador" type="text" inputmode="numeric" required>
@@ -97,6 +97,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="colaboradores">
+            <h2>Cadastros</h2>
+            <table>
+                <thead">
+                    <td style="padding-inline: 50px;">Nome</td>
+                    <td style="padding-inline: 50px;">Cargo</td>
+                    <td style="padding-inline: 50px;">Grade</td>
+                    <td style="padding-inline: 50px;">Nível</td>
+                    <td style="padding-inline: 50px;">Data Cadastro</td>
+                    </thead>
+                    <tbody>
+                        {% for colaboradores in funcionarios %}
+                        <tr>
+                            <td style="text-align: center;">{{ colaboradores[0]}}</td>
+                            <td style="text-align: center;">{{ colaboradores[1]}}</td>
+                            <td style="text-align: center;">{{ colaboradores[2]}}</td>
+                            <td style="text-align: center;">{{ colaboradores[3]}}</td>
+                            <td style="text-align: center;">{{ colaboradores[4]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
         </div>
 
         <script>

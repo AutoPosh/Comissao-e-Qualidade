@@ -10,13 +10,16 @@
 }
 
 * {
-    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     font-size: 12pt;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+h1 {
+    overflow: hidden;
 }
 
 body {
