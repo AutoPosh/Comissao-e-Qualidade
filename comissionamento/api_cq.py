@@ -235,7 +235,7 @@ def alterar_status():
     div_id = request.args.get('id')
     acao = request.args.get('acao')
     conn = get_db_connection()
-    
+
     print(div_id, acao)
 
     try:
