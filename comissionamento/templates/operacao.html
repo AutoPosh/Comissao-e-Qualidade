@@ -50,6 +50,29 @@
         </script>
 
     </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-error" tabindex="-1" role="dialog" aria-labelledby="modal-error-label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-error-label" style="font-weight: 700;">Erro: Lançamento Duplicado
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-error-message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-fechar-modal" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="container-itens container-inactive">
             <div class="janela-title">
@@ -127,12 +150,12 @@
             <div class="controles">
                 {% if svc[7] == 'Inicializado' %}
                 <i class="fa-regular fa-circle-pause pausar-button" data-id="{{svc[0]}}"
-                style="color: red; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
+                    style="text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
                 <i class="fa-regular fa-circle-stop finalizar-button" data-id="{{svc[0]}}" style="cursor: pointer;"></i>
                 {% endif %}
                 {% if svc[7] == 'Em Pausa' %}
                 <i class="fa-solid fa-arrow-rotate-left reiniciar-button" data-id="{{svc[0]}}"
-                style="color: green; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
+                    style="text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
                 {% endif %}
 
                 <!--i class="fa-solid fa-arrow-rotate-left reiniciar-button" data-id="{{svc[0]}}"
@@ -147,6 +170,33 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+        // Função para exibir o modal de erro
+        function exibirModalErro(mensagem) {
+            var modal = document.getElementById('modal-error');
+            var mensagemElement = document.getElementById('modal-error-message');
+            mensagemElement.innerText = mensagem;
+            $('#modal-error').modal('show'); // Usando jQuery para exibir o modal
+
+            // Adicionar ouvinte de evento para quando o modal for fechado
+            modal.addEventListener('hidden.bs.modal', function () {
+                if (mensagem.includes('LANÇAMENTO DUPLICADO')) {
+                    console.log('Mensagem Duplicada');
+                } else {
+                    location.reload();
+                }
+            });
+
+            // Adicionar ouvinte de evento para os botões de fechar o modal
+            var fecharBotoes = document.querySelectorAll('.btn-fechar-modal, .close');
+            for (var i = 0; i < fecharBotoes.length; i++) {
+                fecharBotoes[i].addEventListener('click', function () {
+                    $('#modal-error').modal('hide'); // Fechar o modal
+                });
+            }
+        }
+
+
         let operacional
         // Selecionando os elementos HTML
         const osInput = document.getElementById('os');
@@ -193,6 +243,7 @@
                 porc_colab1 = 0.50;
                 porc_colab2 = 0.50;
                 porc_colab3 = 0.00;
+
             } else if (colab2Value !== "" && colab3Value !== "") {
                 porc_colab1 = (1.00 / 3.00).toFixed(2);
                 porc_colab2 = (1.00 / 3.00).toFixed(2);
@@ -305,19 +356,17 @@
 
                     console.log('Dados: ', data.dados);
                     if (data.sucess) {
-                        alert("Serviço Inicializado");
+                        exibirModalErro('Serviço Inicializado');
                         osInput.value = "";
                         etapaInput.value = "";
                         criarElementos(data.dados)
-                        location.reload();
 
                     } else if (data.exists) {
-                        alert('Dados já constam na base de dados')
-                        console.log(data.dados)
+                        exibirModalErro(`LANÇAMENTO DUPLICADO.\nLançado por: ${data.dados[3]}.\nData lançamento: ${data.dados[5]}`);
                     }
 
                     else {
-                        alert("Erro ao inicializar");
+                        exibirModalErro('Erro ao inicializar serviço, contate o TI');
                         return; //Interrompe.
                     }
 
@@ -507,10 +556,9 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        alert('Solicitação realizada com sucesso');
-                        location.reload();
+                        exibirModalErro('Solicitação realizada com sucesso!');
                     } else {
-                        alert("algo deu errado")
+                        alert("algo deu errado");
                     }
                 })
                 .catch(error => {

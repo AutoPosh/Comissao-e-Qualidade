@@ -182,9 +182,13 @@ def inicializar():
         verificar = cursor.fetchone()
 
         if verificar:
-            print(verificar)
-            conn.close()
-            return jsonify({'exists': True, 'dados': verificar})
+            if verificar[1] == 322 or verificar[1] == 323 or verificar[1] == 324:
+                print('Passo Extra')
+                cursor.nextset()
+            else:
+                print(verificar)
+                conn.close()
+                return jsonify({'exists': True, 'dados': verificar})
 
         with open('static/json/base_servicos.json', 'r', encoding="utf-8") as f:
             #printar o conteudo do json
@@ -192,7 +196,7 @@ def inicializar():
             etapa_descricao = svc_json[f"{dados_cadastro['etapa']}"]
 
         cursor.execute(
-            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, '{etapa_descricao}', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado','{data_formatada}');"
+            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio, valor_pausa) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, '{etapa_descricao}', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado', '{data_formatada}', '0');"
             )
 
 
@@ -240,12 +244,14 @@ def alterar_status():
 
     try:
         cursor = conn.cursor()
+        # Obtem a data e hora atual
+        agora = datetime.now()
+
+        #Formatada
+        data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
 
         if acao == 'pausar':
             status = 'Em Pausa'
-
-            # Obtem a data e hora atual
-            agora = datetime.now()
 
             #Formatada
             data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
@@ -256,29 +262,45 @@ def alterar_status():
         elif acao == 'reiniciar':
             status = 'Inicializado'
 
-            # Obtem a data e hora atual
-            agora = datetime.now()
+            #cursor.execute(f"SELECT valor_pausa FROM servicos WHERE id_servico = '{div_id}'")
+            #valor_pausa = cursor.fetchone()
 
-            #Formatada
-            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
-            cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_reinicio = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
+            cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '{div_id}'")
+            tempo_pausa = cursor.fetchone()
+            mark_pausa = tempo_pausa[0]
+
+            cursor.execute(f"SELECT valor_pausa FROM servicos WHERE id_servico = '{div_id}'")
+            valor_pausa = cursor.fetchone()
+            value_pausa = valor_pausa[0]
+
+            diferenca = (agora - mark_pausa) + value_pausa
+
+            # Extrair horas, minutos e segundos da diferença
+            horas = diferenca.total_seconds() // 3600
+            minutos = (diferenca.total_seconds() % 3600) // 60
+            segundos = diferenca.total_seconds() % 60
+
+            value = "{:02}:{:02}:{:02}".format(int(horas), int(minutos), int(segundos))
+
+            cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_reinicio = '{data_hora_formatada}', valor_pausa = '{value}' WHERE id_servico = '{div_id}'")
+
+            conn.commit()
 
         elif acao == 'finalizar':
             status = 'Finalizado'
-            # Obtem a data e hora atual
-            agora = datetime.now()
 
             #Formatada
             data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
             cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_fim = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
             cursor.execute(f"UPDATE comissao SET status_avaliacao = 'Aguardando Avaliação' WHERE id_comissao = '{div_id}'")
-            #cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '{div_id}'")
+
             conn.commit()
+
     except Exception as e:
         print(f'Erro no banco: {e}')
+        conn.rollback()
         traceback.print_exc()
     return acao
-
 
 
 @app.route('/consulta', methods=['POST', 'GET'])

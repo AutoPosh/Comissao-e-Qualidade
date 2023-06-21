@@ -24,10 +24,29 @@ def get_db_connection():
 conn = get_db_connection()
 
 cursor = conn.cursor()
-cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '1'")
-resultado = cursor.fetchone()
 
-print(resultado)
+cursor.execute(f"SELECT tempo_inicio FROM servicos WHERE id_servico = '1'")
+tempo_inicio = cursor.fetchone()
+
+cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '1'")
+tempo_pausa = cursor.fetchone()
+
+inicio = tempo_inicio[0]
+fim = tempo_pausa[0]
+
+#valor_pausa = valor_pausa[0].strftime(%H:%M:%S)
+diferenca = (fim - inicio)
+
+# Extrair horas, minutos e segundos da diferença
+horas = diferenca.total_seconds() // 3600
+minutos = (diferenca.total_seconds() % 3600) // 60
+segundos = diferenca.total_seconds() % 60
+
+# Formatar a string no formato "HH:MM:SS"
+valor_pausa = "{:02}:{:02}:{:02}".format(int(horas), int(minutos), int(segundos))
+
+print(valor_pausa)  # Saída: 03:15:30
+
 
 '''cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = 'Ed Campos' and status_servico = 'Inicializado'")
 servicos = cursor.fetchall()

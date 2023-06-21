@@ -145,6 +145,7 @@ body {
 }
 .data-values {
     background-color: ghostwhite;
+    padding-block: 5px;
 }
 
 .data-values {
@@ -180,6 +181,9 @@ body {
    
 }
 
+i:hover{
+    color: rgb(30, 216, 6);
+}
 
 .div-servico, .servico-data{
     width: 37%;   
@@ -286,6 +290,45 @@ nav {
     display: flex;
     place-items: center;
     place-content: center;
+}
+
+.close{
+    padding: 0 0 0 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    background-color: transparent;
+    border-radius: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30pt;
+    font-weight: 800;
+    transition: all 300ms ease;
+}
+
+.modal-header{
+    padding: 0 16px;
+    background-color: #DC3545;
+}
+
+.modal-footer{
+    background-color: rgb(58 58 58);
+    padding-block: 5px;
+}
+
+.btn-fechar-modal{
+    transition: all 300ms ease;
+}
+
+.btn-fechar-modal:hover{
+    transform: scale(1.1);
+    background-color: #DC3545;
+    transition: 300ms ease;
+}
+
+.close:hover{
+    transform: rotate(-90deg);
+    transition: all 300ms ease;
 }
 
 @media(max-width: 850px) {
