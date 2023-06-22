@@ -1,0 +1,1826 @@
+{
+    "1": {
+        "servico": "Acabamento",
+        "comissao": 0.1
+    },
+    "2": {
+        "servico": "Acabamento - Moto",
+        "comissao": 0.1
+    },
+    "3": {
+        "servico": "Aplicação AIR80 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "4": {
+        "servico": "Aplicação AIR80 - Para-brisa",
+        "comissao": 0.0
+    },
+    "5": {
+        "servico": "Aplicação AIR80 - Teto Solar",
+        "comissao": 0.0
+    },
+    "6": {
+        "servico": "Aplicação AIR80 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "7": {
+        "servico": "Aplicação Ceramic Pro Glass - Para-brisa",
+        "comissao": 0.0385
+    },
+    "8": {
+        "servico": "Aplicação Ceramic Pro Glass - Para-brisa + Laterais + Traseira",
+        "comissao": 0.15
+    },
+    "9": {
+        "servico": "Aplicação Ceramic Pro Glass - Para-brisa + Laterais + Traseira + Teto Solar",
+        "comissao": 0.15
+    },
+    "10": {
+        "servico": "Aplicação da 1º Camada de 9H",
+        "comissao": 0.0
+    },
+    "11": {
+        "servico": "Aplicação da 1º Camada de 9H - Bolsa/Mochila Grande",
+        "comissao": 0.0
+    },
+    "12": {
+        "servico": "Aplicação da 1º Camada de 9H - Bolsa/Mochila Média",
+        "comissao": 0.0
+    },
+    "13": {
+        "servico": "Aplicação da 1º Camada de 9H - Bolsa/Mochila Pequena",
+        "comissao": 0.0
+    },
+    "14": {
+        "servico": "Aplicação da 1º Camada de 9H - Celular",
+        "comissao": 0.0
+    },
+    "15": {
+        "servico": "Aplicação da 1º Camada de 9H - Moto",
+        "comissao": 0.0
+    },
+    "16": {
+        "servico": "Aplicação da 1º Camada de 9H - Relógio",
+        "comissao": 0.0
+    },
+    "17": {
+        "servico": "Aplicação da 2º Camada de 9H",
+        "comissao": 0.0
+    },
+    "18": {
+        "servico": "Aplicação da 2º Camada de 9H - Bolsa/Mochila Grande",
+        "comissao": 0.077
+    },
+    "19": {
+        "servico": "Aplicação da 2º Camada de 9H - Bolsa/Mochila Média",
+        "comissao": 0.0385
+    },
+    "20": {
+        "servico": "Aplicação da 2º Camada de 9H - Bolsa/Mochila Pequena",
+        "comissao": 0.0385
+    },
+    "21": {
+        "servico": "Aplicação da 2º Camada de 9H - Celular",
+        "comissao": 0.0
+    },
+    "22": {
+        "servico": "Aplicação da 2º Camada de 9H - Moto",
+        "comissao": 0.0
+    },
+    "23": {
+        "servico": "Aplicação da 2º Camada de 9H - Relógio",
+        "comissao": 0.0
+    },
+    "24": {
+        "servico": "Aplicação da 3º Camada de 9H - Celular",
+        "comissao": 0.077
+    },
+    "25": {
+        "servico": "Aplicação da 3º Camada de 9H - Relógio",
+        "comissao": 0.077
+    },
+    "26": {
+        "servico": "Aplicação da 3º Camada de Top Coat",
+        "comissao": 1.2
+    },
+    "27": {
+        "servico": "Aplicação da 3º Camada de Top Coat - Moto",
+        "comissao": 0.6
+    },
+    "28": {
+        "servico": "Aplicação das Camadas Adicionais Sinalizadas na Observação",
+        "comissao": 0.4
+    },
+    "29": {
+        "servico": "Aplicação de 3 camadas do Ceramic Pro 9H nos Black Piano Internos",
+        "comissao": 0.15
+    },
+    "30": {
+        "servico": "Aplicação de Camada Adicional - Bolsa/Mochila Grande",
+        "comissao": 0.077
+    },
+    "31": {
+        "servico": "Aplicação de Camada Adicional - Bolsa/Mochila Média",
+        "comissao": 0.0385
+    },
+    "32": {
+        "servico": "Aplicação de Camada Adicional - Bolsa/Mochila Pequena",
+        "comissao": 0.0385
+    },
+    "33": {
+        "servico": "Aplicação de Camada Adicional - Celular",
+        "comissao": 0.0385
+    },
+    "34": {
+        "servico": "Aplicação de Camada Adicional - Moto",
+        "comissao": 0.2
+    },
+    "35": {
+        "servico": "Aplicação de Camada Adicional - Relógio",
+        "comissao": 0.077
+    },
+    "36": {
+        "servico": "Aplicação de uma Camada de 9H Adicional no Capacete",
+        "comissao": 0.0385
+    },
+    "37": {
+        "servico": "Aplicação do Ceramic Pro 9H  - 2 Lugares",
+        "comissao": 0.072
+    },
+    "38": {
+        "servico": "Aplicação do Ceramic Pro 9H  - 7 Lugares",
+        "comissao": 0.12
+    },
+    "39": {
+        "servico": "Aplicação do Ceramic Pro 9H - 5 Lugares",
+        "comissao": 0.12
+    },
+    "40": {
+        "servico": "Aplicação do Ceramic Pro 9H - Estofado de Vinil ou Couro - Moto",
+        "comissao": 0.0385
+    },
+    "41": {
+        "servico": "Aplicação do Ceramic Pro 9H - Volante",
+        "comissao": 0.05
+    },
+    "42": {
+        "servico": "Aplicação do Ceramic Pro 9H no Capacete",
+        "comissao": 0.0385
+    },
+    "43": {
+        "servico": "Aplicação do Ceramic Pro 9H no Setor de Couro - 2 Lugares",
+        "comissao": 0.05
+    },
+    "44": {
+        "servico": "Aplicação do Ceramic Pro 9H no Setor de Couro - 5 Lugares",
+        "comissao": 0.05
+    },
+    "45": {
+        "servico": "Aplicação do Ceramic Pro 9H nos Cromados Externos",
+        "comissao": 0.0385
+    },
+    "46": {
+        "servico": "Aplicação do Ceramic Pro 9H nos Faróis",
+        "comissao": 0.04
+    },
+    "47": {
+        "servico": "Aplicação do Ceramic Pro Care +",
+        "comissao": 0.154
+    },
+    "48": {
+        "servico": "Aplicação do Ceramic Pro Care + - Moto",
+        "comissao": 0.1
+    },
+    "49": {
+        "servico": "Aplicação do Ceramic Pro Glass na Viseira do Capacete",
+        "comissao": 0.0385
+    },
+    "50": {
+        "servico": "Aplicação do Ceramic Pro Glass Retrovisores + Velocímetro + Bolha Dianteira - Moto",
+        "comissao": 0.0385
+    },
+    "51": {
+        "servico": "Aplicação do Ceramic Pro Leather - 2 Lugares",
+        "comissao": 0.072
+    },
+    "52": {
+        "servico": "Aplicação do Ceramic Pro Leather - 5 Lugares",
+        "comissao": 0.12
+    },
+    "53": {
+        "servico": "Aplicação do Ceramic Pro Leather - 7 Lugares",
+        "comissao": 0.12
+    },
+    "54": {
+        "servico": "Aplicação do Ceramic Pro Leather - Estofado de Vinil ou Couro - Moto",
+        "comissao": 0.0385
+    },
+    "55": {
+        "servico": "Aplicação do Ceramic Pro Leather no Setor de Couro - 2 Lugares",
+        "comissao": 0.05
+    },
+    "56": {
+        "servico": "Aplicação do Ceramic Pro Leather no Setor de Couro - 5 Lugares",
+        "comissao": 0.05
+    },
+    "57": {
+        "servico": "Aplicação do Ceramic Pro Leather Volante",
+        "comissao": 0.05
+    },
+    "58": {
+        "servico": "Aplicação do Ceramic Pro Plastic na Capota Marítima",
+        "comissao": 0.1
+    },
+    "59": {
+        "servico": "Aplicação do Ceramic Pro Plastic nos Plásticos do Motor",
+        "comissao": 0.1
+    },
+    "60": {
+        "servico": "Aplicação do Ceramic Pro Plastic nos Plásticos Externos",
+        "comissao": 0.1
+    },
+    "61": {
+        "servico": "Aplicação do Ceramic Pro Plastic nos Plásticos Externos - Moto",
+        "comissao": 0.06
+    },
+    "62": {
+        "servico": "Aplicação do Ceramic Pro Plastic nos Plásticos Internos",
+        "comissao": 0.1
+    },
+    "63": {
+        "servico": "Aplicação do Ceramic Pro Strong no Chassi",
+        "comissao": 0.3
+    },
+    "64": {
+        "servico": "Aplicação do Ceramic Pro Textile na Caporta Conversível",
+        "comissao": 0.1
+    },
+    "65": {
+        "servico": "Aplicação do Ceramic Pro Textile no Setor de  Tecido/Alcântara - 2 Lugares",
+        "comissao": 0.05
+    },
+    "66": {
+        "servico": "Aplicação do Ceramic Pro Textile no Setor de  Tecido/Alcântara - 5 Lugares",
+        "comissao": 0.05
+    },
+    "67": {
+        "servico": "Aplicação do Ceramic Pro Wheels & Caliper nas Rodas e Pinças de Freios - Moto",
+        "comissao": 0.077
+    },
+    "68": {
+        "servico": "Aplicação do Ceramic Pro Wheels & Caliper ou 9H nas Rodas e Pinças de Freios",
+        "comissao": 0.077
+    },
+    "69": {
+        "servico": "Aplicação do Glaze (selante da pintura)",
+        "comissao": 0.077
+    },
+    "70": {
+        "servico": "Aplicação do Hidrante na Capota Marítima",
+        "comissao": 0.0385
+    },
+    "71": {
+        "servico": "Aplicação do Hidrante nas Peças Plásticas Externas",
+        "comissao": 0.1
+    },
+    "72": {
+        "servico": "Aplicação do Hidrante nas Peças Plásticas Internas - Painel + forro das portas",
+        "comissao": 0.1
+    },
+    "73": {
+        "servico": "Aplicação do Hidratante - 5 Lugares",
+        "comissao": 0.077
+    },
+    "74": {
+        "servico": "Aplicação do Hidratante - 7 Lugares",
+        "comissao": 0.077
+    },
+    "75": {
+        "servico": "Aplicação do Hidratante - Seção Dianteira",
+        "comissao": 0.0385
+    },
+    "76": {
+        "servico": "Aplicação do Hidratante do Motor",
+        "comissao": 0.0385
+    },
+    "77": {
+        "servico": "Aplicação do Hidratante no Couro - Moto",
+        "comissao": 0.0385
+    },
+    "78": {
+        "servico": "Aplicação do Hidratante no Volante",
+        "comissao": 0.02
+    },
+    "79": {
+        "servico": "Aplicação do Impermeabilizante",
+        "comissao": 0.077
+    },
+    "80": {
+        "servico": "Aplicação do Impermeabilizante - Seção Dianteira",
+        "comissao": 0.0385
+    },
+    "81": {
+        "servico": "Aplicação do Protetor de Chassi",
+        "comissao": 0.0385
+    },
+    "82": {
+        "servico": "Aplicação do Selante nas Rodas",
+        "comissao": 0.077
+    },
+    "83": {
+        "servico": "Aplicação Nitra Green35 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "84": {
+        "servico": "Aplicação Nitra Green35 - Para-brisa",
+        "comissao": 0.0
+    },
+    "85": {
+        "servico": "Aplicação Nitra Green35 - Teto Solar",
+        "comissao": 0.0
+    },
+    "86": {
+        "servico": "Aplicação Nitra Green35 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "87": {
+        "servico": "Aspiração",
+        "comissao": 0.154
+    },
+    "88": {
+        "servico": "Avaliar todos os setores com PPF e fazer reparos (refilamento) - Instalação Full",
+        "comissao": 0.12
+    },
+    "89": {
+        "servico": "Avaliar todos os setores com PPF e fazer reparos (refilamento) - Instalação Parcial",
+        "comissao": 0.06
+    },
+    "90": {
+        "servico": "Borracharia (Terceiro)",
+        "comissao": 0.0
+    },
+    "91": {
+        "servico": "Chaveiro (Terceiro)",
+        "comissao": 0.0
+    },
+    "92": {
+        "servico": "Correção de Pintura",
+        "comissao": 0.425
+    },
+    "93": {
+        "servico": "Correção de Pintura (Motos)",
+        "comissao": 0.175
+    },
+    "94": {
+        "servico": "Customização da peça sinalizado no campo de observação",
+        "comissao": 0.0
+    },
+    "95": {
+        "servico": "Customização das 4 Pinças de Freio",
+        "comissao": 0.0
+    },
+    "96": {
+        "servico": "Descontaminação da pintura durante a lavagem",
+        "comissao": 0.04
+    },
+    "97": {
+        "servico": "Descontaminação da pintura durante a lavagem -  KAVACA INSTANT HEALING - PACK BRONZE",
+        "comissao": 0.02
+    },
+    "98": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Batentes das Portas",
+        "comissao": 0.02
+    },
+    "99": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Bocal de Abastecimento",
+        "comissao": 0.02
+    },
+    "100": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Bolha Grande MOTOS",
+        "comissao": 0.02
+    },
+    "101": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Bolha Pequena MOTOS",
+        "comissao": 0.02
+    },
+    "102": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Capô",
+        "comissao": 0.04
+    },
+    "103": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Capô e Para-lamas Parciais",
+        "comissao": 0.04
+    },
+    "104": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Coluna Central dos Vidros",
+        "comissao": 0.02
+    },
+    "105": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Coluna Dianteira dos Vidros",
+        "comissao": 0.02
+    },
+    "106": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Coluna do Teto ou Soleira Inferior Completo",
+        "comissao": 0.04
+    },
+    "107": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Coluna Traseira dos Vidros",
+        "comissao": 0.02
+    },
+    "108": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Concha da Maçaneta",
+        "comissao": 0.02
+    },
+    "109": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Faról Dianteiro MOTOS",
+        "comissao": 0.02
+    },
+    "110": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Frente Maçanetas",
+        "comissao": 0.02
+    },
+    "111": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par de Retrovisores",
+        "comissao": 0.02
+    },
+    "112": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par Faróis de Milhas",
+        "comissao": 0.02
+    },
+    "113": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par Faróis Dianteiros",
+        "comissao": 0.02
+    },
+    "114": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par Lanternas Traseiras",
+        "comissao": 0.02
+    },
+    "115": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par Para-lama Dianteiro",
+        "comissao": 0.04
+    },
+    "116": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Par Para-lama Traseiro",
+        "comissao": 0.04
+    },
+    "117": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Para-choque Dianteiro",
+        "comissao": 0.04
+    },
+    "118": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Para-choque Traseiro",
+        "comissao": 0.04
+    },
+    "119": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Para-lama Dianteiro Grande MOTOS",
+        "comissao": 0.02
+    },
+    "120": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.02
+    },
+    "121": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Portas Completas",
+        "comissao": 0.06
+    },
+    "122": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Soleira das 4 Portas",
+        "comissao": 0.02
+    },
+    "123": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Soleira do Porta-malas",
+        "comissao": 0.02
+    },
+    "124": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Tampa do Porta-malas Completo",
+        "comissao": 0.04
+    },
+    "125": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Tampa Traseira MOTOS",
+        "comissao": 0.02
+    },
+    "126": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Tanque MOTOS",
+        "comissao": 0.04
+    },
+    "127": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Teto",
+        "comissao": 0.04
+    },
+    "128": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA CERAMIC COATED Viseira do Capacete MOTOS",
+        "comissao": 0.02
+    },
+    "129": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Batentes das Portas",
+        "comissao": 0.02
+    },
+    "130": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Bocal de Abastecimento",
+        "comissao": 0.02
+    },
+    "131": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Bolha Grande MOTOS",
+        "comissao": 0.02
+    },
+    "132": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Bolha Pequena MOTOS",
+        "comissao": 0.02
+    },
+    "133": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Capô",
+        "comissao": 0.04
+    },
+    "134": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Capô e Para-lamas Parciais",
+        "comissao": 0.04
+    },
+    "135": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Coluna Central dos Vidros",
+        "comissao": 0.02
+    },
+    "136": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Coluna Dianteira dos Vidros",
+        "comissao": 0.02
+    },
+    "137": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Coluna do Teto",
+        "comissao": 0.04
+    },
+    "138": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Coluna Traseira dos Vidros",
+        "comissao": 0.02
+    },
+    "139": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Concha da Maçaneta",
+        "comissao": 0.02
+    },
+    "140": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Faról Dianteiro MOTOS",
+        "comissao": 0.02
+    },
+    "141": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Frente Maçanetas",
+        "comissao": 0.02
+    },
+    "142": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par de Retrovisores",
+        "comissao": 0.02
+    },
+    "143": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par Faróis de Milhas",
+        "comissao": 0.02
+    },
+    "144": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par Faróis Dianteiros",
+        "comissao": 0.02
+    },
+    "145": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par Lanternas Traseiras",
+        "comissao": 0.02
+    },
+    "146": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par Para-lama Dianteiro",
+        "comissao": 0.04
+    },
+    "147": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Par Para-lama Traseiro",
+        "comissao": 0.04
+    },
+    "148": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Para-choque Dianteiro",
+        "comissao": 0.04
+    },
+    "149": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Para-choque Traseiro",
+        "comissao": 0.04
+    },
+    "150": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Para-lama Dianteiro Grande MOTOS",
+        "comissao": 0.02
+    },
+    "151": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.02
+    },
+    "152": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Portas Completas",
+        "comissao": 0.06
+    },
+    "153": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Soleira das 4 Portas",
+        "comissao": 0.02
+    },
+    "154": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Soleira do Porta-malas",
+        "comissao": 0.02
+    },
+    "155": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Tampa do Porta-malas Completo",
+        "comissao": 0.04
+    },
+    "156": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Tampa Traseira MOTOS",
+        "comissao": 0.02
+    },
+    "157": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Tanque MOTOS",
+        "comissao": 0.04
+    },
+    "158": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Teto",
+        "comissao": 0.04
+    },
+    "159": {
+        "servico": "Descontaminação da pintura durante a lavagem - KAVACA INSTANT HEALING Viseira do Capacete MOTOS",
+        "comissao": 0.02
+    },
+    "160": {
+        "servico": "Descontaminação da Região a ser aplicado o PPF durante a lavagem",
+        "comissao": 0.0
+    },
+    "161": {
+        "servico": "Descontaminação da Região a ser executada a customização",
+        "comissao": 0.0
+    },
+    "162": {
+        "servico": "Descontaminação das Lanternas durante a lavagem",
+        "comissao": 0.0
+    },
+    "163": {
+        "servico": "Descontaminação do Vidro do Para-brisa",
+        "comissao": 0.0385
+    },
+    "164": {
+        "servico": "Descontaminação do Vidro do Para-brisa + Laterais e Traseira",
+        "comissao": 0.077
+    },
+    "165": {
+        "servico": "Descontaminação do Vidro do Para-brisa + Laterais e Traseira + Teto Solar",
+        "comissao": 0.077
+    },
+    "166": {
+        "servico": "Descontaminação dos Faróis durante a lavagem",
+        "comissao": 0.0
+    },
+    "167": {
+        "servico": "Desmontagem da Carenagem - Moto",
+        "comissao": 0.08
+    },
+    "168": {
+        "servico": "Desmontagem das Rodas",
+        "comissao": 0.077
+    },
+    "169": {
+        "servico": "Enceramento - Moto",
+        "comissao": 0.0385
+    },
+    "170": {
+        "servico": "Enceramento - Pintura Fosca - Moto",
+        "comissao": 0.0385
+    },
+    "171": {
+        "servico": "Enceramento Black",
+        "comissao": 0.077
+    },
+    "172": {
+        "servico": "Enceramento Metallic",
+        "comissao": 0.077
+    },
+    "173": {
+        "servico": "Enceramento Red",
+        "comissao": 0.077
+    },
+    "174": {
+        "servico": "Enceramento White",
+        "comissao": 0.077
+    },
+    "175": {
+        "servico": "Funilaria (Terceiro)",
+        "comissao": 0.0
+    },
+    "176": {
+        "servico": "Hidratação das Peças Plásticas - Moto",
+        "comissao": 0.06
+    },
+    "177": {
+        "servico": "Higienização + Polimento do Relógio",
+        "comissao": 0.08
+    },
+    "178": {
+        "servico": "Higienização da Bolsa/Mochila Grande",
+        "comissao": 0.0385
+    },
+    "179": {
+        "servico": "Higienização da Bolsa/Mochila Média",
+        "comissao": 0.0385
+    },
+    "180": {
+        "servico": "Higienização da Bolsa/Mochila Pequena",
+        "comissao": 0.01925
+    },
+    "181": {
+        "servico": "Higienização da Cadeirinha de BB",
+        "comissao": 0.05
+    },
+    "182": {
+        "servico": "Higienização da Capa Automotiva",
+        "comissao": 0.077
+    },
+    "183": {
+        "servico": "Higienização da Seção Dianteira",
+        "comissao": 0.195
+    },
+    "184": {
+        "servico": "Higienização da Seção Traseira",
+        "comissao": 0.195
+    },
+    "185": {
+        "servico": "Higienização das Peças Plásticas Internas",
+        "comissao": 0.077
+    },
+    "186": {
+        "servico": "Higienização de Teto e Colunas",
+        "comissao": 0.0385
+    },
+    "187": {
+        "servico": "Higienização do Capacete",
+        "comissao": 0.01925
+    },
+    "188": {
+        "servico": "Higienização do Celular",
+        "comissao": 0.01925
+    },
+    "189": {
+        "servico": "Higienização dos Estofados",
+        "comissao": 0.1925
+    },
+    "190": {
+        "servico": "Higienização dos Estofados - Seção Dianteira",
+        "comissao": 0.077
+    },
+    "191": {
+        "servico": "Higienização dos Estofados (2 Lugares)",
+        "comissao": 0.077
+    },
+    "192": {
+        "servico": "Higienização dos Estofados (5 a 7 Lugares)",
+        "comissao": 0.1925
+    },
+    "193": {
+        "servico": "Higienização localizada (zona grande) na região constante no campo de observação",
+        "comissao": 0.077
+    },
+    "194": {
+        "servico": "Higienização localizada (zona média) na região constante no campo de observação",
+        "comissao": 0.0385
+    },
+    "195": {
+        "servico": "Higienização localizada (zona pequena) na região constante no campo de observação",
+        "comissao": 0.01925
+    },
+    "196": {
+        "servico": "Higienização Tapete do Carpete",
+        "comissao": 0.01925
+    },
+    "197": {
+        "servico": "Higienização Total",
+        "comissao": 0.385
+    },
+    "198": {
+        "servico": "Higienização Total com Desmontagem",
+        "comissao": 0.77
+    },
+    "199": {
+        "servico": "KAVACA CERAMIC BLACK Capô/ Para-choque Dianteiro inteiro/ Par Para-lama Dianteiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas",
+        "comissao": 11.0
+    },
+    "200": {
+        "servico": "KAVACA CERAMIC BRONZE Para-choque Dianteiro inteiro/ Par Faróis Dianteiros/ Par de Retrovisores",
+        "comissao": 0.0
+    },
+    "201": {
+        "servico": "KAVACA CERAMIC COATED Batentes das Portas",
+        "comissao": 0.5
+    },
+    "202": {
+        "servico": "KAVACA CERAMIC COATED Bocal de Abastecimento",
+        "comissao": 0.25
+    },
+    "203": {
+        "servico": "KAVACA CERAMIC COATED Bolha Grande MOTOS",
+        "comissao": 0.975
+    },
+    "204": {
+        "servico": "KAVACA CERAMIC COATED Bolha Pequena MOTOS",
+        "comissao": 0.65
+    },
+    "205": {
+        "servico": "KAVACA CERAMIC COATED Capô",
+        "comissao": 3.75
+    },
+    "206": {
+        "servico": "KAVACA CERAMIC COATED Capô e Para-lamas Parciais",
+        "comissao": 3.75
+    },
+    "207": {
+        "servico": "KAVACA CERAMIC COATED Coluna Central dos Vidros",
+        "comissao": 0.5
+    },
+    "208": {
+        "servico": "KAVACA CERAMIC COATED Coluna Dianteira dos Vidros",
+        "comissao": 0.5
+    },
+    "209": {
+        "servico": "KAVACA CERAMIC COATED Coluna do Teto ou Soleira Inferior Completo",
+        "comissao": 1.0
+    },
+    "210": {
+        "servico": "KAVACA CERAMIC COATED Coluna Traseira dos Vidros",
+        "comissao": 0.5
+    },
+    "211": {
+        "servico": "KAVACA CERAMIC COATED Concha da Maçaneta",
+        "comissao": 0.25
+    },
+    "212": {
+        "servico": "KAVACA CERAMIC COATED Faról Dianteiro MOTOS",
+        "comissao": 0.975
+    },
+    "213": {
+        "servico": "KAVACA CERAMIC COATED Frente Maçanetas",
+        "comissao": 0.25
+    },
+    "214": {
+        "servico": "KAVACA CERAMIC COATED Par de Retrovisores",
+        "comissao": 0.5
+    },
+    "215": {
+        "servico": "KAVACA CERAMIC COATED Par Faróis de Milhas",
+        "comissao": 0.25
+    },
+    "216": {
+        "servico": "KAVACA CERAMIC COATED Par Faróis Dianteiros",
+        "comissao": 0.5
+    },
+    "217": {
+        "servico": "KAVACA CERAMIC COATED Par Lanternas Traseiras",
+        "comissao": 0.5
+    },
+    "218": {
+        "servico": "KAVACA CERAMIC COATED Par Para-lama Dianteiro",
+        "comissao": 2.0
+    },
+    "219": {
+        "servico": "KAVACA CERAMIC COATED Par Para-lama Traseiro",
+        "comissao": 2.0
+    },
+    "220": {
+        "servico": "KAVACA CERAMIC COATED Para-choque Dianteiro",
+        "comissao": 2.5
+    },
+    "221": {
+        "servico": "KAVACA CERAMIC COATED Para-choque Traseiro",
+        "comissao": 2.25
+    },
+    "222": {
+        "servico": "KAVACA CERAMIC COATED Para-lama Dianteiro Grande MOTOS",
+        "comissao": 1.3
+    },
+    "223": {
+        "servico": "KAVACA CERAMIC COATED Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.65
+    },
+    "224": {
+        "servico": "KAVACA CERAMIC COATED Portas Completas",
+        "comissao": 5.0
+    },
+    "225": {
+        "servico": "KAVACA CERAMIC COATED Soleira das 4 Portas",
+        "comissao": 0.5
+    },
+    "226": {
+        "servico": "KAVACA CERAMIC COATED Soleira do Porta-malas",
+        "comissao": 0.5
+    },
+    "227": {
+        "servico": "KAVACA CERAMIC COATED Tampa do Porta-malas Completo",
+        "comissao": 3.75
+    },
+    "228": {
+        "servico": "KAVACA CERAMIC COATED Tampa Traseira MOTOS",
+        "comissao": 0.325
+    },
+    "229": {
+        "servico": "KAVACA CERAMIC COATED Tanque MOTOS",
+        "comissao": 3.9
+    },
+    "230": {
+        "servico": "KAVACA CERAMIC COATED Teto",
+        "comissao": 3.75
+    },
+    "231": {
+        "servico": "KAVACA CERAMIC COATED Viseira do Capacete MOTOS",
+        "comissao": 0.325
+    },
+    "232": {
+        "servico": "KAVACA CERAMIC GOLD Capô/ Para-choque Dianteiro inteiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Soleira do Porta-malas",
+        "comissao": 7.75
+    },
+    "233": {
+        "servico": "KAVACA CERAMIC PLATINUM Capô/ Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas",
+        "comissao": 0.0
+    },
+    "234": {
+        "servico": "KAVACA CERAMIC RED FULL Capô/ Par Para-lama Dianteiro/ Par Para-lama Traseiro/ Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Portas Completas/ Teto/ Coluna do Teto/ Tampa do Porta-malas",
+        "comissao": 25.0
+    },
+    "235": {
+        "servico": "KAVACA CERAMIC SILVER Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas",
+        "comissao": 0.0
+    },
+    "236": {
+        "servico": "KAVACA INSTANT BLACK  Capô/ Para-choque Dianteiro inteiro/ Par Para-lama Dianteiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas",
+        "comissao": 3.9
+    },
+    "237": {
+        "servico": "KAVACA INSTANT BRONZE Para-choque Dianteiro inteiro/ Par Faróis Dianteiros/ Par de Retrovisores",
+        "comissao": 0.0
+    },
+    "238": {
+        "servico": "KAVACA INSTANT GOLD Capô/ Para-choque Dianteiro inteiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Soleira do Porta-malas",
+        "comissao": 7.75
+    },
+    "239": {
+        "servico": "KAVACA INSTANT HEALING Batentes das Portas",
+        "comissao": 0.5
+    },
+    "240": {
+        "servico": "KAVACA INSTANT HEALING Bocal de Abastecimento",
+        "comissao": 0.25
+    },
+    "241": {
+        "servico": "KAVACA INSTANT HEALING Bolha Grande MOTOS",
+        "comissao": 0.975
+    },
+    "242": {
+        "servico": "KAVACA INSTANT HEALING Bolha Pequena MOTOS",
+        "comissao": 0.65
+    },
+    "243": {
+        "servico": "KAVACA INSTANT HEALING Capô",
+        "comissao": 3.75
+    },
+    "244": {
+        "servico": "KAVACA INSTANT HEALING Capô e Para-lamas Parciais",
+        "comissao": 3.75
+    },
+    "245": {
+        "servico": "KAVACA INSTANT HEALING Coluna Central dos Vidros",
+        "comissao": 0.5
+    },
+    "246": {
+        "servico": "KAVACA INSTANT HEALING Coluna Dianteira dos Vidros",
+        "comissao": 0.5
+    },
+    "247": {
+        "servico": "KAVACA INSTANT HEALING Coluna do Teto",
+        "comissao": 1.0
+    },
+    "248": {
+        "servico": "KAVACA INSTANT HEALING Coluna Traseira dos Vidros",
+        "comissao": 0.5
+    },
+    "249": {
+        "servico": "KAVACA INSTANT HEALING Concha da Maçaneta",
+        "comissao": 0.25
+    },
+    "250": {
+        "servico": "KAVACA INSTANT HEALING Faról Dianteiro MOTOS",
+        "comissao": 0.975
+    },
+    "251": {
+        "servico": "KAVACA INSTANT HEALING Frente Maçanetas",
+        "comissao": 0.25
+    },
+    "252": {
+        "servico": "KAVACA INSTANT HEALING Par de Retrovisores",
+        "comissao": 0.5
+    },
+    "253": {
+        "servico": "KAVACA INSTANT HEALING Par Faróis de Milhas",
+        "comissao": 0.25
+    },
+    "254": {
+        "servico": "KAVACA INSTANT HEALING Par Faróis Dianteiros",
+        "comissao": 0.5
+    },
+    "255": {
+        "servico": "KAVACA INSTANT HEALING Par Lanternas Traseiras",
+        "comissao": 0.5
+    },
+    "256": {
+        "servico": "KAVACA INSTANT HEALING Par Para-lama Dianteiro",
+        "comissao": 2.0
+    },
+    "257": {
+        "servico": "KAVACA INSTANT HEALING Par Para-lama Traseiro",
+        "comissao": 2.0
+    },
+    "258": {
+        "servico": "KAVACA INSTANT HEALING Para-choque Dianteiro",
+        "comissao": 2.5
+    },
+    "259": {
+        "servico": "KAVACA INSTANT HEALING Para-choque Traseiro",
+        "comissao": 2.25
+    },
+    "260": {
+        "servico": "KAVACA INSTANT HEALING Para-lama Dianteiro Grande MOTOS",
+        "comissao": 1.3
+    },
+    "261": {
+        "servico": "KAVACA INSTANT HEALING Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.65
+    },
+    "262": {
+        "servico": "KAVACA INSTANT HEALING Portas Completas",
+        "comissao": 5.0
+    },
+    "263": {
+        "servico": "KAVACA INSTANT HEALING Soleira das 4 Portas",
+        "comissao": 0.5
+    },
+    "264": {
+        "servico": "KAVACA INSTANT HEALING Soleira do Porta-malas",
+        "comissao": 0.5
+    },
+    "265": {
+        "servico": "KAVACA INSTANT HEALING Tampa do Porta-malas Completo",
+        "comissao": 3.75
+    },
+    "266": {
+        "servico": "KAVACA INSTANT HEALING Tampa Traseira MOTOS",
+        "comissao": 0.325
+    },
+    "267": {
+        "servico": "KAVACA INSTANT HEALING Tanque MOTOS",
+        "comissao": 3.9
+    },
+    "268": {
+        "servico": "KAVACA INSTANT HEALING Teto",
+        "comissao": 3.75
+    },
+    "269": {
+        "servico": "KAVACA INSTANT HEALING Viseira do Capacete MOTOS",
+        "comissao": 0.325
+    },
+    "270": {
+        "servico": "KAVACA INSTANT PLATINUM Capô/ Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas\",",
+        "comissao": 0.0
+    },
+    "271": {
+        "servico": "KAVACA INSTANT RED FULL Capô/ Par Para-lama Dianteiro/ Par Para-lama Traseiro/ Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Portas Completas/ Teto/ Coluna do Teto/ Tampa do Porta-malas",
+        "comissao": 25.0
+    },
+    "272": {
+        "servico": "KAVACA INSTANT SILVER Para-choque Dianteiro inteiro/ Para-choque Traseiro/ Par Faróis Dianteiros/ Par de Retrovisores/ Batentes das Portas",
+        "comissao": 0.0
+    },
+    "273": {
+        "servico": "Limpeza da Pintura",
+        "comissao": 0.154
+    },
+    "274": {
+        "servico": "Limpeza da Pintura - Moto",
+        "comissao": 0.154
+    },
+    "275": {
+        "servico": "Limpeza da Pintura Fosca",
+        "comissao": 0.154
+    },
+    "276": {
+        "servico": "Limpeza da Pintura Fosca - Moto",
+        "comissao": 0.154
+    },
+    "277": {
+        "servico": "Limpeza do Chassi",
+        "comissao": 0.154
+    },
+    "278": {
+        "servico": "Limpeza do Couro - 2 lugares",
+        "comissao": 0.077
+    },
+    "279": {
+        "servico": "Limpeza do Couro - 5 lugares",
+        "comissao": 0.1925
+    },
+    "280": {
+        "servico": "Limpeza do Couro - 7 lugares",
+        "comissao": 0.1925
+    },
+    "281": {
+        "servico": "Limpeza do Couro - Moto",
+        "comissao": 0.04
+    },
+    "282": {
+        "servico": "Limpeza do Couro - Seção Dianteira",
+        "comissao": 0.0965
+    },
+    "283": {
+        "servico": "Limpeza do Couro - Volante",
+        "comissao": 0.0385
+    },
+    "284": {
+        "servico": "Limpeza do Couro + Tecido/Alcântara - 2 lugares",
+        "comissao": 0.077
+    },
+    "285": {
+        "servico": "Limpeza do Couro + Tecido/Alcântara - 5 lugares",
+        "comissao": 0.1925
+    },
+    "286": {
+        "servico": "Limpeza do Motor",
+        "comissao": 0.154
+    },
+    "287": {
+        "servico": "LLumar Alta Performance - LATI05 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "288": {
+        "servico": "LLumar Alta Performance - LATI05 - Para-brisa",
+        "comissao": 0.0
+    },
+    "289": {
+        "servico": "LLumar Alta Performance - LATI05 - Teto Solar",
+        "comissao": 0.0
+    },
+    "290": {
+        "servico": "LLumar Alta Performance - LATI05 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "291": {
+        "servico": "LLumar Alta Performance - LATI15 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "292": {
+        "servico": "LLumar Alta Performance - LATI15 - Para-brisa",
+        "comissao": 0.0
+    },
+    "293": {
+        "servico": "LLumar Alta Performance - LATI15 - Teto Solar",
+        "comissao": 0.0
+    },
+    "294": {
+        "servico": "LLumar Alta Performance - LATI15 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "295": {
+        "servico": "LLumar Alta Performance - LATI35 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "296": {
+        "servico": "LLumar Alta Performance - LATI35 - Para-brisa",
+        "comissao": 0.0
+    },
+    "297": {
+        "servico": "LLumar Alta Performance - LATI35 - Teto Solar",
+        "comissao": 0.0
+    },
+    "298": {
+        "servico": "LLumar Alta Performance - LATI35 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "299": {
+        "servico": "LLumar Alta Performance - LATI50 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "300": {
+        "servico": "LLumar Alta Performance - LATI50 - Para-brisa",
+        "comissao": 0.0
+    },
+    "301": {
+        "servico": "LLumar Alta Performance - LATI50 - Teto Solar",
+        "comissao": 0.0
+    },
+    "302": {
+        "servico": "LLumar Alta Performance - LATI50 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "303": {
+        "servico": "LLumar Safe - SA8 - Laterais + LA15 na Traseira",
+        "comissao": 0.0
+    },
+    "304": {
+        "servico": "LLumar Standart - LA05 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "305": {
+        "servico": "LLumar Standart - LA05 - Para-brisa",
+        "comissao": 0.0
+    },
+    "306": {
+        "servico": "LLumar Standart - LA05 - Teto SoLar",
+        "comissao": 0.0
+    },
+    "307": {
+        "servico": "LLumar Standart - LA05 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "308": {
+        "servico": "LLumar Standart - LA15 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "309": {
+        "servico": "LLumar Standart - LA15 - Para-brisa",
+        "comissao": 0.0
+    },
+    "310": {
+        "servico": "LLumar Standart - LA15 - Teto Solar",
+        "comissao": 0.0
+    },
+    "311": {
+        "servico": "LLumar Standart - LA15 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "312": {
+        "servico": "LLumar Standart - LA35 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "313": {
+        "servico": "LLumar Standart - LA35 - Para-brisa",
+        "comissao": 0.0
+    },
+    "314": {
+        "servico": "LLumar Standart - LA35 - Teto Solar",
+        "comissao": 0.0
+    },
+    "315": {
+        "servico": "LLumar Standart - LA35 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "316": {
+        "servico": "LLumar Standart - LA50 - Laterais + Traseira",
+        "comissao": 0.0
+    },
+    "317": {
+        "servico": "LLumar Standart - LA50 - Para-brisa",
+        "comissao": 0.0
+    },
+    "318": {
+        "servico": "LLumar Standart - LA50 - Teto Solar",
+        "comissao": 0.0
+    },
+    "319": {
+        "servico": "LLumar Standart - LA50 - Teto Solar Panorâmico",
+        "comissao": 0.0
+    },
+    "320": {
+        "servico": "Martelinho (Terceiro)",
+        "comissao": 0.0
+    },
+    "321": {
+        "servico": "Ozonização do Ar",
+        "comissao": 0.0
+    },
+    "322": {
+        "servico": "Passo Extra 1",
+        "comissao": 0.0
+    },
+    "323": {
+        "servico": "Passo Extra 2",
+        "comissao": 0.0
+    },
+    "324": {
+        "servico": "Passo Extra 3",
+        "comissao": 0.0
+    },
+    "325": {
+        "servico": "Polimento das 4 Rodas",
+        "comissao": 0.077
+    },
+    "326": {
+        "servico": "Polimento do Black Piano Interno",
+        "comissao": 0.08
+    },
+    "327": {
+        "servico": "Polimento dos Faróis",
+        "comissao": 0.12
+    },
+    "328": {
+        "servico": "Polimento Especializado da peça a receber o PPF",
+        "comissao": 0.25
+    },
+    "329": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Batentes das Portas",
+        "comissao": 0.08
+    },
+    "330": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Bocal de Abastecimento",
+        "comissao": 0.08
+    },
+    "331": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Bolha Grande MOTOS",
+        "comissao": 0.06
+    },
+    "332": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Bolha Pequena MOTOS",
+        "comissao": 0.06
+    },
+    "333": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Capô",
+        "comissao": 0.12
+    },
+    "334": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Capô e Para-lamas Parciais",
+        "comissao": 0.12
+    },
+    "335": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Coluna Central dos Vidros",
+        "comissao": 0.08
+    },
+    "336": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Coluna Dianteira dos Vidros",
+        "comissao": 0.08
+    },
+    "337": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Coluna do Teto ou Soleira Inferior Completo",
+        "comissao": 0.08
+    },
+    "338": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Coluna Traseira dos Vidros",
+        "comissao": 0.08
+    },
+    "339": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Concha da Maçaneta",
+        "comissao": 0.08
+    },
+    "340": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Faról Dianteiro MOTOS",
+        "comissao": 0.06
+    },
+    "341": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Frente Maçanetas",
+        "comissao": 0.08
+    },
+    "342": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par de Retrovisores",
+        "comissao": 0.08
+    },
+    "343": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par Faróis de Milhas",
+        "comissao": 0.0
+    },
+    "344": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par Faróis Dianteiros",
+        "comissao": 0.06
+    },
+    "345": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par Lanternas Traseiras",
+        "comissao": 0.06
+    },
+    "346": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par Para-lama Dianteiro",
+        "comissao": 0.08
+    },
+    "347": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Par Para-lama Traseiro",
+        "comissao": 0.08
+    },
+    "348": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Para-choque Dianteiro",
+        "comissao": 0.08
+    },
+    "349": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Para-choque Traseiro",
+        "comissao": 0.08
+    },
+    "350": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Para-lama Dianteiro Grande MOTOS",
+        "comissao": 0.06
+    },
+    "351": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.06
+    },
+    "352": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Portas Completas",
+        "comissao": 0.25
+    },
+    "353": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Soleira das 4 Portas",
+        "comissao": 0.08
+    },
+    "354": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Soleira do Porta-malas",
+        "comissao": 0.08
+    },
+    "355": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Tampa do Porta-malas Completo",
+        "comissao": 0.12
+    },
+    "356": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Tampa Traseira MOTOS",
+        "comissao": 0.06
+    },
+    "357": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Tanque MOTOS",
+        "comissao": 0.06
+    },
+    "358": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Teto",
+        "comissao": 0.12
+    },
+    "359": {
+        "servico": "Polimento Especializado da região a receber - KAVACA CERAMIC COATED Viseira do Capacete MOTOS",
+        "comissao": 0.06
+    },
+    "360": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Batentes das Portas",
+        "comissao": 0.08
+    },
+    "361": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Bocal de Abastecimento",
+        "comissao": 0.08
+    },
+    "362": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Bolha Grande MOTOS",
+        "comissao": 0.06
+    },
+    "363": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Bolha Pequena MOTOS",
+        "comissao": 0.06
+    },
+    "364": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Capô",
+        "comissao": 0.12
+    },
+    "365": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Capô e Para-lamas Parciais",
+        "comissao": 0.12
+    },
+    "366": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Coluna Central dos Vidros",
+        "comissao": 0.08
+    },
+    "367": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Coluna Dianteira dos Vidros",
+        "comissao": 0.08
+    },
+    "368": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Coluna do Teto",
+        "comissao": 0.08
+    },
+    "369": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Coluna Traseira dos Vidros",
+        "comissao": 0.08
+    },
+    "370": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Concha da Maçaneta",
+        "comissao": 0.08
+    },
+    "371": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Faról Dianteiro MOTOS",
+        "comissao": 0.06
+    },
+    "372": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Frente Maçanetas",
+        "comissao": 0.08
+    },
+    "373": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par de Retrovisores",
+        "comissao": 0.08
+    },
+    "374": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par Faróis de Milhas",
+        "comissao": 0.0
+    },
+    "375": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par Faróis Dianteiros",
+        "comissao": 0.06
+    },
+    "376": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par Lanternas Traseiras",
+        "comissao": 0.06
+    },
+    "377": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par Para-lama Dianteiro",
+        "comissao": 0.08
+    },
+    "378": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Par Para-lama Traseiro",
+        "comissao": 0.08
+    },
+    "379": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Para-choque Dianteiro",
+        "comissao": 0.08
+    },
+    "380": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Para-choque Traseiro",
+        "comissao": 0.08
+    },
+    "381": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Para-lama Dianteiro Grande MOTOS",
+        "comissao": 0.06
+    },
+    "382": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Para-lama Dianteiro Pequeno MOTOS",
+        "comissao": 0.06
+    },
+    "383": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Portas Completas",
+        "comissao": 0.25
+    },
+    "384": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Soleira das 4 Portas",
+        "comissao": 0.08
+    },
+    "385": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Soleira do Porta-malas",
+        "comissao": 0.08
+    },
+    "386": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Tampa do Porta-malas Completo",
+        "comissao": 0.12
+    },
+    "387": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Tampa Traseira MOTOS",
+        "comissao": 0.06
+    },
+    "388": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Tanque MOTOS",
+        "comissao": 0.06
+    },
+    "389": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Teto",
+        "comissao": 0.12
+    },
+    "390": {
+        "servico": "Polimento Especializado da região a receber - KAVACA INSTANT HEALING Viseira do Capacete MOTOS",
+        "comissao": 0.06
+    },
+    "391": {
+        "servico": "Polimento Localizado - Zona Grande",
+        "comissao": 0.25
+    },
+    "392": {
+        "servico": "Polimento Localizado - Zona Média",
+        "comissao": 0.12
+    },
+    "393": {
+        "servico": "Polimento Localizado - Zona Pequena",
+        "comissao": 0.08
+    },
+    "394": {
+        "servico": "PPF Smoke - Avulso",
+        "comissao": 0.0
+    },
+    "395": {
+        "servico": "PPF Smoke - Faróis Dianteiros",
+        "comissao": 0.5
+    },
+    "396": {
+        "servico": "PPF Smoke - Lanternas Traseiras",
+        "comissao": 0.5
+    },
+    "397": {
+        "servico": "Remoção + Aplicação de Película",
+        "comissao": 0.0
+    },
+    "398": {
+        "servico": "Remoção de manchas - Vidro PB",
+        "comissao": 0.0385
+    },
+    "399": {
+        "servico": "Remoção de manchas - Vidros PB + L + T",
+        "comissao": 0.077
+    },
+    "400": {
+        "servico": "Remoção de manhcas - Vidros PB + L + T + Teto",
+        "comissao": 0.077
+    },
+    "401": {
+        "servico": "Remoção de Película",
+        "comissao": 0.0
+    },
+    "402": {
+        "servico": "Remoção de riscos - Vidro PB ou outro a ser sinalizado no campo de Observações",
+        "comissao": 0.1155
+    },
+    "403": {
+        "servico": "Remoção de riscos - Vidros PB + L + T",
+        "comissao": 0.231
+    },
+    "404": {
+        "servico": "Remoção de riscos - Vidros PB + L + T + Teto",
+        "comissao": 0.231
+    },
+    "405": {
+        "servico": "Reparação de Faróis Dianteiros (Terceiro)",
+        "comissao": 0.0
+    },
+    "406": {
+        "servico": "Reparo e Customização de Rodas - 14 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "407": {
+        "servico": "Reparo e Customização de Rodas - 14 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "408": {
+        "servico": "Reparo e Customização de Rodas - 14 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "409": {
+        "servico": "Reparo e Customização de Rodas - 15 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "410": {
+        "servico": "Reparo e Customização de Rodas - 15 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "411": {
+        "servico": "Reparo e Customização de Rodas - 15 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "412": {
+        "servico": "Reparo e Customização de Rodas - 16 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "413": {
+        "servico": "Reparo e Customização de Rodas - 16 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "414": {
+        "servico": "Reparo e Customização de Rodas - 16 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "415": {
+        "servico": "Reparo e Customização de Rodas - 17 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "416": {
+        "servico": "Reparo e Customização de Rodas - 17 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "417": {
+        "servico": "Reparo e Customização de Rodas - 17 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "418": {
+        "servico": "Reparo e Customização de Rodas - 18 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "419": {
+        "servico": "Reparo e Customização de Rodas - 18 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "420": {
+        "servico": "Reparo e Customização de Rodas - 18 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "421": {
+        "servico": "Reparo e Customização de Rodas - 19 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "422": {
+        "servico": "Reparo e Customização de Rodas - 19 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "423": {
+        "servico": "Reparo e Customização de Rodas - 19 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "424": {
+        "servico": "Reparo e Customização de Rodas - 20 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "425": {
+        "servico": "Reparo e Customização de Rodas - 20 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "426": {
+        "servico": "Reparo e Customização de Rodas - 20 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "427": {
+        "servico": "Reparo e Customização de Rodas - 21 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "428": {
+        "servico": "Reparo e Customização de Rodas - 21 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "429": {
+        "servico": "Reparo e Customização de Rodas - 21 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "430": {
+        "servico": "Reparo e Customização de Rodas - 22 - Black Piano / Platinado",
+        "comissao": 0.0
+    },
+    "431": {
+        "servico": "Reparo e Customização de Rodas - 22 - Hiper Prata / Semi Brilho (Fosco Acetinado)",
+        "comissao": 0.0
+    },
+    "432": {
+        "servico": "Reparo e Customização de Rodas - 22 - Original / Diamantada",
+        "comissao": 0.0
+    },
+    "433": {
+        "servico": "Reparo Técnico do Couro - Descansa Braço Central",
+        "comissao": 0.385
+    },
+    "434": {
+        "servico": "Reparo Técnico do Couro - Estofado - Assento",
+        "comissao": 0.616
+    },
+    "435": {
+        "servico": "Reparo Técnico do Couro - Estofado - Encosto",
+        "comissao": 0.616
+    },
+    "436": {
+        "servico": "Reparo Técnico do Couro - Estofado - Encosto de Cabeça",
+        "comissao": 0.385
+    },
+    "437": {
+        "servico": "Reparo Técnico do Couro - Estofado Total",
+        "comissao": 1.232
+    },
+    "438": {
+        "servico": "Reparo Técnico do Couro - Forro de Porta",
+        "comissao": 0.385
+    },
+    "439": {
+        "servico": "Reparo Técnico do Couro - Volante",
+        "comissao": 0.385
+    },
+    "440": {
+        "servico": "Selante das Rodas - Motos",
+        "comissao": 0.04
+    },
+    "441": {
+        "servico": "Tratamento da Pintura (Polimento Total)",
+        "comissao": 0.85
+    },
+    "442": {
+        "servico": "Tratamento da Pintura (Polimento Total) - Moto",
+        "comissao": 0.35
+    },
+    "443": {
+        "servico": "Tratamento dos Cromados - Média a Grande Área - Moto",
+        "comissao": 0.077
+    },
+    "444": {
+        "servico": "Tratamento dos Cromados - Pequena a Média Área - Moto",
+        "comissao": 0.0385
+    },
+    "445": {
+        "servico": "Tratamento dos Cromados Externos - Média a Grande Área",
+        "comissao": 0.077
+    },
+    "446": {
+        "servico": "Tratamento dos Cromados Externos - Pequena a Média Área",
+        "comissao": 0.0385
+    },
+    "447": {
+        "servico": "Aplicação da 1º Camada de Top Coat - Moto",
+        "comissao": 0.0
+    },
+    "448": {
+        "servico": "Aplicação da 1º Camada de Top Coat",
+        "comissao": 0.4
+    },
+    "449": {
+        "servico": "Verificar manchas e riscos pontuais na pintura e fazer o devido reparo através do polimento",
+        "comissao": 0.05
+    },
+    "450": {
+        "servico": "Verificar manchas e sujeira e fazer a devida limpeza no couro",
+        "comissao": 0.025
+    },
+    "451": {
+        "servico": "Substituição do PPF em virtude da falha na fabricação",
+        "comissao": 0.0
+    },
+    "452": {
+        "servico": "Verificar manchas e riscos pontuais na pintura e fazer o devido reparo através do polimento - Moto e Jet Ski",
+        "comissao": 0.025
+    },
+    "453": {
+        "servico": "Verificar manchas e sujeira e fazer a devida limpeza no couro - Moto e Jet Ski",
+        "comissao": 0.015
+    },
+    "454": {
+        "servico": "Verificar necessidade de refilamento e executar o refilamento nos setores necessários - Moto e Jet Ski",
+        "comissao": 0.04
+    },
+    "455": {
+        "servico": "Verificar necessidade de refilamento e executar o refilamento nos setores necessários - Parcial",
+        "comissao": 0.04
+    },
+    "456": {
+        "servico": "Verificar necessidade de refilamento e executar o refilamento nos setores necessários - Full",
+        "comissao": 0.08
+    }
+}

@@ -163,7 +163,6 @@
                 <i class="fa-regular fa-circle-pause pausar-button" data-id="{{svc[0]}}"
                     style="color: red; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
                 <i class="fa-regular fa-circle-stop finalizar-button" data-id="{{svc[0]}}" style="cursor: pointer;"></i-->
-
             </div>
         </div>
         {% endfor %}
@@ -530,27 +529,51 @@
         // Função para lidar com o clique no botão "Reiniciar"
         function handleReiniciarButtonClick(event) {
             const divId = event.target.dataset.id;
-            enviarSolicitacaoAPI(divId, "reiniciar");
+
+            const divElement = event.target.closest('.data-values');
+            const etapaElement = divElement.querySelector('.etapa-data');
+            const servicoElement = divElement.querySelector('.servico-data');
+
+            const etapa = ''
+            const servico = ''
+            enviarSolicitacaoAPI(divId, "reiniciar", etapa, servico);
         }
 
         // Função para lidar com o clique no botão "Pausar"
         function handlePausarButtonClick(event) {
             const divId = event.target.dataset.id;
-            enviarSolicitacaoAPI(divId, "pausar");
+            
+            const divElement = event.target.closest('.data-values');
+            const etapaElement = divElement.querySelector('.etapa-data');
+            const servicoElement = divElement.querySelector('.servico-data');
+
+            const etapa = etapaElement.textContent.trim();
+            const servico = servicoElement.textContent.trim();
+
+            enviarSolicitacaoAPI(divId, "pausar", etapa, servico);
         }
 
         // Função para lidar com o clique no botão "Finalizar"
         function handleFinalizarButtonClick(event) {
             const divId = event.target.dataset.id;
-            enviarSolicitacaoAPI(divId, "finalizar");
+            
+            const divElement = event.target.closest('.data-values');
+            const etapaElement = divElement.querySelector('.etapa-data');
+            const servicoElement = divElement.querySelector('.servico-data');
+
+            const etapa = etapaElement.textContent.trim();
+            const servico = servicoElement.textContent.trim();
+
+            enviarSolicitacaoAPI(divId, "finalizar", etapa, servico);
         }
 
         // Função para enviar a solicitação para sua API
-        function enviarSolicitacaoAPI(divId, acao) {
+        function enviarSolicitacaoAPI(divId, acao, etapa, servico) {
             // Faça a solicitação para sua rota da API com o ID da div e a ação
             // Você pode usar o objeto XMLHttpRequest ou a função fetch para fazer a solicitação AJAX
             // Por exemplo, usando fetch:
-            fetch(`/operacional/alterar_status?id=${divId}&acao=${acao}`, {
+
+            fetch(`/operacional/alterar_status?id=${divId}&acao=${acao}&etapa=${etapa}&servico=${servico}`, {
                 method: 'POST',
                 // Se houver necessidade de passar algum cabeçalho ou corpo na solicitação, você pode adicionar aqui
             })

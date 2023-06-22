@@ -25,7 +25,20 @@ conn = get_db_connection()
 
 cursor = conn.cursor()
 
-cursor.execute(f"SELECT tempo_inicio FROM servicos WHERE id_servico = '1'")
+#cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
+cursor.execute("SELECT etapa_servico FROM comissao WHERE id_comissao = 1")
+services_comissao = cursor.fetchone()
+
+#print(services_comissao[0])
+
+with open('comissionamento/static/json/comissao.json', 'r', encoding="utf-8") as f:
+    comissao = json.load(f)
+
+print(comissao[f'{services_comissao[0]}']['comissao'])
+
+#print(comissao)
+
+'''cursor.execute(f"SELECT tempo_inicio FROM servicos WHERE id_servico = '1'")
 tempo_inicio = cursor.fetchone()
 
 cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '1'")
@@ -45,8 +58,7 @@ segundos = diferenca.total_seconds() % 60
 # Formatar a string no formato "HH:MM:SS"
 valor_pausa = "{:02}:{:02}:{:02}".format(int(horas), int(minutos), int(segundos))
 
-print(valor_pausa)  # Saída: 03:15:30
-
+print(valor_pausa)  # Saída: 03:15:30'''
 
 '''cursor.execute(f"SELECT id_servico, numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico FROM servicos WHERE id_colaborador_1 = 'Ed Campos' and status_servico = 'Inicializado'")
 servicos = cursor.fetchall()
@@ -76,9 +88,6 @@ json_servicos = json.dumps(lista_servicos, indent=4, ensure_ascii=False)'''
 
 # Imprimir o JSON resultante
 #print(json_servicos)
-
-
-
 '''cursor.execute(f"SELECT nome FROM colaboradores where id_colaborador = '1' or id_colaborador = '2' or id_colaborador = '3'")
 response = cursor.fetchall()
 

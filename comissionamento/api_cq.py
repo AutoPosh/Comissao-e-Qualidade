@@ -238,9 +238,12 @@ def inicializar():
 def alterar_status():
     div_id = request.args.get('id')
     acao = request.args.get('acao')
+    etapaData = request.args.get('etapa')
+    servicoData = request.args.get('servico')
+    
     conn = get_db_connection()
 
-    print(div_id, acao)
+    print(div_id, acao, etapaData, servicoData)
 
     try:
         cursor = conn.cursor()
@@ -284,10 +287,18 @@ def alterar_status():
 
             cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_reinicio = '{data_hora_formatada}', valor_pausa = '{value}' WHERE id_servico = '{div_id}'")
 
+            #cursor.execute(f"UPDATE comissao SET ")
+
             conn.commit()
 
         elif acao == 'finalizar':
             status = 'Finalizado'
+
+            with open('static/json/comissao.json', 'r', encoding="utf-8") as f:
+                comissao = json.load(f)
+                
+            cursor.execute(f"SELECT etapa_servico FROM comissao WHERE id_comissao = {div_id}")
+            services_comissao = cursor.fetchone()
 
             #Formatada
             data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
@@ -321,9 +332,10 @@ def rota_qualidade():
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        cursor.execute("SELECT numero_os, etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_avaliacao from comissao WHERE status_avaliacao = 'Aguardando Avaliação' ")
+        cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
+        services_comissao = cursor.fetchall()
 
-        return render_template('qualidade.html', usuario = usuario)
+        return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao)
     else:
         return redirect(url_for('index'))
 
