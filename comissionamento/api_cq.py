@@ -1,4 +1,4 @@
-import os, traceback, json
+import os, traceback, json, calendar
 import mysql.connector
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
@@ -166,6 +166,12 @@ def inicializar():
 
     data = datetime.now()
 
+    mes_atual = datetime.now().month
+    mes_atual = calendar.month_name[mes_atual]
+
+    ano_atual = datetime.now().year
+    ano_atual = str(ano_atual)
+
     data_formatada = data.strftime("%Y-%m-%d %H:%M:%S")
     
     #estabelece a conexão
@@ -196,14 +202,12 @@ def inicializar():
             etapa_descricao = svc_json[f"{dados_cadastro['etapa']}"]
 
         cursor.execute(
-            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio, valor_pausa) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, '{etapa_descricao}', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado', '{data_formatada}', '0');"
+            f"INSERT INTO servicos (numero_os, etapa_servico, servico, id_colaborador_1, id_colaborador_2, id_colaborador_3, status_servico, tempo_inicio, valor_pausa, mes, ano) VALUES ({dados_cadastro['os']}, {dados_cadastro['etapa']}, '{etapa_descricao}', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', 'Inicializado', '{data_formatada}', '0', '{mes_atual}', '{ano_atual}');"
             )
 
-
         cursor.execute(
-           f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']});"
+           f"INSERT INTO comissao (numero_os, etapa_servico, status_avaliacao, id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3, mes, ano) VALUES ('{dados_cadastro['os']}', '{dados_cadastro['etapa']}', 'Aguardando Operação', '{dados_cadastro['id_colaborador_1']}', '{dados_cadastro['colab2']}', '{dados_cadastro['colab3']}', {dados_cadastro['porc_colab1']}, {dados_cadastro['porc_colab2']}, {dados_cadastro['porc_colab3']}, '{mes_atual}', '{ano_atual}');"
         )
-
 
         cursor.execute(f"SELECT id_servico FROM servicos WHERE numero_os = '{dados_cadastro['os']}' AND etapa_servico = '{dados_cadastro['etapa']}';")
         resposta_id = cursor.fetchall()
@@ -287,8 +291,6 @@ def alterar_status():
 
             cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_reinicio = '{data_hora_formatada}', valor_pausa = '{value}' WHERE id_servico = '{div_id}'")
 
-            #cursor.execute(f"UPDATE comissao SET ")
-
             conn.commit()
 
         elif acao == 'finalizar':
@@ -297,8 +299,24 @@ def alterar_status():
             with open('static/json/comissao.json', 'r', encoding="utf-8") as f:
                 comissao = json.load(f)
                 
-            cursor.execute(f"SELECT etapa_servico FROM comissao WHERE id_comissao = {div_id}")
-            services_comissao = cursor.fetchone()
+            cursor.execute(f"SELECT etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3 FROM comissao WHERE id_comissao = {div_id}")
+            services_comissao = cursor.fetchall()
+
+            etapa_svc = services_comissao[0][0]
+            colaborador_1 = services_comissao[0][1]
+            colaborador_2 = services_comissao[0][2]
+            colaborador_3 = services_comissao[0][3]
+
+            comissionamento = comissao[f'{etapa_svc}']['comissao']
+
+            if colaborador_2 == '' and colaborador_3 == '':
+                cursor.execute(f"UPDATE comissao SET comissao_colab_1 = '{comissionamento}', comissao_colab_2 = 0, comissao_colab_3 = 0 WHERE id_comissao='{div_id}'")
+
+            elif colaborador_2 !=  '' and colaborador_3 == '':
+                cursor.execute(f"UPDATE comissao SET comissao_colab_1 = '{comissionamento/2}', comissao_colab_2 = '{comissionamento/2}', comissao_colab_3 = 0 WHERE id_comissao='{div_id}'")
+
+            elif colaborador_3 != '':
+                cursor.execute(f"UPDATE comissao SET comissao_colab_1 = '{comissionamento/3}', comissao_colab_2 = '{comissionamento/3}', comissao_colab_3 = '{comissionamento/3}' WHERE id_comissao='{div_id}'")
 
             #Formatada
             data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
@@ -311,6 +329,7 @@ def alterar_status():
         print(f'Erro no banco: {e}')
         conn.rollback()
         traceback.print_exc()
+
     return acao
 
 
@@ -319,7 +338,47 @@ def alterar_status():
 def rota_consulta():
     usuario = session.get('usuario')
     if usuario != None:
-        return render_template('consulta.html', usuario = usuario)
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        mes_atual = datetime.now().month
+        mes_atual = calendar.month_name[mes_atual]
+
+        ano_atual = datetime.now().year
+        ano_atual = str(ano_atual)
+
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        resposta = cursor.fetchall()
+
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        resposta_2 = cursor.fetchall()
+
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        resposta_3 = cursor.fetchall()
+
+        comissao_fixa = []
+        ordens = []
+        lista_tuplas = []
+
+        for i in resposta:
+            lista_tuplas.append(i)
+            comissao_fixa.append(i[3])
+            ordens.append(i[0])
+
+        for j in resposta_2:
+            lista_tuplas.append(j)
+            comissao_fixa.append(j[3])
+            ordens.append(j[0])
+
+        for k in resposta_3:
+            lista_tuplas.append(k)
+            comissao_fixa.append(k[3])
+            ordens.append(k[0])
+
+        soma_comissao = sum(comissao_fixa)
+        total_distintos = len(set(ordens))
+
+        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual)
     else:
         return redirect(url_for('index'))
 
@@ -332,10 +391,36 @@ def rota_qualidade():
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
+        cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3, c.mes FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
         services_comissao = cursor.fetchall()
 
-        return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao)
+        mes = services_comissao[0][8]
+        print(mes)
+        match mes:
+            case 'January':
+                mes = 'Janeiro'
+            case 'February':
+                mes = 'Fevereiro'
+            case 'March':
+                mes = 'Março'
+            case 'April':
+                mes = 'Abril'
+            case 'May':
+                mes = 'Maio'
+            case 'June':
+                mes = 'Junho'
+            case 'July':
+                mes = 'Julho'
+            case 'August':
+                mes = 'Agosto'
+            case 'September':
+                mes = 'Setembro'
+            case 'November':
+                mes = 'Novembro'
+            case 'December':
+                mes = 'Dezembro'
+
+        return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao, mes = mes)
     else:
         return redirect(url_for('index'))
 
@@ -372,6 +457,7 @@ def cadastro_colaborador():
 
     #estabelece a conexão
     conn = get_db_connection()
+
     try:
         cursor = conn.cursor()
         cursor.execute(f"INSERT INTO colaboradores (nome, senha, cargo, grade, nivel, data_cadastro) VALUES ('{dados['nomeCompleto']}', '{dados['senha']}', '{dados['selectCargo']}', '{dados['selectGrade']}', '{dados['selectNivel']}', '{data_formatada}')")

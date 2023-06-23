@@ -55,6 +55,10 @@ body {
     overflow-x: hidden;
 }
 
+h1{
+    overflow: hidden;
+}
+
 header {
     place-items: center;
     place-content: center;
@@ -117,125 +121,32 @@ nav {
     transition: all 300ms ease;
 }
 
-.container-tables{
-    width: 80%;
-    height: 88vh;
-    margin: 2% auto auto auto;
-    overflow: auto;
-}
-
-.view-tables{
+.container-resumo {
+    display: flex;
+    padding-left: 50px;
+    padding-block: 20px;
+    gap: 20px;
     width: 100%;
-    display: flex;
-    place-items: center;
-    align-items: center;
-    background-color: var(--main-color);
-    color: ghostwhite;
-    text-align: center;
-    border-radius: 5px 5px 0 0;
-    border: 1px solid var(--main-color);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.445);
+    margin: 20px auto auto auto;
+    position: relative;
+}
+
+.container-resumo h1 {
+    font-size: 14pt;
+    position: relative;
+}
+h3 {
+    overflow: hidden;
+    font-size: 14pt;
 }
 
 
-.view-tables div{
-    place-content: center;
-    place-items: center;
-    padding: 0;
-    padding-block: 5px;
-    border-right: 1px solid black;
-}
-
-.view-tables .container-controles{
-    border-right: none;
-}
-
-.view-tables, .data-values{
-    width: 80%;
-    margin: auto;
-    
-}
-.data-values {
-    background-color: ghostwhite;
-    padding-block: 5px;
-}
-
-.data-values {
-    background-color: #e3f1f9;
-    transition: all 200ms;
-    font-weight: 600;
-    text-shadow: none;
-}
-.data-values:hover{
+.comissao{
     background-color: #DC3545;
-    color: ghostwhite
-}
-
-.data-values{
-    display: flex;
-    justify-content: space-between;
+    color: ghostwhite;
+    padding: 20px;
+    border-radius: 25px;
     text-align: center;
-    align-items: center;
-    border-bottom: 1px solid slategray;
-    border-left: 1px solid slategray;
-    border-right: 1px solid slategray;
-}
-
-.data-values div{
-    padding: 1px;
-}
-
-.view-tables, .data-values {
-    min-width: 732px;
-}
-
-.div-os, .os-data{
-    width: 8%;
-    min-width: 50px;
-}
-
-.div-etapa, .etapa-data{
-    width: 5%;
-    min-width: 50px;
-   
-}
-
-i:hover{
-    color: rgb(30, 216, 6);
-}
-
-.div-servico, .servico-data{
-    width: 52%;
-}
-
-
-.div-status, .status-servico{
-    width: 15%;
-}
-
-
-.container-controles, .controles{
-    width: 20%;
-    min-width: 100px;
-}
-
-
-.controles {
-    display: inline-flex;
-    place-content: center;
-    gap: 15px;
-}
-
-
-.controles i {
-    font-size: 40px;
-}
-.btn-primary{
-    width: 60%;
-}
-
-.btn-primary:hover{
-    background-color: rgb(0, 132, 255);
 }
 
 
@@ -243,17 +154,9 @@ i:hover{
 
     /* Responsividade para celular de toda a tela, não deixar margem para rolar */
     .img-logo {
-        transform: translate(-130px);
-        padding-left: 0;
+        transform: translate(-180px);
+        float: left;
         transition: all 500ms ease;
-    }
-    .janela-title h4{
-        font-size: 10pt;
-    }
-    .container-itens {
-        width: 100%;
-        border-radius: 0;
-        padding-top: 5px;
     }
 
     header,
@@ -261,7 +164,14 @@ i:hover{
         height: 80px;
     }
 
+    .container-resumo{
+        flex-direction: column;
+        place-items: center;
+    }
+
 }
+
+
 
 
 

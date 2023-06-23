@@ -82,44 +82,19 @@
             <div class="div-os"><strong>OS</strong></div>
             <div class="div-etapa"><strong>Etapa</strong></div>
             <div class="div-servico"><strong>Serviço</strong></div>
-            <div class="div-colabs"><strong>Colaborador</strong></div>
-            <div class="div-status"><strong>Status</strong></div>
+            <div class="div-status"><strong>Mês</strong></div>
             <div class="container-controles"><strong>Controles</strong></div>
         </div>
-
-        <!-- div class="data-values">
-            <div class="os-data">4980</div>
-            <div class="etapa-data">235</div>
-            <div class="servico-data">Servico da Etapa -> Descrição Resumida</div>
-            <div class="colab-data">
-                <div class="index1">Edneython</div>
-                <div class="index2">Ana Gabriela</div>
-                <div class="index3">Raiana</div>
-            </div>
-            <div class="status-servico">Inicializado</div>
-            <div class="controles"><i class="fa-solid fa-arrow-rotate-left"
-                    style="color: green; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
-                <i class="fa-regular fa-circle-pause"
-                    style="color: red; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;"></i>
-                <i class="fa-regular fa-circle-stop" style=" cursor: pointer;"></i>
-            </div>
-        </div -->
 
         {% for item in lista_comissao %}
         <div class="data-values" id="{{item[0]}}">
             <div class="os-data">{{ item[1] }}</div>
             <div class="etapa-data"> {{ item[2] }} </div>
             <div class="servico-data">{{ item[3] }}</div>
-            <div class="colab-data">
-                <div class="index1"> {{ item[5] }} </div>
-                <div class="index2"> {{ item[6] }} </div>
-                <div class="index3"> {{ item[7] }} </div>
-            </div>
-            <div class="status-servico">{{ item[4] }}</div>
+            <div class="status-servico">{{ mes }}</div>
             <div class="controles">
                 <button class="btn btn-primary" data-id="{{item[0]}}"
                     style="text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;">Avaliar</button>
-
             </div>
         </div>
         {% endfor %}

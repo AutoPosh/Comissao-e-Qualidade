@@ -3,7 +3,8 @@ import mysql.connector
 from dotenv import load_dotenv
 from functools import wraps
 from datetime import datetime, timedelta, timezone, date
-import json
+import json, calendar
+
 load_dotenv()
 
 #Configuração do banco de dados MySQL
@@ -25,18 +26,80 @@ conn = get_db_connection()
 
 cursor = conn.cursor()
 
-#cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
-cursor.execute("SELECT etapa_servico FROM comissao WHERE id_comissao = 1")
-services_comissao = cursor.fetchone()
+cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa, s.mes FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_1 = 'Antonio Carlos' AND c.status_avaliacao = 'Aguardando Avaliação'")
+resposta_completa_1 = cursor.fetchall()
 
-#print(services_comissao[0])
+cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa, s.mes FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_2 = 'Antonio Carlos' AND c.status_avaliacao = 'Aguardando Avaliação'")
+resposta_completa_2 = cursor.fetchall()
+
+cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa, s.mes FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_3 = 'Antonio Carlos' AND c.status_avaliacao = 'Aguardando Avaliação'")
+resposta_completa_3 = cursor.fetchall()
+
+
+comissao_fixa = []
+ordens = []
+lista_tuplas = []
+
+for i in resposta_completa_1:
+    lista_tuplas.append(i)
+    comissao_fixa.append(i[3])
+    ordens.append(i[0])
+
+for j in resposta_completa_2:
+    lista_tuplas.append(j)
+    comissao_fixa.append(j[3])
+    ordens.append(j[0])
+
+for k in resposta_completa_3:
+    lista_tuplas.append(k)
+    ordens.append(k[0])
+    comissao_fixa.append(k[3])
+
+soma_comissao = sum(comissao_fixa)
+
+print('Valor Final:', soma_comissao)
+
+total_distintos = len(set(ordens))
+print('Quantidade', total_distintos)
+
+mes_atual = datetime.now().month
+mes_atual = calendar.month_name[mes_atual]
+
+
+for i in lista_tuplas:
+    print(i)
+
+#cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
+'''cursor.execute(f"SELECT etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3 FROM comissao WHERE id_comissao = 1")
+services_comissao = cursor.fetchall()
+
+etapa_svc = services_comissao[0][0]
+colaborador_1 = services_comissao[0][1]
+colaborador_2 = services_comissao[0][2]
+colaborador_3 = services_comissao[0][3]
+
+print(etapa_svc)
+print(colaborador_1)
+print(colaborador_2)
+print(colaborador_3)
 
 with open('comissionamento/static/json/comissao.json', 'r', encoding="utf-8") as f:
     comissao = json.load(f)
 
-print(comissao[f'{services_comissao[0]}']['comissao'])
+comissionamento = comissao[f'{etapa_svc}']['comissao']
 
-#print(comissao)
+if colaborador_2 == '' and colaborador_3 == '':
+    print(f'{comissionamento} query de inserção para o colaborador_1')
+
+elif colaborador_2 !=  '' and colaborador_3 == '':
+    print(f'{comissionamento/2} para colaborador_1 e colaborador_2')
+
+elif colaborador_3 != '':
+    print(f'{comissionamento/3} para colaborador_1, colaborador_2, colaborador_3')
+
+print('Comissão:', comissionamento)
+
+#print(comissao)'''
 
 '''cursor.execute(f"SELECT tempo_inicio FROM servicos WHERE id_servico = '1'")
 tempo_inicio = cursor.fetchone()
