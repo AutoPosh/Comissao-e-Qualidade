@@ -378,10 +378,110 @@ def rota_consulta():
         soma_comissao = sum(comissao_fixa)
         total_distintos = len(set(ordens))
 
+        match mes_atual:
+            case 'January':
+                mes_atual = 'Janeiro'
+            case 'February':
+                mes_atual = 'Fevereiro'
+            case 'March':
+                mes_atual = 'Março'
+            case 'April':
+                mes_atual = 'Abril'
+            case 'May':
+                mes_atual = 'Maio'
+            case 'June':
+                mes_atual = 'Junho'
+            case 'July':
+                mes_atual = 'Julho'
+            case 'August':
+                mes_atual = 'Agosto'
+            case 'September':
+                mes_atual = 'Setembro'
+            case 'November':
+                mes_atual = 'Novembro'
+            case 'December':
+                mes_atual = 'Dezembro'
+
         return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual)
     else:
         return redirect(url_for('index'))
 
+@app.route('/comissionamento', methods=['POST', 'GET'])
+@proteger_rota(['Qualidade', 'Administrador'])
+def comissionamento():
+    usuario = session.get('usuario')
+    month = request.args.get('month')
+
+    match month:
+        case 'janeiro':
+            month = 'January'
+        case 'fevereiro':
+            month = 'February'
+        case 'março':
+            month = 'March'
+        case 'abril':
+            month = 'April'
+        case 'maio':
+            month = 'May'
+        case 'junho':
+            month = 'June'
+        case 'julho':
+            month = 'July'
+        case 'agosto':
+            month = 'August'
+        case 'setembro':
+            month = 'September'
+        case 'outubro':
+            month = 'October'
+        case 'novembro':
+            month = 'November'
+        case 'dezembro':
+            month = 'December'
+
+
+    comissao = obter_comissao(month)
+
+    # Retorna a resposta em formato JSON para o AJAX
+    return jsonify({'comissao': comissao})
+
+def obter_comissao(month):
+    usuario = session.get('usuario')
+    year = 2023
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    resposta = cursor.fetchall()
+
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    resposta_2 = cursor.fetchall()
+
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    resposta_3 = cursor.fetchall()
+
+    comissao_fixa = []
+    ordens = []
+    lista_tuplas = []
+
+    for i in resposta:
+        lista_tuplas.append(i)
+        comissao_fixa.append(i[3])
+        ordens.append(i[0])
+
+    for j in resposta_2:
+        lista_tuplas.append(j)
+        comissao_fixa.append(j[3])
+        ordens.append(j[0])
+
+    for k in resposta_3:
+        lista_tuplas.append(k)
+        comissao_fixa.append(k[3])
+        ordens.append(k[0])
+
+    soma_comissao = sum(comissao_fixa)
+    total_distintos = len(set(ordens))
+    return soma_comissao
 
 @app.route('/qualidade', methods=['POST', 'GET'])
 @proteger_rota(['Qualidade', 'Administrador'])

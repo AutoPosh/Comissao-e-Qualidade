@@ -79,19 +79,86 @@
     <div class="container-resumo">
         <div class="valor-1">
             <div class="comissao">
-            <h3>Comissão Fixa</h3>
-            <h1>R$ {{soma_comissao}}</h1>
+                <h3>Comissão Fixa</h3>
+                <h1>R$ {{soma_comissao}}</h1>
             </div>
         </div>
         <div class="valor-2">
             <div class="comissao">
-            <h3>N° de Carros</h3>
-            <h1>{{ordens}}</h1>
+                <h3>N° de Carros</h3>
+                <h1>{{ordens}}</h1>
             </div>
         </div>
     </div>
     <h1>{{ mes }}, {{ano}}</h1>
 
+    <div class="container">
+        <div class="controle">
+            <select id="filtro-mes">
+                <option value="January">Janeiro</option>
+                <option value="February">Fevereiro</option>
+                <option value="March">Março</option>
+                <option value="April">Abril</option>
+                <option value="May">Maio</option>
+                <option value="June">Junho</option>
+                <option value="July">Julho</option>
+                <option value="August">Agosto</option>
+                <option value="September">Setembro</option>
+                <option value="October">Outubro</option>
+                <option value="November">Novembro</option>
+                <option value="December">Dezembro</option>
+            </select>
+        </div>
+        <div class="comissao-valor">
+            <h1 id="comissao-valor">{{ init }}</h1>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // Obtém o mês atual
+            var currentMonth = new Date().toLocaleString('default', { month: 'long' });
+
+            // Define o valor selecionado do select como o mês atual
+            $('#filtro-mes').val(currentMonth);
+
+            // Faz a solicitação AJAX inicial para o mês atual
+            $.ajax({
+                url: '/comissionamento',
+                method: 'GET',
+                data: { month: currentMonth },
+                success: function (response) {
+                    // Atualiza o conteúdo da <h1> com a resposta recebida
+                    $('#comissao-value').text(response.comissao);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error); // Lida com erros, se necessário
+                }
+            });
+
+            // Captura o evento de alteração do select
+            $('#filtro-mes').change(function () {
+                var selectedMonth = $(this).val(); // Obtém o valor selecionado
+
+                // Faz uma solicitação assíncrona para a sua API Flask
+                $.ajax({
+                    url: '/comissionamento',
+                    method: 'GET',
+                    data: { month: selectedMonth },
+                    success: function (response) {
+                        // Atualiza o conteúdo da <h1> com a resposta recebida
+                        $('#comissao-value').text(response.comissao);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error); // Lida com erros, se necessário
+                    }
+                });
+            });
+        });
+    </script>
 
     <!--div class="container-tables">
         <div class="view-tables">
