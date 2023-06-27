@@ -410,6 +410,7 @@ def rota_consulta():
 @proteger_rota(['Qualidade', 'Administrador'])
 def comissionamento():
     usuario = session.get('usuario')
+    mes = request.args.get('month')
     month = request.args.get('month')
 
     match month:
@@ -438,15 +439,15 @@ def comissionamento():
         case 'dezembro':
             month = 'December'
 
-
-    comissao = obter_comissao(month)
+    mes = mes.capitalize()
+    comissao = obter_comissao(month, mes)
 
     # Retorna a resposta em formato JSON para o AJAX
-    return jsonify({'comissao': comissao})
+    return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1]})
 
-def obter_comissao(month):
+def obter_comissao(month, mes):
     usuario = session.get('usuario')
-    year = 2023
+    year = '2023'
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -478,10 +479,10 @@ def obter_comissao(month):
         lista_tuplas.append(k)
         comissao_fixa.append(k[3])
         ordens.append(k[0])
-
     soma_comissao = sum(comissao_fixa)
+    print(soma_comissao)
     total_distintos = len(set(ordens))
-    return soma_comissao
+    return soma_comissao, total_distintos
 
 @app.route('/qualidade', methods=['POST', 'GET'])
 @proteger_rota(['Qualidade', 'Administrador'])

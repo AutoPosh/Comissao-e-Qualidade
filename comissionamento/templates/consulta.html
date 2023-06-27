@@ -67,32 +67,7 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="container-itens container-inactive">
-            <div class="janela-title">
-                <h4> Olá, {{usuario}}</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-resumo">
-        <div class="valor-1">
-            <div class="comissao">
-                <h3>Comissão Fixa</h3>
-                <h1>R$ {{soma_comissao}}</h1>
-            </div>
-        </div>
-        <div class="valor-2">
-            <div class="comissao">
-                <h3>N° de Carros</h3>
-                <h1>{{ordens}}</h1>
-            </div>
-        </div>
-    </div>
-    <h1>{{ mes }}, {{ano}}</h1>
-
-    <div class="container">
+    <div class="container-value">
         <div class="controle">
             <select id="filtro-mes">
                 <option value="January">Janeiro</option>
@@ -109,8 +84,22 @@
                 <option value="December">Dezembro</option>
             </select>
         </div>
-        <div class="comissao-valor">
-            <h1 id="comissao-valor">{{ init }}</h1>
+    </div>
+
+    <h1>{{ano}}</h1>
+    <h1 id="mes">{{ mes }}</h1>
+    <div class="container-resumo">
+        <div class="valor-1">
+            <div class="comissao">
+                <h3>Comissão Fixa</h3>
+                <h1 id="comissao-valor">R$ {{soma_comissao}} </h1>
+            </div>
+        </div>
+        <div class="valor-2">
+            <div class="comissao">
+                <h3>N° de Carros</h3>
+                <h1 id="total-distintos">{{ordens}}</h1>
+            </div>
         </div>
     </div>
 
@@ -121,7 +110,6 @@
         $(document).ready(function () {
             // Obtém o mês atual
             var currentMonth = new Date().toLocaleString('default', { month: 'long' });
-
             // Define o valor selecionado do select como o mês atual
             $('#filtro-mes').val(currentMonth);
 
@@ -132,7 +120,7 @@
                 data: { month: currentMonth },
                 success: function (response) {
                     // Atualiza o conteúdo da <h1> com a resposta recebida
-                    $('#comissao-value').text(response.comissao);
+                    $('#comissao-valor').text("R$ " + response.comissao);
                 },
                 error: function (xhr, status, error) {
                     console.log(error); // Lida com erros, se necessário
@@ -150,7 +138,9 @@
                     data: { month: selectedMonth },
                     success: function (response) {
                         // Atualiza o conteúdo da <h1> com a resposta recebida
-                        $('#comissao-value').text(response.comissao);
+                        $('#comissao-valor').text("R$ " + response.comissao);
+                        $('#mes').text(response.mes);
+                        $('#total-distintos').text(response.total_distintos)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário
