@@ -213,7 +213,7 @@ def inicializar():
         resposta_id = cursor.fetchall()
 
         id_servico = resposta_id[0]
-        #print(f'ID: {id_servico}\n Resposta: {resposta_id}')
+
 
         conn.commit()
 
@@ -406,6 +406,7 @@ def rota_consulta():
     else:
         return redirect(url_for('index'))
 
+
 @app.route('/comissionamento', methods=['POST', 'GET'])
 @proteger_rota(['Qualidade', 'Administrador'])
 def comissionamento():
@@ -445,6 +446,7 @@ def comissionamento():
     # Retorna a resposta em formato JSON para o AJAX
     return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1]})
 
+
 def obter_comissao(month, mes):
     usuario = session.get('usuario')
     year = '2023'
@@ -483,6 +485,7 @@ def obter_comissao(month, mes):
     print(soma_comissao)
     total_distintos = len(set(ordens))
     return soma_comissao, total_distintos
+
 
 @app.route('/qualidade', methods=['POST', 'GET'])
 @proteger_rota(['Qualidade', 'Administrador'])
@@ -599,5 +602,6 @@ def send_pesquisa():
 
 if __name__ == '__main__':
     app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
+
 
 
