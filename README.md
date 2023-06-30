@@ -6,13 +6,13 @@ Aplicativo web de comissionamento e qualidade feitos para a AutoPosh
 <ul>
     <li>[ ] Criar um DB com os seguintes itens:</li>
     <ul>
-        <li style="list-style: none">[ ] ID <-- PK</li>
-        <li style="list-style: none">[ ] colaborador</li> 
-        <li style="list-style: none">[ ] senha </li>
-        <li style="list-style: none">[ ] cargo</li>
-        <li style="list-style: none">[ ] grade</li>
-        <li style="list-style: none">[ ] patente</li>
-        <li style="list-style: none">[ ] Current Date()</li>
+        <li style="list-style: none">[ X ] ID <-- PK</li>
+        <li style="list-style: none">[ X ] colaborador</li> 
+        <li style="list-style: none">[ X ] senha </li>
+        <li style="list-style: none">[ X ] cargo</li>
+        <li style="list-style: none">[ X ] grade</li>
+        <li style="list-style: none">[ X ] nivel</li>
+        <li style="list-style: none">[ X ] Current Date()</li>
     </ul>
 </ul>
 <ul>
