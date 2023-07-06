@@ -68,38 +68,39 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="container-itens container-inactive">
+    <div class="container" style="user-select: none;">
+        <div class="container-itens container-inactive" style="user-select: none;">
             <div class="janela-title">
-                <h4> Olá, {{usuario}}</h3>
+                <h4 style="user-select: none;"> Olá, {{usuario}}</h3>
             </div>
         </div>
     </div>
 
-
     <div class="container-tables">
-        <div class="view-tables">
+        <div class="view-tables" style="user-select: none;">
             <div class="div-os"><strong>OS</strong></div>
             <div class="div-etapa"><strong>Etapa</strong></div>
             <div class="div-servico"><strong>Serviço</strong></div>
-            <div class="div-status"><strong>Mês</strong></div>
+            <div class="div-status" style="display: none;"><strong>Mês</strong></div>
             <div class="container-controles"><strong>Controles</strong></div>
         </div>
 
         {% for item in lista_comissao %}
-        <div class="data-values" id="{{item[0]}}">
+        <div class="data-values" id="{{item[0]}}" style="user-select: none;">
             <div class="os-data">{{ item[1] }}</div>
             <div class="etapa-data"> {{ item[2] }} </div>
             <div class="servico-data">{{ item[3] }}</div>
-            <div class="status-servico">{{ mes }}</div>
+            <div class="status-servico" style="display: none;">{{ mes }}</div>
             <div class="controles">
                 <button class="btn btn-primary" data-id="{{item[0]}}"
                     style="text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;">Avaliar</button>
             </div>
         </div>
         {% endfor %}
+    </div>
 
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
