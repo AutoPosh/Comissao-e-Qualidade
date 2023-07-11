@@ -1,4 +1,4 @@
-import os, traceback
+'''import os, traceback
 import mysql.connector
 from dotenv import load_dotenv
 from functools import wraps
@@ -67,7 +67,7 @@ mes_atual = calendar.month_name[mes_atual]
 
 
 for i in lista_tuplas:
-    print(i)
+    print(i)'''
 
 #cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3 FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
 '''cursor.execute(f"SELECT etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3 FROM comissao WHERE id_comissao = 1")
@@ -186,3 +186,10 @@ print(colab_3)
 
 print(id_servico)'''
 
+
+import json
+
+with open('comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
+    perguntas = json.load(f)
+qst = perguntas.get('176')
+print(*(f'{i}\n' for i in qst))
