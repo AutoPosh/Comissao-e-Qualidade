@@ -2282,5 +2282,589 @@
     "351": [
         "PARALAMA DIANTEIRO (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
         "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "352": [
+        "PORTA DIANTEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "PORTA TRASEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "PORTA DIANTEIRA - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "PORTA TRASEIRA - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "353": [
+        "SOLEIRAS LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "SOLEIRAS LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo proprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "354": [
+        "SOLEIRA DO PORTA MALAS - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "355": [
+        "TAMPA DO PORTA MALAS - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "356": [
+        "TAMPA TRASEIRA (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "357": [
+        "TANQUE (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "358": [
+        "SEÇÃO SUPERIOR (TETO) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "359": [
+        "VISEIRA DO CAPACETE (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "360": [
+        "BATENTE DAS PORTAS - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "BATENTE DAS PORTAS - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "361": [
+        "BOCAL DE ABASTECIMENTO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "362": [
+        "BOLHA GRANDE (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "363": [
+        "BOLHA PEQUENA (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "364": [
+        "CAPÔ - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "365": [
+        "CAPÔ - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARALAMAS DIANTEIROS - Estão devidamente polidos, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARALAMAS TRASEIROS - Estão devidamente polidos, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "366": [
+        "LADO MOTORISTA - A coluna central dos vidros está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "LADO PASSAGEIRO - A coluna central dos vidros está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "367": [
+        "LADO MOTORISTA - A coluna dianteira dos vidros está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "LADO PASSAGEIRO - A coluna dianteira dos vidros está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "368": [
+        "LADO MOTORISTA - A coluna do teto está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "LADO PASSAGEIRO - A coluna do teto está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "369": [
+        "LADO MOTORISTA - A coluna traseira dos vidros está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "LADO PASSAGEIRO - A coluna do teto está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "370": [
+        "CONCHA DA MAÇANETA DIANTEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "CONCHA DA MAÇANETA TRASEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "CONCHA DA MAÇANETA DIANTEIRA - LADO PASSAGEIRO - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "CONCHA DA MAÇANETA TRASEIRA - LADO PASSAGEIRO - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "371": [
+        "FAROL DIANTEIRO (MOTO) - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "372": [
+        "FRENTE DA MAÇANETA DIANTEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "FRENTE DA MAÇANETA TRASEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "FRENTE DA MAÇANETA DIANTEIRA - LADO PASSAGEIRO - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "FRENTE DA MAÇANETA TRASEIRA - LADO PASSAGEIRO - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "373": [
+        "RETROVISOR ESQUERDO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "RETROVISOR DIREITO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "374": [
+        "FAROL DE MILHAS ESQUERDO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "FAROL DE MILHAS DIREITO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "375": [
+        "FAROL ESQUERDO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "FAROL DIREITO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "376": [
+        "LANTERNA TRASEIRA ESQUERDA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "LANTERNA TRASEIRA DIREITA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "377": [
+        "PARALAMA DIANTEIRO - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARALAMA DIANTEIRO - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "378": [
+        "PARALAMA TRASEIRO - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARALAMA TRASEIRO - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "379": [
+        "PARACHOQUE DIANTEIRO - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARACHOQUE DIANTEIRO - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "380": [
+        "PARACHOQUE TRASEIRO - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PARACHOQUE TRASEIRO - LADO PASSAGEIRO - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "381": [
+        "PARALAMA DIANTEIRO (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "382": [
+        "PARALAMA DIANTEIRO (MOTOS) - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "383": [
+        "PORTA DIANTEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PORTA TRASEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PORTA DIANTEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "PORTA TRASEIRA - LADO MOTORISTA - Está devidamente polido, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "384": [
+        "SOLEIRA DA PORTA DIANTEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "SOLEIRA DA PORTA TRASEIRA - LADO MOTORISTA - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "SOLEIRA DA PORTA DIANTEIRA - LADO PASSAGEIRO - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "SOLEIRA DA POTRA TRASEIRA - LADO PASSAGEIRO - Está devidamente polida, sem holgoramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "385": [
+        "SOLEIRA DO PORTA MALAS - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "386": [
+        "TAMPA DO PORTA MALAS - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "387": [
+        "TAMPA TRASEIRA (MOTOS) - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "388": [
+        "TANQUE (MOTOS) - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "389": [
+        "SEÇÃO SUPERIOR (TETO) - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?"
+    ],
+    "390": [
+        "VISEIRA DO CAPACETE - Está devidamente polida, sem hologramas, microriscos ou danos causados pelo próprio polimento e com o brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente rpeservadas, sem resquícios do composto polidor?" 
+    ],
+    "391": [
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "392": [
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "393":[
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "394": [
+        "AVULSO - A aplicação do PPF la localidade observada foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?"
+    ],
+    "395": [
+        "FAROL ESQUERDO - A aplicação do PPF foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "FAROL DIREITO - A aplicação do PPF foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?"
+    ],
+    "396": [
+        "LANTERNA TRASEIRA ESQUERDA - A aplicação do PPF foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "LANTERNA TRASEIRA DIREITA - A aplicação do PPF foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?"
+    ],
+    "406": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "407": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "408": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "409": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "410": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "411": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "412": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "413": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "414": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "415": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "416": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "417": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "418": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "419": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "420": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "421": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "422": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "423": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "424": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "425": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "426": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "427": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "428": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "429": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "430": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "431": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "432": [
+        "Customização das rodas - As rodas estão devidamente polidas, sem hologramas, microriscos ou danos causados pelo próprio polimento e com brilho?",
+        "As bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? "
+    ],
+    "433": [
+        "O descansa braço central, incluindo as costuras e suas bordas, estão bem limpo e fosco sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro no descansa braço central, foi reparado com a devida qualidade?"
+    ],
+    "434": [
+        "O assento do estofado, em couro / tecido,  incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro/tecido foi realizado com a devida qualidade?"
+    ],
+    "435": [
+        "O encosto do estofado, em couro / tecido,  incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro/tecido foi realizado com a devida qualidade?"
+    ],
+    "436": [
+        "O encosto de cabeça do estofado, em couro / tecido,  incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro/tecido foi realizado com a devida qualidade?"
+    ],
+    "437": [
+        "O estofado total, em couro / tecido,  incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro/tecido foi realizado com a devida qualidade?"
+    ],
+    "438": [
+        "LADO MOTORISTA - O forro de porta DIANTEIRO em couro ou tecido, incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira e o reparo do couro/tecido foi realizado com a devida qualidade?",
+        "LADO PASSAGEIRO - O forro de porta DIANTEIRO em couro ou tecido, incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira e o reparo do couro/tecido foi realizado com a devida qualidade?",
+        "LADO MOTORISTA - O forro de porta TRASEIRO em couro ou tecido, incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira e o reparo do couro/tecido foi realizado com a devida qualidade?",
+        "LADO PASSAGEIRO - O forro de porta TRASEIRO em couro ou tecido, incluindo as costuras e suas bordas, estão bem limpos e foscos sem resquícios de sujeira e o reparo do couro/tecido foi realizado com a devida qualidade?"
+    ],
+    "439": [
+        "O volante, incluindo as costuras e suas bordas, está bem limpo e fosco sem resquícios de sujeira como areia, pó e oleosidade?",
+        "O reparo do couro do volante foi realizado com a devida qualidade?"
+    ],
+    "440": [
+        "REFAZER PERGUNTAS"
+    ],
+    "441": [
+        "Seção Superior está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "442": [
+        "MOTOS - Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"        
+    ],
+    "443": [
+        "MOTOS - Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"    
+    ],
+    "444": [
+        "MOTOS - Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "MOTOS - Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "MOTOS - Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"    
+    ],
+    "445": [
+        "Seção Superior está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "446": [
+        "Seção Superior está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "447": [
+        "A proteção / hidratante da Seção Superior (pintura, cantoneiras, antena, rack do teto, teto solar, couro, Chassi) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Superior - as bordas das peças), que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Frontal (para-brisa, capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento, partes plásticas do motor) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Frontal - as bordas das peças ou partes do motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Motorista 1 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Motorista 2 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Passageiro 1 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Passageiro 2 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Traseira (pintura, vidro, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador, partes plásticas do motor) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante?"
+    ],
+    "448": [
+        "A proteção / hidratante da Seção Superior (pintura, cantoneiras, antena, rack do teto, teto solar, couro, Chassi) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Superior - as bordas das peças), que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Frontal (para-brisa, capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento, partes plásticas do motor) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Frontal - as bordas das peças ou partes do motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Motorista 1 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Motorista 2 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Passageiro 1 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Lateral Lado Passageiro 2 (pintura, vidros, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? ",
+        "A proteção / hidratante da Seção Traseira (pintura, vidro, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador, partes plásticas do motor) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante?"
+    ],
+    "449": [
+        "Verificado?"
+    ],
+    "450": [
+        "Verificado?"
+    ],
+    "451": [
+        "A aplicação do PPF na Seção Superior (pintura, cantoneiras, antena, rack do teto) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) foi executada com qualidade, quanto sua linearidade (estando o refilamento bem linear em suas bordas), ao encaixe dentro da peça (caso tenha tido a possibilidade de remoção da mesma, com  as bordas devidamente travadas) e quanto a ausência de contaminantes, estrias, não havendo necessidade de substituição da peça?"
+    ],
+    "452": [
+        "Verificado?"
+    ],
+    "453": [
+        "Verificado?"
+    ],
+    "454": [
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "455": [
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
+    ],
+    "456": [
+        "Seção Superior (pintura, cantoneiras, antena, rack do teto) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Superior - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Frontal (capô, para-choque parte superior e inferior, grade em black piano ou cromado parte superior e inferior, faróis, faróis de milhas, sensor de estacionamento) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Frontal - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, parte interna do para-lama, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Motorista 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, parte interna do para-lama, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Motorista 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 1 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama dianteiro, porta do motorista, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, retrovisor, saia / longarina, contorno de portas, entre portas, dobradiças e soleiras) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 1 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Lateral Lado Passageiro 2 (pintura, peças plásticas pintadas, cromados e emblemas do para-lama traseiro, porta do passageiro, maçanetas, concha de maçanetas, frisos laterais cromados ou em black-piano, em torno da janela em black-piano, contorno de portas, entre portas, dobradiças e soleiras e tampa e bocal de combustível) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Lateral Lado Passageiro 2 - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor? ",
+        "Seção Traseira (pintura, cromados e black-piano do aerofólio traseiro, brack-light, tampa do porta-malas, contorno interno do porta-malas e dobradiças, emblemas e letreiros, lanternas, para-choque, sensor do estacionamento, parte inferior do para-choque, defletores, reboque, ponteira do escapamento, abafador / silenciador) está devidamente polida, sem hologramas, micro riscos ou danos causados pelo próprio polimento e com brilho?",
+        "Seção Traseira - as bordas das peças, que não receberam o polimento, estão devidamente preservadas, sem resquícios do composto polidor?"
     ]
 }
