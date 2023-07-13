@@ -528,43 +528,28 @@ def rota_qualidade():
     else:
         return redirect(url_for('index'))
 
-
-@app.route('/qualidade/init_avaliacao', methods=['POST'])
 @proteger_rota(['Qualidade', 'Administrador'])
-def iniciar_avaliacao():
-    usuario = session.get('usuario')
-    div_id = request.args.get('id')
-    acao = request.args.get('acao')
-    etapaData = request.args.get('etapa')
-    servicoData = request.args.get('servico')
-        
-    conn = get_db_connection()
+@app.route('/avaliacao', methods=['POST', 'GET'])
+def avaliacao():
+    if request.method == 'POST':
+        data = request.get_json()
+        id = request.args.get('id')
+        osData = data['osData']
+        servicoData = data['servicoData']
+        statusServico = data['statusServico']
+        etapaData = data['etapaData']
 
-    print(div_id, acao, etapaData, servicoData)
-    try:
-        cursor = conn.cursor()
-        # Obtem a data e hora atual
-        agora = datetime.now()
+        # Salvar os dados (faça o que for necessário)
+        print(id)
+        # Redirecionar para a rota "avaliacao" com método GET
+        return render_template('avaliacao.html', id=request.args.get('id'), osData=request.args.get('osData'), servicoData=request.args.get('servicoData'), etapaData=request.args.get('etapaData'))
 
-        #Formatada
-        data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+    # Renderizar o arquivo HTML "avaliacao.html" com as variáveis
+    return render_template('avaliacao.html', id=request.args.get('id'), osData=request.args.get('osData'), servicoData=request.args.get('servicoData'), etapaData=request.args.get('etapaData'))
 
-        if acao == 'Avaliar':
-            status = 'Serviço Será redirecionado agora para a página de avaliação :D'
-            print(status)
-            print(usuario)
-            #Formatada
-            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
-            #cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_pausa = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
-            #conn.commit()
-            #return jsonify({"sucesso": True, "status": status})
-            return redirect(url_for('index'))
-        
-    except Exception as e:
-        print(f'Erro no banco: {e}')
-        conn.rollback()
-        traceback.print_exc()
-    return
+    # Renderizar o arquivo HTML "avaliacao.html" com as variáveis
+    #return render_template('avaliacao.html')
+
 
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
