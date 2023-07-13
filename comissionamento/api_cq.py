@@ -529,6 +529,43 @@ def rota_qualidade():
         return redirect(url_for('index'))
 
 
+@app.route('/qualidade/init_avaliacao', methods=['POST'])
+@proteger_rota(['Qualidade', 'Administrador'])
+def iniciar_avaliacao():
+    usuario = session.get('usuario')
+    div_id = request.args.get('id')
+    acao = request.args.get('acao')
+    etapaData = request.args.get('etapa')
+    servicoData = request.args.get('servico')
+        
+    conn = get_db_connection()
+
+    print(div_id, acao, etapaData, servicoData)
+    try:
+        cursor = conn.cursor()
+        # Obtem a data e hora atual
+        agora = datetime.now()
+
+        #Formatada
+        data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+
+        if acao == 'Avaliar':
+            status = 'Serviço Será redirecionado agora para a página de avaliação :D'
+            print(status)
+            print(usuario)
+            #Formatada
+            data_hora_formatada = agora.strftime('%Y-%m-%d %H:%M:%S')
+            #cursor.execute(f"UPDATE servicos SET status_servico = '{status}', tempo_pausa = '{data_hora_formatada}' WHERE id_servico = '{div_id}'")
+            #conn.commit()
+            #return jsonify({"sucesso": True, "status": status})
+            return redirect(url_for('index'))
+        
+    except Exception as e:
+        print(f'Erro no banco: {e}')
+        conn.rollback()
+        traceback.print_exc()
+    return
+
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
 def rota_painel():
