@@ -548,7 +548,7 @@ def avaliacao():
 @app.route('/avaliar', methods=['POST', 'GET'])
 def avaliar():
     dados_avaliacao = session.get('dados_avaliacao')
-    print('Se printar então deu certo', dados_avaliacao)
+    #print('Se printar então deu certo', dados_avaliacao)
     id = dados_avaliacao[0]
     ordem_servico = dados_avaliacao[1]
     etapa = dados_avaliacao[2]
@@ -558,9 +558,9 @@ def avaliar():
     try:
         with open(r'comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
             perguntas = json.load(f)
-        print(etapa)
+        #print(etapa)
         questoes = perguntas.get(etapa)
-        print(questoes)
+        #print(questoes)
     except Exception as e:
         print('Ocorreu um erro:', str(e))  # Exibe a mensagem de erro
         raise  # Levanta o mesmo erro novamente
