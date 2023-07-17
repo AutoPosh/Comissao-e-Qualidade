@@ -39,8 +39,8 @@ buttons.forEach(button => {
       body: JSON.stringify(data)
     })
       .then(() => {
-        // Redirecionar o navegador para a rota "avaliacao"
-       window.location.href = `/avaliacao?id=${id}&osData=${osData}&servicoData=${servicoData}&etapaData=${etapaData}`;
+        // Redirecionar para a rota "avaliar" após o sucesso da solicitação
+        window.location.href = '/avaliar';
       })
       .catch(error => {
         // Lidar com erros (opcional)

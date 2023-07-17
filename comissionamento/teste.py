@@ -187,9 +187,32 @@ print(colab_3)
 print(id_servico)'''
 
 
-import json
+'''import json
 
 with open('comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
     perguntas = json.load(f)
 qst = perguntas.get('176')
-print(*(f'{i}\n' for i in qst))
+print(*(f'{i}\n' for i in qst))'''
+
+
+from flask import Flask
+from flask_caching import Cache
+
+app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+
+@app.route('/avaliacao', methods=['POST', 'GET'])
+def avaliacao(parametro):
+    # Faça o processamento necessário com o parâmetro
+    # Armazene o valor em cache
+    cache.set('parametro', parametro)
+    return 'Valor armazenado em cache'
+
+@app.route('/rota2')
+def rota2():
+    # Recupere o valor do cache
+    parametro = cache.get('parametro')
+    return f'O valor recebido foi: {parametro}'
+
+if __name__ == '__main__':
+    app.run()

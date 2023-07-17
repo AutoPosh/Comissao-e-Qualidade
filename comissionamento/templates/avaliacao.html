@@ -1,26 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/avaliacao.css">
     <title>Avaliação</title>
 </head>
 
 <body>
+    <nav>
+        <img class="img-logo" src="../static/src/icons/logo_branca.png" draggable="false" onclick="logoClick()">
+        <div class="div-nav">
+            <ul class="ul-nav">
+                <li class="li-nav"><a class='a-nav' href="/qualidade" draggable="false">VOLTAR PARA A QUALIDADE</a></li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-danger btn-md" onclick="logout()">Finalizar Sessão</button>
+    </nav>
     <div class="cabecalho">
         <h1>Avaliação</h1>
         <p>ID: {{ id }}</p>
-        <p>Número da OS: {{ osData }}</p>
-        <p>Etapa: {{ etapaData}}</p>
-        <p>Serviço: {{ servicoData }}</p>
+        <p>Número da OS: {{ ordem_servico }}</p>
+        <p>Etapa: {{ etapa }}</p>
+        <p>Serviço: {{ servico_nome }}</p>
+        <p>Mês: {{ mes }}</p>
+    </div>
+
+    <div class="questoes">
+        {%for i in questoes%}
+        <div class="perguntas">
+            <p class="perguntas-conteudo"> {{ i }} </p>
+            <div class="container-inputs">
+                <div class="inputs">
+                    <div class="input-sim input-df">
+                        <label class="label-sim" for="sim-{{ k }}">SIM</label>
+                        <input type="radio" class="s" name="{{loop.index0}}">
+                    </div>
+                    <div class="input-nao input-df">
+                        <label class="label-nao" for="nao-{{ k }}">NÃO</label>
+                        <input type="radio" class="n" name="{{loop.index0}}">
+                    </div>
+                    <div class="input-na input-df">
+                        <label class="label-na" for="na-{{ k }}">N/A</label>
+                        <input type="radio" class="na" name="{{loop.index0}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
     </div>
     <div class="corpo">
-
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 
 </script>
+
 </html>

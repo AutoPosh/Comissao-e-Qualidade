@@ -1,11 +1,13 @@
-import os, traceback, json, calendar
+import os, traceback, json, calendar, requests
 import mysql.connector
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
+from flask_caching import Cache
 from functools import wraps
 from datetime import datetime, timedelta, timezone, date
 load_dotenv()
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
@@ -196,7 +198,7 @@ def inicializar():
                 conn.close()
                 return jsonify({'exists': True, 'dados': verificar})
 
-        with open('static/json/base_servicos.json', 'r', encoding="utf-8") as f:
+        with open('comissionamento/static/json/base_servicos.json', 'r', encoding="utf-8") as f:
             #printar o conteudo do json
             svc_json = json.load(f)
             etapa_descricao = svc_json[f"{dados_cadastro['etapa']}"]
@@ -296,7 +298,7 @@ def alterar_status():
         elif acao == 'finalizar':
             status = 'Finalizado'
 
-            with open('static/json/comissao.json', 'r', encoding="utf-8") as f:
+            with open('comissionamento/static/json/comissao.json', 'r', encoding="utf-8") as f:
                 comissao = json.load(f)
                 
             cursor.execute(f"SELECT etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3 FROM comissao WHERE id_comissao = {div_id}")
@@ -497,59 +499,75 @@ def rota_qualidade():
 
         cursor.execute(f"SELECT DISTINCT c.id_comissao, c.numero_os, c.etapa_servico, s.servico, c.status_avaliacao, c.id_colaborador_1, c.id_colaborador_2, c.id_colaborador_3, c.mes FROM comissao c JOIN servicos s ON c.etapa_servico = s.etapa_servico WHERE c.status_avaliacao = 'Aguardando Avaliacao';")
         services_comissao = cursor.fetchall()
-
-        mes = services_comissao[0][8]
-        print(mes)
-        match mes:
-            case 'January':
-                mes = 'Janeiro'
-            case 'February':
-                mes = 'Fevereiro'
-            case 'March':
-                mes = 'Março'
-            case 'April':
-                mes = 'Abril'
-            case 'May':
-                mes = 'Maio'
-            case 'June':
-                mes = 'Junho'
-            case 'July':
-                mes = 'Julho'
-            case 'August':
-                mes = 'Agosto'
-            case 'September':
-                mes = 'Setembro'
-            case 'November':
-                mes = 'Novembro'
-            case 'December':
-                mes = 'Dezembro'
-
-        return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao, mes = mes)
+        for i in range (0, len(services_comissao)):
+            mes = services_comissao[i][8]
+            match mes:
+                case 'January':
+                    mes = 'Janeiro'
+                case 'February':
+                    mes = 'Fevereiro'
+                case 'March':
+                    mes = 'Março'
+                case 'April':
+                    mes = 'Abril'
+                case 'May':
+                    mes = 'Maio'
+                case 'June':
+                    mes = 'Junho'
+                case 'July':
+                    mes = 'Julho'
+                case 'August':
+                    mes = 'Agosto'
+                case 'September':
+                    mes = 'Setembro'
+                case 'November':
+                    mes = 'Novembro'
+                case 'December':
+                    mes = 'Dezembro'
+        return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao)
     else:
         return redirect(url_for('index'))
+
 
 @proteger_rota(['Qualidade', 'Administrador'])
 @app.route('/avaliacao', methods=['POST', 'GET'])
 def avaliacao():
-    if request.method == 'POST':
-        data = request.get_json()
-        id = request.args.get('id')
-        osData = data['osData']
-        servicoData = data['servicoData']
-        statusServico = data['statusServico']
-        etapaData = data['etapaData']
+    data = request.get_json()
+    id = data['id']
+    osData = data['osData']
+    etapaData = data['etapaData']
+    servicoData = data['servicoData']
+    mes = data['statusServico']
 
-        # Salvar os dados (faça o que for necessário)
-        print(id)
-        # Redirecionar para a rota "avaliacao" com método GET
-        return render_template('avaliacao.html', id=request.args.get('id'), osData=request.args.get('osData'), servicoData=request.args.get('servicoData'), etapaData=request.args.get('etapaData'))
+    # Salvar os dados em sessão
+    session['dados_avaliacao'] = [id, osData, etapaData, servicoData, mes]
+    #print(session.get('dados_avaliacao'))
+    return redirect(url_for('avaliar'))
 
-    # Renderizar o arquivo HTML "avaliacao.html" com as variáveis
-    return render_template('avaliacao.html', id=request.args.get('id'), osData=request.args.get('osData'), servicoData=request.args.get('servicoData'), etapaData=request.args.get('etapaData'))
+@proteger_rota(['Qualidade', 'Administrador'])
+@app.route('/avaliar', methods=['POST', 'GET'])
+def avaliar():
+    dados_avaliacao = session.get('dados_avaliacao')
+    print('Se printar então deu certo', dados_avaliacao)
+    id = dados_avaliacao[0]
+    ordem_servico = dados_avaliacao[1]
+    etapa = dados_avaliacao[2]
+    etapa = etapa.strip()
+    servico_nome = dados_avaliacao[3]
+    mes = dados_avaliacao[4]
+    try:
+        with open(r'comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
+            perguntas = json.load(f)
+        print(etapa)
+        questoes = perguntas.get(etapa)
+        print(questoes)
+    except Exception as e:
+        print('Ocorreu um erro:', str(e))  # Exibe a mensagem de erro
+        raise  # Levanta o mesmo erro novamente
 
-    # Renderizar o arquivo HTML "avaliacao.html" com as variáveis
-    #return render_template('avaliacao.html')
+    return render_template('avaliacao.html', id=id, ordem_servico=ordem_servico, etapa=etapa, servico_nome=servico_nome, mes=mes, questoes = questoes)
 
+    
 
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])

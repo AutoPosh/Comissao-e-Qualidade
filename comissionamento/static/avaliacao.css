@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.img-logo {
+    width: 125px;
+    place-self: left !important;
+    margin-left: 30px;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+nav {
+    padding-block: 10px 0;
+    height: 70px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    background-color: black;
+}
+
+.div-nav {
+    margin: 16px auto 0 auto;
+    padding: 0;
+}
+
+.ul-nav {
+    margin: auto auto 0 auto;
+    padding: 0;
+    display: inline-flex;
+    gap: 5px;
+    list-style: none;
+    transform: translateX(0);
+}
+
+.li-nav {
+    padding: 10px 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.a-nav {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+.li-nav:hover {
+    background-color: brown;
+    transition: 350ms ease-in-out;
+}
+
+.perguntas {
+    width: 80%;
+    margin: 2px auto 2px auto;
+    background-color: rgba(0, 217, 255, 0.062);
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+.container-inputs {
+    background-color: rgb(235, 69, 69);
+    padding: 5px 0 10px 0;
+}
+
+label{
+    font-size: 12pt;
+}
+
+.inputs {
+    width: 220px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.input-df {
+    user-select: none;
+    display: grid;
+}
+
+/* Esconde o input nativo */
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 0 auto;
+}
+
+/* Estiliza o círculo do rádio quando selecionado */
+input[type="radio"]:checked {
+    background-color: #000;
+    /* Cor do preenchimento quando selecionado */
+}
+
+.input-df.checked {
+    /* Estilos quando o rádio estiver marcado */
+    background-color: #ff0000;
+}
+
+
+@media(max-width: 550px) {
+    .buttons-svc img {
+        width: 9rem;
+        margin-inline: 10px;
+    }
+
+    #painel {
+        height: 144px;
+    }
+
+    .text-flutuante {
+        width: 144px;
+    }
+
+    .perguntas {
+        width: 95%;
+        margin: 2px auto 2px auto;
+        background-color: rgba(0, 217, 255, 0.062);
+        margin-bottom: 20px;
+    }
+}
+
+
+@media(max-width: 850px) {
+
+    /* Responsividade para celular de toda a tela, não deixar margem para rolar */
+
+    .div-nav {
+        display: none;
+    }
+
+    .img-logo {
+        margin-left: 0;
+        transform: translate(-70px);
+        padding-left: 0;
+    }
+
+    header,
+    nav {
+        height: 100px;
+    }
+
+}

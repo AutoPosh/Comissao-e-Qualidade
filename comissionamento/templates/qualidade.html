@@ -90,7 +90,32 @@
             <div class="os-data">{{ item[1] }}</div>
             <div class="etapa-data"> {{ item[2] }} </div>
             <div class="servico-data">{{ item[3] }}</div>
-            <div class="status-servico" style="display: none;">{{ mes }}</div>
+            {% set mes = item[8] %}
+            {% set mes_traduzido = '' %}
+            {% if mes == 'January' %}
+            {% set mes_traduzido = 'Janeiro' %}
+            {% elif mes == 'February' %}
+            {% set mes_traduzido = 'Fevereiro' %}
+            {% elif mes == 'March' %}
+            {% set mes_traduzido = 'Março' %}
+            {% elif mes == 'April' %}
+            {% set mes_traduzido = 'Abril' %}
+            {% elif mes == 'May' %}
+            {% set mes_traduzido = 'Maio' %}
+            {% elif mes == 'June' %}
+            {% set mes_traduzido = 'Junho' %}
+            {% elif mes == 'July' %}
+            {% set mes_traduzido = 'Julho' %}
+            {% elif mes == 'August' %}
+            {% set mes_traduzido = 'Agosto' %}
+            {% elif mes == 'September' %}
+            {% set mes_traduzido = 'Setembro' %}
+            {% elif mes == 'November' %}
+            {% set mes_traduzido = 'Novembro' %}
+            {% elif mes == 'December' %}
+            {% set mes_traduzido = 'Dezembro' %}
+            {% endif %}
+            <div class="status-servico" style="display: none;">{{ mes_traduzido }}</div>
             <div class="controles">
                 <button class="btn btn-primary btn-avaliar" data-id="{{item[0]}}"
                     style="text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.466); cursor: pointer;">Avaliar</button>
