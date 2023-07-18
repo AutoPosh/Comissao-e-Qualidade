@@ -581,6 +581,7 @@ def premiacao():
     data = request.get_json()
     id = data.get('id')
     nota = data.get('nota')
+    print(float(nota)*100)
     etapa = data.get('etapa')
     #print(f'ID: {id}\nNota:{nota}\nEtapa:{etapa}')
 
@@ -629,14 +630,58 @@ def premiacao():
     conn.close()
 
     # Imprimir o dicionário de premiações dos colaboradores
-    print(premiacao_colaboradores)
+    #print(premiacao_colaboradores)
 
     #print(premiacao_colaboradores[colaborador_1])
     with open(r'comissionamento\static\json\premios.json', 'r', encoding='utf-8') as f:
         premios = json.load(f)
-    print(premios.get(f'{etapa}'))
+        
+    # Lista para armazenar os cargos
+    lista_cargos = []
+        # Loop para percorrer as chaves do dicionário
+    for chave in premiacao_colaboradores:
+        # Acessa o valor do cargo para cada chave
+        cargo = premiacao_colaboradores[chave]['cargo']
+        # Adiciona o cargo à lista
+        lista_cargos.append(cargo)
+        etapa_values = premios.get(f'{etapa}')
+
+        #print('VALORES DA ETAPA', etapa_values[cargo])
+        lista_cargos.append(etapa_values[cargo])
+    if len(lista_cargos) == 2:
+        valor_colab_1 = lista_cargos[1]
+        #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
+        print(f'valor colaborador 1: {valor_colab_1}')
+        print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+
+    elif len(lista_cargos) == 4:
+        valor_colab_1 = lista_cargos[1]
+        #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
+        print(f'valor colaborador 1: {valor_colab_1}')
+        print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+        valor_colab_2 = lista_cargos[3]
+        print(f'valor colaborador 2: {valor_colab_2}')
+        print(f'Valor real colaborador 2: {valor_colab_2*float(nota)}')
+
+    elif len(lista_cargos) == 6:
+        valor_colab_1 = lista_cargos[1]
+        #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
+        print(f'valor colaborador 1: {valor_colab_1}')
+        print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+        valor_colab_2 = lista_cargos[3]
+        print(f'valor colaborador 2: {valor_colab_2}')
+        print(f'Valor real colaborador 2: {valor_colab_2*float(nota)}')
+        valor_colab_3 = lista_cargos[5]
+        print(f'valor colaborador 3: {valor_colab_3}')
+        print(f'Valor real colaborador 3: {valor_colab_3*float(nota)}')
+
+    else:
+        resposta = {'message': 'Erro'}
+        return jsonify(resposta), 200
+
     response = {'message': 'Dados recebidos com sucesso'}
     return jsonify(response), 200
+
 
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])

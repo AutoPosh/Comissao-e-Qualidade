@@ -22,7 +22,6 @@
     width: 200px;
     transform: translateX(0);
     z-index: 900;
-    overflow: hidden;
 }
 
 .logout {
@@ -33,7 +32,7 @@
 body {
     width: 100%;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 .janela-title {
@@ -76,6 +75,11 @@ nav {
     display: flex;
     place-items: center;
     place-content: center;
+    position: relative;
+}
+
+.container{
+    position: relative;
 }
 
 .close{
@@ -119,9 +123,9 @@ nav {
 
 .container-tables{
     width: 100%;
-    height: 88vh;
+    height: auto;
     margin: 2% auto auto auto;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .view-tables{
@@ -250,11 +254,19 @@ i:hover{
         width: 100%;
         border-radius: 0;
         padding-top: 5px;
+        display: none;
+    }
+    .container{
+        width: fit-content;
+        top: 50px;
+        background-color: red;
     }
 
     header,
     nav {
         height: 80px;
+        position: relative;
+        
     }
 
 }
