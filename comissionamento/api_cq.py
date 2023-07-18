@@ -11,12 +11,12 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=60)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=960)
 
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=60)
+    app.permanent_session_lifetime = timedelta(minutes=960)
 
     # Check if the session has expired
     if 'login_time' in session and \
@@ -99,7 +99,7 @@ def login():
 
             # Define o tempo máximo de sessão para 1 minutos a partir do momento atual
             session.permanent = True
-            app.permanent_session_lifetime = timedelta(minutes=60)
+            app.permanent_session_lifetime = timedelta(minutes=960)
 
             return redirect(url_for('rota_homepage'))
         else:
@@ -567,7 +567,76 @@ def avaliar():
 
     return render_template('avaliacao.html', id=id, ordem_servico=ordem_servico, etapa=etapa, servico_nome=servico_nome, mes=mes, questoes = questoes)
 
+@proteger_rota(['Qualidade', 'Administrador'])
+@app.route('/premiacao', methods=['POST', 'GET'])
+def premiacao():
+    #dados_avaliacao = session.get('dados_avaliacao')
+    #id = dados_avaliacao[0]
+    #ordem_servico = dados_avaliacao[1]
+    #etapa = dados_avaliacao[2]
+    #etapa = etapa.strip()
+    #servico_nome = dados_avaliacao[3]
+    #mes = dados_avaliacao[4]
+
+    data = request.get_json()
+    id = data.get('id')
+    nota = data.get('nota')
+    etapa = data.get('etapa')
+    #print(f'ID: {id}\nNota:{nota}\nEtapa:{etapa}')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(f'SELECT id_colaborador_1, id_colaborador_2, id_colaborador_3, porc_colab1, porc_colab2, porc_colab3 FROM comissao WHERE id_comissao = "{id}"')
+
+    resposta = cursor.fetchall()
+    colaborador_1 = resposta[0][0]
+    colaborador_2 = resposta[0][1]
+    colaborador_3 = resposta[0][2]
     
+    lista = [colaborador_1, colaborador_2, colaborador_3]
+    tamanho = 0
+    for i in lista:
+        if i != '':
+            tamanho += 1
+
+    # Dicionário para armazenar as premiações dos colaboradores
+    premiacao_colaboradores = {}
+
+    # Executar o SELECT para obter os cargos dos colaboradores
+    for colaborador in lista:
+        if colaborador != "":
+            query = f"SELECT grade, nivel FROM colaboradores WHERE nome = '{colaborador}'"
+            cursor.execute(query)
+            resultado_pesquisa = cursor.fetchone()
+            
+            cargo_colaborador = f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}'
+            print(f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}')
+
+            if resultado_pesquisa:
+                cargo = cargo_colaborador
+                premiacao_colaboradores[colaborador] = {
+                    "total_possivel": "tudo",
+                    "cargo": cargo
+                }
+            else:
+                premiacao_colaboradores[colaborador] = {
+                    "total_possivel": "tudo",
+                    "cargo": None
+                }
+
+    # Fechar a conexão com o banco de dados
+    conn.close()
+
+    # Imprimir o dicionário de premiações dos colaboradores
+    print(premiacao_colaboradores)
+
+    #print(premiacao_colaboradores[colaborador_1])
+    with open(r'comissionamento\static\json\premios.json', 'r', encoding='utf-8') as f:
+        premios = json.load(f)
+    print(premios.get(f'{etapa}'))
+    response = {'message': 'Dados recebidos com sucesso'}
+    return jsonify(response), 200
 
 @app.route('/painel', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])

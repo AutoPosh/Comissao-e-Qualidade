@@ -41,8 +41,32 @@ btnSalvar.addEventListener('click', function () {
 
     // Exibindo o alerta com os valores contados
     console.log('SIM: ' + simCount + ' VALOR\nNÃO: ' + naoCount + ' VALOR\nTOTAL: ' + total + ' VALOR');
-    let notaAvaliacao = (simCount / (simCount + naoCount)) * 100
+    let notaAvaliacao = simCount / (simCount + naoCount)
     // Arredondando a nota para 2 casas decimais
     notaAvaliacao = notaAvaliacao.toFixed(2);
-    alert(notaAvaliacao)
+    let id = document.getElementById('id').textContent
+    let etapa = document.getElementById('etapa').textContent
+    alert(`O id é ${id}. A nota: ${notaAvaliacao}\nA etapa: ${etapa}`)
+    dados = {
+        id: id,
+        nota: notaAvaliacao,
+        etapa: etapa
+    }
+    // Enviar a solicitação para a rota "avaliacao" usando o método fetch
+    fetch('/premiacao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Resposta da API:', result.message);
+            // Faça algo com a resposta da API
+        })
+        .catch(error => {
+            // Lidar com erros (opcional)
+            console.error(error);
+        });
 });
