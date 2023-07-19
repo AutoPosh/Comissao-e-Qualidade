@@ -540,8 +540,14 @@ def avaliacao():
     servicoData = data['servicoData']
     mes = data['statusServico']
 
+
     # Salvar os dados em sessão
     session['dados_avaliacao'] = [id, osData, etapaData, servicoData, mes]
+
+    data = datetime.now()
+    data_inicio = data.strftime("%Y-%m-%d %H:%M:%S")
+    session['inicio_avaliacao'] = data_inicio
+
     #print(session.get('dados_avaliacao'))
     return redirect(url_for('avaliar'))
 
@@ -556,6 +562,7 @@ def avaliar():
     etapa = etapa.strip()
     servico_nome = dados_avaliacao[3]
     mes = dados_avaliacao[4]
+
     try:
         with open(r'comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
             perguntas = json.load(f)
@@ -579,12 +586,22 @@ def premiacao():
     #servico_nome = dados_avaliacao[3]
     #mes = dados_avaliacao[4]
 
+    inicio_avaliacao = session.get('inicio_avaliacao')
+    data_fim = datetime.now()
+    fim_avaliacao = data_fim.strftime("%Y-%m-%d %H:%M:%S")
+
     data = request.get_json()
     id = data.get('id')
     nota = data.get('nota')
     print(float(nota)*100)
     etapa = data.get('etapa')
     #print(f'ID: {id}\nNota:{nota}\nEtapa:{etapa}')
+
+    conn = get_db_connection
+    cursor = conn.cursor()
+    cursor.execute(f"UPDATE comissao SET tempo_inicio, tempo_fim = '{inicio_avaliacao}', '{fim_avaliacao}' WHERE id_comissao = '{id}'")
+    session['inicio_avaliacao'].pop()
+    conn.close()
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -626,6 +643,7 @@ def premiacao():
                     "total_possivel": "tudo",
                     "cargo": cargo
                 }
+
             else:
                 premiacao_colaboradores[colaborador] = {
                     "total_possivel": "tudo",
@@ -658,33 +676,82 @@ def premiacao():
 
     if len(lista_cargos) == 2:
         valor_colab_1 = lista_cargos[1]
-        #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
         print(f'valor colaborador 1: {valor_colab_1}')
         print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+        max_colaborador_1 = valor_colab_1
+        real_colaborador_1 = valor_colab_1*float(nota)
+
+        max_colaborador_2 = 0
+        real_colaborador_2 = 0
+
+        max_colaborador_3 = 0
+        real_colaborador_3 = 0
+        try:
+            conn = get_db_connection
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.close()
+
+        except Exception as e:
+            print('Ocorreu um erro:', str(e))
 
     elif len(lista_cargos) == 4:
         valor_colab_1 = lista_cargos[1]
         #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
         print(f'valor colaborador 1: {valor_colab_1/2}')
         print(f'Valor real colaborador 1: {(valor_colab_1*float(nota))/2}')
+        max_colaborador_1 = valor_colab_1/2
+        real_colaborador_1 = ((valor_colab_1*float(nota))/2)
+        
         valor_colab_2 = lista_cargos[3]
         print(f'valor colaborador 2: {valor_colab_2/2}')
         print(f'Valor real colaborador 2: {(valor_colab_2*float(nota))/2}')
+        max_colaborador_2 = valor_colab_2/2
+        real_colaborador_2 = (valor_colab_2*float(nota))/2
+
+        max_colaborador_3 = 0
+        real_colaborador_3 = 0
+
+        try:
+            conn = get_db_connection
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.close()
+            
+        except Exception as e:
+            print('Ocorreu um erro:', str(e))
 
     elif len(lista_cargos) == 6:
         valor_colab_1 = lista_cargos[1]
-        #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
         print(f'valor colaborador 1: {valor_colab_1/3}')
         print(f'Valor real colaborador 1: {(valor_colab_1*float(nota))/3}')
+
+        max_colaborador_1 = valor_colab_1/3
+        real_colaborador_1 = (valor_colab_1*float(nota))/3
+
         valor_colab_2 = lista_cargos[3]
         print(f'valor colaborador 2: {valor_colab_2/3}')
         print(f'Valor real colaborador 2: {(valor_colab_2*float(nota))/3}')
+        max_colaborador_2 = valor_colab_2/3
+        real_colaborador_2 = (valor_colab_2*float(nota))/3
+
         valor_colab_3 = lista_cargos[5]
         print(f'valor colaborador 3: {valor_colab_3/3}')
         print(f'Valor real colaborador 3: {(valor_colab_3*float(nota))/3}')
+        max_colaborador_3 = valor_colab_3/3
+        real_colaborador_3 = (valor_colab_3*float(nota))/3
+
+        try:
+            conn = get_db_connection
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.close()
+            
+        except Exception as e:
+            print('Ocorreu um erro:', str(e))
 
     else:
-        resposta = {'message': 'Erro'}
+        resposta = {'message': 'Erro no tamanho da lista, linha 729'}
         return jsonify(resposta), 200
 
     response = {'message': 'Dados recebidos com sucesso'}
