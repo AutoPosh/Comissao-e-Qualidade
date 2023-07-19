@@ -89,7 +89,7 @@ btnSalvar.addEventListener('click', function () {
             .then(response => response.json())
             .then(result => {
                 console.log('Resposta da API:', result.message);
-                // Faça algo com a resposta da API
+                window.location.href = '/qualidade';
             })
             .catch(error => {
                 // Lidar com erros (opcional)

@@ -100,7 +100,6 @@ def login():
             # Define o tempo máximo de sessão para 1 minutos a partir do momento atual
             session.permanent = True
             app.permanent_session_lifetime = timedelta(minutes=960)
-
             return redirect(url_for('rota_homepage'))
         else:
             return render_template('index.html', error='Senha incorreta')
@@ -149,6 +148,7 @@ def rota_operacao():
             #print(str(k[0]))
             pessoas.append(k[0])
         conn.commit()
+        conn.close()
         return render_template('operacao.html', usuario = usuario, id_user = id_user, lista_svc = carregar_servicos, pessoas = pessoas)
     else:
         return redirect(url_for('index'))
@@ -229,7 +229,7 @@ def inicializar():
         "colab_3": dados_cadastro['colab3'],
         "status": "Inicializado"
         }
-
+        conn.close()
         return jsonify({'sucess': True, 'dados': init_response})
 
     except Exception as e:
@@ -333,6 +333,7 @@ def alterar_status():
         conn.rollback()
         traceback.print_exc()
 
+    conn.close()
     return acao
 
 
@@ -350,36 +351,48 @@ def rota_consulta():
         ano_atual = datetime.now().year
         ano_atual = str(ano_atual)
 
-        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
-        resposta = cursor.fetchall()
 
-        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_1, c.premio_1_colab_1 FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        resposta = cursor.fetchall()
+        print(resposta)
+
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_2, c.premio_1_colab_2 FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
         resposta_2 = cursor.fetchall()
 
-        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+        cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_3, c.premio_1_colab_3 FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
         resposta_3 = cursor.fetchall()
 
         comissao_fixa = []
         ordens = []
         lista_tuplas = []
+        total_possivel = []
+        premio_1 = []
 
         for i in resposta:
             lista_tuplas.append(i)
             comissao_fixa.append(i[3])
             ordens.append(i[0])
+            total_possivel.append(i[7])
+            premio_1.append(i[8])
 
         for j in resposta_2:
             lista_tuplas.append(j)
             comissao_fixa.append(j[3])
             ordens.append(j[0])
+            total_possivel.append(j[7])
+            premio_1.append(j[8])
 
         for k in resposta_3:
             lista_tuplas.append(k)
             comissao_fixa.append(k[3])
             ordens.append(k[0])
+            total_possivel.append(k[7])
+            premio_1.append(k[8])
 
         soma_comissao = sum(comissao_fixa)
         total_distintos = len(set(ordens))
+        max_premio_1 = sum(total_possivel)
+        real_premio_1 = sum(premio_1)
 
         match mes_atual:
             case 'January':
@@ -405,7 +418,8 @@ def rota_consulta():
             case 'December':
                 mes_atual = 'Dezembro'
 
-        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual)
+        conn.close()
+        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1)
     else:
         return redirect(url_for('index'))
 
@@ -487,6 +501,8 @@ def obter_comissao(month, mes):
     soma_comissao = sum(comissao_fixa)
     print(soma_comissao)
     total_distintos = len(set(ordens))
+
+    conn.close()
     return soma_comissao, total_distintos
 
 
@@ -525,6 +541,8 @@ def rota_qualidade():
                     mes = 'Novembro'
                 case 'December':
                     mes = 'Dezembro'
+
+        conn.close()
         return render_template('qualidade.html', usuario = usuario, lista_comissao = services_comissao)
     else:
         return redirect(url_for('index'))
@@ -578,14 +596,6 @@ def avaliar():
 @proteger_rota(['Qualidade', 'Administrador'])
 @app.route('/premiacao', methods=['POST', 'GET'])
 def premiacao():
-    #dados_avaliacao = session.get('dados_avaliacao')
-    #id = dados_avaliacao[0]
-    #ordem_servico = dados_avaliacao[1]
-    #etapa = dados_avaliacao[2]
-    #etapa = etapa.strip()
-    #servico_nome = dados_avaliacao[3]
-    #mes = dados_avaliacao[4]
-
     inicio_avaliacao = session.get('inicio_avaliacao')
     data_fim = datetime.now()
     fim_avaliacao = data_fim.strftime("%Y-%m-%d %H:%M:%S")
@@ -597,11 +607,13 @@ def premiacao():
     etapa = data.get('etapa')
     #print(f'ID: {id}\nNota:{nota}\nEtapa:{etapa}')
 
-    conn = get_db_connection
+    conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute(f"UPDATE comissao SET tempo_inicio, tempo_fim = '{inicio_avaliacao}', '{fim_avaliacao}' WHERE id_comissao = '{id}'")
-    session['inicio_avaliacao'].pop()
+    cursor.execute(f"UPDATE comissao SET tempo_inicio ='{inicio_avaliacao}', tempo_fim = '{fim_avaliacao}' WHERE id_comissao = '{id}'")
     conn.close()
+    if 'inicio_avaliacao' in session:
+        del session['inicio_avaliacao']
+        print('Hora excluída da sessão')
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -653,16 +665,12 @@ def premiacao():
     # Fechar a conexão com o banco de dados
     conn.close()
 
-    # Imprimir o dicionário de premiações dos colaboradores
-    #print(premiacao_colaboradores)
-
     #print(premiacao_colaboradores[colaborador_1])
     with open(r'comissionamento\static\json\premios.json', 'r', encoding='utf-8') as f:
         premios = json.load(f)
         
     # Lista para armazenar os cargos
     lista_cargos = []
-        # Loop para percorrer as chaves do dicionário
 
     for chave in premiacao_colaboradores:
         # Acessa o valor do cargo para cada chave
@@ -687,13 +695,15 @@ def premiacao():
         max_colaborador_3 = 0
         real_colaborador_3 = 0
         try:
-            conn = get_db_connection
+            conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            cursor.execute(f"UPDATE comissao SET status_avaliacao = 'Avaliado', nota_avaliacao = '{nota}', total_possivel_1 = '{max_colaborador_1}', premio_1_colab_1 = '{real_colaborador_1}', total_possivel_2 = '{max_colaborador_2}', premio_1_colab_2 = '{real_colaborador_2}', total_possivel_3 = '{max_colaborador_3}', premio_1_colab_3 = '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.commit()
             conn.close()
 
         except Exception as e:
             print('Ocorreu um erro:', str(e))
+        
 
     elif len(lista_cargos) == 4:
         valor_colab_1 = lista_cargos[1]
@@ -713,9 +723,10 @@ def premiacao():
         real_colaborador_3 = 0
 
         try:
-            conn = get_db_connection
+            conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            cursor.execute(f"UPDATE comissao SET status_avaliacao = 'Avaliado', nota_avaliacao = '{nota}', total_possivel_1 = '{max_colaborador_1}', premio_1_colab_1 = '{real_colaborador_1}', total_possivel_2 = '{max_colaborador_2}', premio_1_colab_2 = '{real_colaborador_2}', total_possivel_3 = '{max_colaborador_3}', premio_1_colab_3 = '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.commit()
             conn.close()
             
         except Exception as e:
@@ -742,9 +753,10 @@ def premiacao():
         real_colaborador_3 = (valor_colab_3*float(nota))/3
 
         try:
-            conn = get_db_connection
+            conn = get_db_connection()
             cursor = conn.cursor()
-            cursor.execute(f"UPDATE comissao SET nota_avaliacao, total_possivel_1, premio_1_colab_1, total_possivel_2, premio_1_colab_2, total_possivel_3, premio_1_colab_3 = '{nota}', '{max_colaborador_1}', '{real_colaborador_1}', '{max_colaborador_2}', '{real_colaborador_2}', '{max_colaborador_3}', '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            cursor.execute(f"UPDATE comissao SET status_avaliacao = 'Avaliado', nota_avaliacao = '{nota}', total_possivel_1 = '{max_colaborador_1}', premio_1_colab_1 = '{real_colaborador_1}', total_possivel_2 = '{max_colaborador_2}', premio_1_colab_2 = '{real_colaborador_2}', total_possivel_3 = '{max_colaborador_3}', premio_1_colab_3 = '{real_colaborador_3}' WHERE id_comissao = '{id}'")
+            conn.commit()
             conn.close()
             
         except Exception as e:
