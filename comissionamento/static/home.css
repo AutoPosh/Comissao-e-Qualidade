@@ -57,6 +57,10 @@ nav {
     padding: 0;
 }
 
+.btn-danger {
+    margin-right: 100px;
+}
+
 .ul-nav {
     margin: auto auto 0 auto;
     padding: 0;
@@ -158,7 +162,6 @@ nav {
 }
 
 
-
 @media(max-width: 850px) {
 
     /* Responsividade para celular de toda a tela, não deixar margem para rolar */
@@ -167,8 +170,12 @@ nav {
         display: none;
     }
 
+    .btn-danger {
+        margin-right: -30px;
+    }
+
     .img-logo {
-        transform: translate(-20px);
+        transform: translate(-60px);
     }
 
     header,

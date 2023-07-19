@@ -305,6 +305,7 @@ def alterar_status():
             services_comissao = cursor.fetchall()
 
             etapa_svc = services_comissao[0][0]
+
             colaborador_1 = services_comissao[0][1]
             colaborador_2 = services_comissao[0][2]
             colaborador_3 = services_comissao[0][3]
@@ -610,9 +611,14 @@ def premiacao():
             query = f"SELECT grade, nivel FROM colaboradores WHERE nome = '{colaborador}'"
             cursor.execute(query)
             resultado_pesquisa = cursor.fetchone()
-            
-            cargo_colaborador = f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}'
-            print(f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}')
+
+            #Tomada de decisão para escolher o item da Nova Grade quando o colaborador for o Lailson Ramon
+            if colaborador == 'Lailson Ramon':
+                cargo_colaborador = f'Nova Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}'
+                print(f'{cargo_colaborador}')
+            else:
+                cargo_colaborador = f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}'
+                print(f'Grade {resultado_pesquisa[0]} - {resultado_pesquisa[1]}')
 
             if resultado_pesquisa:
                 cargo = cargo_colaborador
@@ -639,6 +645,7 @@ def premiacao():
     # Lista para armazenar os cargos
     lista_cargos = []
         # Loop para percorrer as chaves do dicionário
+
     for chave in premiacao_colaboradores:
         # Acessa o valor do cargo para cada chave
         cargo = premiacao_colaboradores[chave]['cargo']
@@ -648,6 +655,7 @@ def premiacao():
 
         #print('VALORES DA ETAPA', etapa_values[cargo])
         lista_cargos.append(etapa_values[cargo])
+
     if len(lista_cargos) == 2:
         valor_colab_1 = lista_cargos[1]
         #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
@@ -657,23 +665,23 @@ def premiacao():
     elif len(lista_cargos) == 4:
         valor_colab_1 = lista_cargos[1]
         #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
-        print(f'valor colaborador 1: {valor_colab_1}')
-        print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+        print(f'valor colaborador 1: {valor_colab_1/2}')
+        print(f'Valor real colaborador 1: {(valor_colab_1*float(nota))/2}')
         valor_colab_2 = lista_cargos[3]
-        print(f'valor colaborador 2: {valor_colab_2}')
-        print(f'Valor real colaborador 2: {valor_colab_2*float(nota)}')
+        print(f'valor colaborador 2: {valor_colab_2/2}')
+        print(f'Valor real colaborador 2: {(valor_colab_2*float(nota))/2}')
 
     elif len(lista_cargos) == 6:
         valor_colab_1 = lista_cargos[1]
         #---------------------------------------------------------- CRIAR LIGAÇÕES NO BANCO DE DADOS ----------------------------------------------------------
-        print(f'valor colaborador 1: {valor_colab_1}')
-        print(f'Valor real colaborador 1: {valor_colab_1*float(nota)}')
+        print(f'valor colaborador 1: {valor_colab_1/3}')
+        print(f'Valor real colaborador 1: {(valor_colab_1*float(nota))/3}')
         valor_colab_2 = lista_cargos[3]
-        print(f'valor colaborador 2: {valor_colab_2}')
-        print(f'Valor real colaborador 2: {valor_colab_2*float(nota)}')
+        print(f'valor colaborador 2: {valor_colab_2/3}')
+        print(f'Valor real colaborador 2: {(valor_colab_2*float(nota))/3}')
         valor_colab_3 = lista_cargos[5]
-        print(f'valor colaborador 3: {valor_colab_3}')
-        print(f'Valor real colaborador 3: {valor_colab_3*float(nota)}')
+        print(f'valor colaborador 3: {valor_colab_3/3}')
+        print(f'Valor real colaborador 3: {(valor_colab_3*float(nota))/3}')
 
     else:
         resposta = {'message': 'Erro'}

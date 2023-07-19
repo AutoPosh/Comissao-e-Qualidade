@@ -124,8 +124,9 @@ nav {
 .container-tables{
     width: 100%;
     height: auto;
-    margin: 2% auto auto auto;
+    margin: auto auto auto auto;
     overflow: hidden;
+    padding-bottom: 100px;
 }
 
 .view-tables{
@@ -260,6 +261,9 @@ i:hover{
         width: fit-content;
         top: 50px;
         background-color: red;
+    }
+    .view-tables, .data-values{
+        width: 98%;
     }
 
     header,
