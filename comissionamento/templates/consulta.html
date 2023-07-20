@@ -67,8 +67,18 @@
             </div>
         </div>
     </div>
+    <div class="cabecalho">
+        <div class="container-values">
+            <span id="username">{{ usuario }}</span>
+            <span id="grade">{{ grade }}</span>
+        </div>
+    </div>
     <div class="container-value">
         <div class="controle">
+            <div class="spans">
+            <span id="mes">{{ mes }}</span>
+            <span>{{ano}}</span>
+        </div>
             <select id="filtro-mes">
                 <option value="January">Janeiro</option>
                 <option value="February">Fevereiro</option>
@@ -86,8 +96,6 @@
         </div>
     </div>
 
-    <h1>{{ano}}</h1>
-    <h1 id="mes">{{ mes }}</h1>
     <div class="container-resumo">
         <div class="valor-2">
             <div class="comissao">
@@ -105,17 +113,22 @@
         <div class="valor-3">
             <div class="comissao">
                 <h3>Prêmio 1</h3>
-                <h1 id="total-distintos">{{real_premio_1}}</h1>
+                <h1 id="real-premio">R$ {{real_premio_1}}</h1>
             </div>
         </div>
 
-        <div class="valor-3">
+        <div class="valor-4">
             <div class="comissao">
                 <h3>Máximo Prêmio 1</h3>
-                <h1 id="total-distintos">{{total_possivel_1}}</h1>
+                <h1 id="max-premio">R$ {{total_possivel_1}}</h1>
             </div>
         </div>
-
+        <div class="valor-5">
+            <div class="comissao">
+                <h3>Média da Avaliação</h3>
+                <h1 id="med-avaliacao">{{nota_avaliacao}}</h1>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -153,9 +166,12 @@
                     data: { month: selectedMonth },
                     success: function (response) {
                         // Atualiza o conteúdo da <h1> com a resposta recebida
-                        $('#comissao-valor').text("R$ " + response.comissao);
                         $('#mes').text(response.mes);
-                        $('#total-distintos').text(response.total_distintos)
+                        $('#comissao-valor').text("R$ " + response.comissao);
+                        $('#real-premio').text("R$ " + response.real_premio_1);
+                        $('#max-premio').text("R$ " + response.max_premio_1);
+                        $('#total-distintos').text(response.total_distintos);
+                        $('#med-avaliacao').text(response.nota_avaliacao);
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário

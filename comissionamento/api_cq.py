@@ -348,13 +348,14 @@ def rota_consulta():
         mes_atual = datetime.now().month
         mes_atual = calendar.month_name[mes_atual]
 
+        print(mes_atual)
+
         ano_atual = datetime.now().year
         ano_atual = str(ano_atual)
 
 
         cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_1, c.premio_1_colab_1 FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
         resposta = cursor.fetchall()
-        print(resposta)
 
         cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_2, c.premio_1_colab_2 FROM comissao c JOIN servicos s ON c.numero_os = s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{mes_atual}' AND s.ano = '{ano_atual}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
         resposta_2 = cursor.fetchall()
@@ -372,27 +373,52 @@ def rota_consulta():
             lista_tuplas.append(i)
             comissao_fixa.append(i[3])
             ordens.append(i[0])
-            total_possivel.append(i[7])
-            premio_1.append(i[8])
+            if i[7] is not None and i[8] is not None:
+                total_possivel.append(i[7])
+                premio_1.append(i[8])
 
         for j in resposta_2:
             lista_tuplas.append(j)
             comissao_fixa.append(j[3])
             ordens.append(j[0])
-            total_possivel.append(j[7])
-            premio_1.append(j[8])
+            if j[7] is not None and j[8] is not None:
+                total_possivel.append(j[7])
+                premio_1.append(j[8])
 
         for k in resposta_3:
             lista_tuplas.append(k)
             comissao_fixa.append(k[3])
             ordens.append(k[0])
-            total_possivel.append(k[7])
-            premio_1.append(k[8])
+            if k[7] is not None and k[8] is not None:
+                total_possivel.append(k[7])
+                premio_1.append(k[8])
 
         soma_comissao = sum(comissao_fixa)
         total_distintos = len(set(ordens))
+        #print('prêmio 1:', premio_1)
+        #print('Max Premio:', total_possivel)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
+        #print('Máximo: ', max_premio_1)
+        #print('Real: ', real_premio_1)
+
+        cursor.execute(f"SELECT nota_avaliacao FROM comissao WHERE (id_colaborador_1 = '{usuario}' or id_colaborador_2 = '{usuario}' or id_colaborador_3 = '{usuario}') AND mes = '{mes_atual}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        notas_resposta = cursor.fetchall()
+        print('RESPOSTA CURSOR: ', notas_resposta)
+
+        notas_avaliacao = []
+        for l in notas_resposta:
+            if l[0] is not None:
+                notas_avaliacao.append(l[0])
+        #print(notas_avaliacao)
+        if len(notas_avaliacao) > 0:
+            nota_avaliacao = (sum(notas_avaliacao)/len(notas_avaliacao))*100
+        else:
+            nota_avaliacao = 0
+
+        avaliacao = str(nota_avaliacao)+'%'
+        #print(avaliacao)
+
 
         match mes_atual:
             case 'January':
@@ -417,9 +443,14 @@ def rota_consulta():
                 mes_atual = 'Novembro'
             case 'December':
                 mes_atual = 'Dezembro'
+        
+        cursor.execute(f'SELECT nome, grade, nivel FROM colaboradores WHERE nome = "{usuario}"')
+        resposta_grade = cursor.fetchall()
+        resposta_grade = f'Grade {resposta_grade[0][1]} - {resposta_grade[0][2]}'
+        conn.commit()
 
         conn.close()
-        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1)
+        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1, grade = resposta_grade, nota_avaliacao = avaliacao)
     else:
         return redirect(url_for('index'))
 
@@ -460,8 +491,10 @@ def comissionamento():
     mes = mes.capitalize()
     comissao = obter_comissao(month, mes)
 
+    #Adicionar depois: Nível de grade, tabela da premiação 2, valores de todos os indicadores e média.
+
     # Retorna a resposta em formato JSON para o AJAX
-    return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1]})
+    return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1], 'max_premio_1': comissao[2], 'real_premio_1': comissao[3], 'nota_avaliacao': comissao[4]})
 
 
 def obter_comissao(month, mes):
@@ -471,39 +504,71 @@ def obter_comissao(month, mes):
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_1, c.comissao_colab_1, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_1, c.premio_1_colab_1 FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_1 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
     resposta = cursor.fetchall()
 
-    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_2, c.comissao_colab_2, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_2, c.premio_1_colab_2 FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_2 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
     resposta_2 = cursor.fetchall()
 
-    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
+    cursor.execute(f"SELECT c.numero_os, c.etapa_servico, c.id_colaborador_3, c.comissao_colab_3, s.tempo_inicio, s.tempo_fim, s.valor_pausa, c.total_possivel_3, c.premio_1_colab_3 FROM comissao c JOIN servicos s ON c.numero_os= s.numero_os WHERE c.id_colaborador_3 = '{usuario}' AND s.mes = '{month}' AND s.ano = '{year}' AND (c.status_avaliacao = 'Aguardando Avaliação' or c.status_avaliacao = 'Avaliado')")
     resposta_3 = cursor.fetchall()
 
     comissao_fixa = []
     ordens = []
     lista_tuplas = []
+    total_possivel = []
+    premio_1 = []
 
     for i in resposta:
         lista_tuplas.append(i)
         comissao_fixa.append(i[3])
         ordens.append(i[0])
+        if i[7] is not None and i[8] is not None:
+            total_possivel.append(i[7])
+            premio_1.append(i[8])
 
     for j in resposta_2:
         lista_tuplas.append(j)
         comissao_fixa.append(j[3])
         ordens.append(j[0])
+        if j[7] is not None and j[8] is not None:
+            total_possivel.append(j[7])
+            premio_1.append(j[8])
 
     for k in resposta_3:
         lista_tuplas.append(k)
         comissao_fixa.append(k[3])
         ordens.append(k[0])
+        if k[7] is not None and k[8] is not None:
+            total_possivel.append(k[7])
+            premio_1.append(k[8])
+
+        
     soma_comissao = sum(comissao_fixa)
-    print(soma_comissao)
     total_distintos = len(set(ordens))
+    max_premio_1 = sum(total_possivel)
+    real_premio_1 = sum(premio_1)
+
+    cursor.execute(f"SELECT nota_avaliacao FROM comissao WHERE (id_colaborador_1 = '{usuario}' or id_colaborador_2 = '{usuario}' or id_colaborador_3 = '{usuario}') AND mes = '{month}' AND ano = '{year}' AND status_avaliacao = 'Avaliado'")
+    notas_resposta = cursor.fetchall()
+    #print('RESPOSTA CURSOR: ', notas_resposta)
+
+    notas_avaliacao = []
+    for l in notas_resposta:
+        if l[0] is not None:
+            notas_avaliacao.append(l[0])
+    #print(notas_avaliacao)
+    if len(notas_avaliacao) > 0:
+        nota_avaliacao = (sum(notas_avaliacao)/len(notas_avaliacao))*100
+    else:
+        nota_avaliacao = 0
+
+    avaliacao = str(nota_avaliacao)+'%'
+    #print(avaliacao)
+
 
     conn.close()
-    return soma_comissao, total_distintos
+    return soma_comissao, total_distintos, max_premio_1, real_premio_1, avaliacao
 
 
 @app.route('/qualidade', methods=['POST', 'GET'])
