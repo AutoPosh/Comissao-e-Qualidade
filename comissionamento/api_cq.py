@@ -488,6 +488,7 @@ def comissionamento():
         case 'dezembro':
             month = 'December'
 
+
     mes = mes.capitalize()
     comissao = obter_comissao(month, mes)
 
