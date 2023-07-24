@@ -190,6 +190,7 @@
                         $('#max-premio').text("R$ " + response.max_premio_1);
                         $('#total-distintos').text(response.total_distintos);
                         $('#med-avaliacao').text(response.nota_avaliacao);
+                        console.log(response.comissao, response.real_premio_1, response.max_premio_1, response.total_distintos, response.nota_avaliacao)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário

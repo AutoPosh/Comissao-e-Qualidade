@@ -1,4 +1,4 @@
-'''import os, traceback
+import os, traceback
 import mysql.connector
 from dotenv import load_dotenv
 from functools import wraps
@@ -21,7 +21,57 @@ def get_db_connection():
     conn = mysql.connector.connect(**db_config)
     return conn
 
-#estabelece a conexão
+conn = get_db_connection()
+cursor = conn.cursor()
+cursor.execute(f'SELECT nome FROM colaboradores WHERE cargo = "Operacional"')
+retorno = cursor.fetchall()
+
+colaboradores = []
+for colaborador in retorno:
+    nome_colaborador = colaborador[0]
+    #print(nome_colaborador)
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(f'SELECT nota_avaliacao FROM comissao WHERE status_avaliacao = "Avaliado" AND (id_colaborador_1 = "{nome_colaborador}" OR id_colaborador_2 = "{nome_colaborador}" or id_colaborador_3 = "{nome_colaborador}") AND mes = "June"')
+    notas_colaboradores = cursor.fetchall()
+    valores = [colaborador, notas_colaboradores]
+    colaboradores.append(valores)
+print(colaboradores)
+
+# Criar um dicionário para armazenar a média das notas de cada colaborador
+medias_colaboradores = {}
+
+# Calcular a média das notas e armazenar no dicionário
+for colaborador in colaboradores:
+    nome_colaborador = colaborador[0][0]
+    lista_notas = colaborador[1]
+
+    soma = 0
+    quantidade = 0
+
+    for tupla in lista_notas:
+        for item in tupla:
+            soma += item
+            quantidade += 1
+
+    # Verificar se a lista de notas não está vazia antes de calcular a média
+    if quantidade > 0:
+        media = soma / quantidade
+    else:
+        media = 0
+
+    medias_colaboradores[nome_colaborador] = media
+
+    # Criar um input no banco de dados com o mês
+    print(f"Nome: {nome_colaborador}, média: {media}")
+
+# Criar um arquivo JSON com os resultados
+with open('resultados.json', 'w', encoding='utf8') as arquivo_json:
+    json.dump(medias_colaboradores, arquivo_json, indent=4,ensure_ascii=False)
+
+print("Resultados foram escritos no arquivo 'resultados.json'.")
+
+'''#estabelece a conexão
 conn = get_db_connection()
 
 cursor = conn.cursor()
@@ -195,7 +245,7 @@ qst = perguntas.get('176')
 print(*(f'{i}\n' for i in qst))'''
 
 
-from flask import Flask
+'''from flask import Flask
 from flask_caching import Cache
 
 app = Flask(__name__)
@@ -215,4 +265,4 @@ def rota2():
     return f'O valor recebido foi: {parametro}'
 
 if __name__ == '__main__':
-    app.run()
+    app.run()'''

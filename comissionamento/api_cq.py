@@ -198,7 +198,7 @@ def inicializar():
                 conn.close()
                 return jsonify({'exists': True, 'dados': verificar})
 
-        with open('comissionamento/static/json/base_servicos.json', 'r', encoding="utf-8") as f:
+        with open('static/json/base_servicos.json', 'r', encoding="utf-8") as f:
             #printar o conteudo do json
             svc_json = json.load(f)
             etapa_descricao = svc_json[f"{dados_cadastro['etapa']}"]
@@ -271,9 +271,6 @@ def alterar_status():
         elif acao == 'reiniciar':
             status = 'Inicializado'
 
-            #cursor.execute(f"SELECT valor_pausa FROM servicos WHERE id_servico = '{div_id}'")
-            #valor_pausa = cursor.fetchone()
-
             cursor.execute(f"SELECT tempo_pausa FROM servicos WHERE id_servico = '{div_id}'")
             tempo_pausa = cursor.fetchone()
             mark_pausa = tempo_pausa[0]
@@ -298,7 +295,7 @@ def alterar_status():
         elif acao == 'finalizar':
             status = 'Finalizado'
 
-            with open('comissionamento/static/json/comissao.json', 'r', encoding="utf-8") as f:
+            with open('static/json/comissao.json', 'r', encoding="utf-8") as f:
                 comissao = json.load(f)
                 
             cursor.execute(f"SELECT etapa_servico, id_colaborador_1, id_colaborador_2, id_colaborador_3 FROM comissao WHERE id_comissao = {div_id}")
@@ -395,12 +392,12 @@ def rota_consulta():
 
         soma_comissao = sum(comissao_fixa)
         total_distintos = len(set(ordens))
-        #print('prêmio 1:', premio_1)
-        #print('Max Premio:', total_possivel)
+        print('prêmio 1:', premio_1)
+        print('Max Premio:', total_possivel)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
-        #print('Máximo: ', max_premio_1)
-        #print('Real: ', real_premio_1)
+        print('Máximo: ', max_premio_1)
+        print('Real: ', real_premio_1)
 
         cursor.execute(f"SELECT nota_avaliacao FROM comissao WHERE (id_colaborador_1 = '{usuario}' or id_colaborador_2 = '{usuario}' or id_colaborador_3 = '{usuario}') AND mes = '{mes_atual}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
         notas_resposta = cursor.fetchall()
@@ -449,14 +446,13 @@ def rota_consulta():
         resposta_grade = f'Grade {resposta_grade[0][1]} - {resposta_grade[0][2]}'
         conn.commit()
 
-        conn.close()
         return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1, grade = resposta_grade, nota_avaliacao = avaliacao)
     else:
         return redirect(url_for('index'))
 
 
 @app.route('/comissionamento', methods=['POST', 'GET'])
-@proteger_rota(['Qualidade', 'Administrador'])
+@proteger_rota(['Qualidade', 'Administrador', 'Operacional'])
 def comissionamento():
     usuario = session.get('usuario')
     mes = request.args.get('month')
@@ -549,6 +545,7 @@ def obter_comissao(month, mes):
     total_distintos = len(set(ordens))
     max_premio_1 = sum(total_possivel)
     real_premio_1 = sum(premio_1)
+    print(soma_comissao, total_distintos, max_premio_1, real_premio_1)
 
     cursor.execute(f"SELECT nota_avaliacao FROM comissao WHERE (id_colaborador_1 = '{usuario}' or id_colaborador_2 = '{usuario}' or id_colaborador_3 = '{usuario}') AND mes = '{month}' AND ano = '{year}' AND status_avaliacao = 'Avaliado'")
     notas_resposta = cursor.fetchall()
@@ -567,8 +564,6 @@ def obter_comissao(month, mes):
     avaliacao = str(nota_avaliacao)+'%'
     #print(avaliacao)
 
-
-    conn.close()
     return soma_comissao, total_distintos, max_premio_1, real_premio_1, avaliacao
 
 
@@ -648,7 +643,7 @@ def avaliar():
     mes = dados_avaliacao[4]
 
     try:
-        with open(r'comissionamento\static\json\perguntas.json', 'r', encoding='utf-8') as f:
+        with open(r'static/json/perguntas.json', 'r', encoding='utf-8') as f:
             perguntas = json.load(f)
         #print(etapa)
         questoes = perguntas.get(etapa)
@@ -732,9 +727,9 @@ def premiacao():
     conn.close()
 
     #print(premiacao_colaboradores[colaborador_1])
-    with open(r'comissionamento\static\json\premios.json', 'r', encoding='utf-8') as f:
+    with open(r'static\json\premios.json', 'r', encoding='utf-8') as f:
         premios = json.load(f)
-        
+
     # Lista para armazenar os cargos
     lista_cargos = []
 
@@ -844,8 +839,14 @@ def rota_painel():
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        cursor.execute(f"SELECT nome, cargo, grade, nivel, data_cadastro FROM colaboradores")
+        cursor.execute(f"SELECT nome, cargo, grade, nivel FROM colaboradores WHERE cargo = 'Operacional'")
         colaboradores = cursor.fetchall()
+        conn.close()
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT * FROM comissao WHERE status_avaliacao = "Avaliado"')
+        conn.close()
 
         return render_template('painel-adm.html', usuario = usuario, funcionarios = colaboradores)
     else:

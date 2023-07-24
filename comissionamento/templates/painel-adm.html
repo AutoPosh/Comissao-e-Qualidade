@@ -106,7 +106,7 @@
                     <td style="padding-inline: 50px;">Cargo</td>
                     <td style="padding-inline: 50px;">Grade</td>
                     <td style="padding-inline: 50px;">Nível</td>
-                    <td style="padding-inline: 50px;">Data Cadastro</td>
+
                     </thead>
                     <tbody>
                         {% for colaboradores in funcionarios %}
@@ -115,134 +115,170 @@
                             <td style="text-align: center;">{{ colaboradores[1]}}</td>
                             <td style="text-align: center;">{{ colaboradores[2]}}</td>
                             <td style="text-align: center;">{{ colaboradores[3]}}</td>
-                            <td style="text-align: center;">{{ colaboradores[4]}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
             </table>
         </div>
+        <br>
+        <div class="call_indicadores">
+            <div class="select_colaborador">
+                <label for="colab3">Colaborador</label>
+                <select name="colab3" id="colab3" class="select">
+                    <option value=""></option>
+                    {% for colaborador in funcionarios %}
+                    <option value="{{k}}">{{colaborador[0]}}</p>
+                        {% endfor %}
+                </select>
+            </div>
+            <div class="agenda">
+                <label for="id_agenda">Agenda de Rotina</label>
+                <input type="text" name="id_agenda" class="agenda_rotina" id="id_agenda">
+            </div>
+            <div class="ponto_container">
+                <label for="id_ponto"> Controle de Ponto</label>
+                <input type="text" name="id_ponto" class="ponto_eletronico" id="id_ponto">
+            </div>
+            <div class="select_mes">
+                <div class="detalhamento-form">
+                    <select>
+                        <option value="January">Janeiro</option>
+                        <option value="February">Fevereiro</option>
+                        <option value="March">Março</option>
+                        <option value="April">Abril</option>
+                        <option value="May">Maio</option>
+                        <option value="June">Junho</option>
+                        <option value="July">Julho</option>
+                        <option value="August">Agosto</option>
+                        <option value="September">Setembro</option>
+                        <option value="October">Outubro</option>
+                        <option value="November">Novembro</option>
+                        <option value="December">Dezembro</option>
+                    </select>
+                </div>
+            </div>
 
-        <script>
+            <script>
 
-            // Remover a classe d-none do modal com o clique no botão
-            document.querySelector(".add-colab-btn").addEventListener("click", function () {
+                // Remover a classe d-none do modal com o clique no botão
+                document.querySelector(".add-colab-btn").addEventListener("click", function () {
 
-                var modalElement = document.getElementById("exampleModal");
-                modalElement.classList.remove("d-none");
-            });
-
-
-            // A função será executada quando o botão "Save changes" for clicado
-            document.getElementById("saveChangesBtn").addEventListener("click", function () {
-
-                // Obtenha o valor do input no modal
-                var nomeCompleto = document.getElementById("nome-completo").value;
-                var cpf = document.getElementById("cpf-colaborador").value;
-                var dataNascimento = document.getElementById("data-nascimento").value;
-
-                var optionsElement = document.getElementById("select-cargo");
-                var selectCargo = optionsElement.value;
-
-                var optionsGrade = document.getElementById("select-grade");
-                var selectGrade = optionsGrade.value;
-
-                var optionsNivel = document.getElementById("select-nivel");
-                var selectNivel = optionsNivel.value;
+                    var modalElement = document.getElementById("exampleModal");
+                    modalElement.classList.remove("d-none");
+                });
 
 
-                if (nomeCompleto === '' || cpf === '' || dataNascimento === '') {
-                    alert('Todos os campos devem ser preenchidos')
-                    return; // Sai da função se o inputValue estiver vazio
-                }
+                // A função será executada quando o botão "Save changes" for clicado
+                document.getElementById("saveChangesBtn").addEventListener("click", function () {
 
-                var dataAtual = new Date();
+                    // Obtenha o valor do input no modal
+                    var nomeCompleto = document.getElementById("nome-completo").value;
+                    var cpf = document.getElementById("cpf-colaborador").value;
+                    var dataNascimento = document.getElementById("data-nascimento").value;
 
-                // Obtém as informações da data
-                var dia = dataAtual.getDate();
-                var mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de zero, por isso é adicionado +1
-                var ano = dataAtual.getFullYear();
+                    var optionsElement = document.getElementById("select-cargo");
+                    var selectCargo = optionsElement.value;
 
-                // Formata a data como string (no formato dd/mm/aaaa)
-                var dataAtualFormatada = ano + '-' + mes + '-' + dia;
-                var senha = cpf.substring(0, 4);
-                // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
-                console.log(`Valores do input: ${nomeCompleto}, ${cpf}, ${senha}, ${dataNascimento}, ${selectCargo}, ${selectGrade}, ${selectNivel}, ${dataAtualFormatada}`);
+                    var optionsGrade = document.getElementById("select-grade");
+                    var selectGrade = optionsGrade.value;
 
-                let dados = {
-                    nomeCompleto,
-                    senha,
-                    selectCargo,
-                    selectGrade,
-                    selectNivel
-                }
+                    var optionsNivel = document.getElementById("select-nivel");
+                    var selectNivel = optionsNivel.value;
 
-                //settings da solicitação
-                const options = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(dados)
-                };
 
-                //envia solicitação
-                fetch("/painel/cadastro-colaborador", options)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Verifica se a resposta foi bem sucedida
-                        if (data.sucess) {
-                            alert("Usuário Cadastrado");
-                        } else {
-                            alert("Erro ao cadastrar usuário");
-                        }
+                    if (nomeCompleto === '' || cpf === '' || dataNascimento === '') {
+                        alert('Todos os campos devem ser preenchidos')
+                        return; // Sai da função se o inputValue estiver vazio
+                    }
+
+                    var dataAtual = new Date();
+
+                    // Obtém as informações da data
+                    var dia = dataAtual.getDate();
+                    var mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de zero, por isso é adicionado +1
+                    var ano = dataAtual.getFullYear();
+
+                    // Formata a data como string (no formato dd/mm/aaaa)
+                    var dataAtualFormatada = ano + '-' + mes + '-' + dia;
+                    var senha = cpf.substring(0, 4);
+                    // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
+                    console.log(`Valores do input: ${nomeCompleto}, ${cpf}, ${senha}, ${dataNascimento}, ${selectCargo}, ${selectGrade}, ${selectNivel}, ${dataAtualFormatada}`);
+
+                    let dados = {
+                        nomeCompleto,
+                        senha,
+                        selectCargo,
+                        selectGrade,
+                        selectNivel
+                    }
+
+                    //settings da solicitação
+                    const options = {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(dados)
+                    };
+
+                    //envia solicitação
+                    fetch("/painel/cadastro-colaborador", options)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Verifica se a resposta foi bem sucedida
+                            if (data.sucess) {
+                                alert("Usuário Cadastrado");
+                            } else {
+                                alert("Erro ao cadastrar usuário");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Erro na solicitação", error);
+                            alert("Erro na solicitação");
+                        });
+
+                    // Limpa os valores dos inputs
+                    document.getElementById("nome-completo").value = '';
+                    document.getElementById("cpf-colaborador").value = '';
+                    document.getElementById("data-nascimento").value = '';
+
+                    // Feche o modal
+                    var modalElement = document.getElementById("exampleModal");
+                    var bootstrapModal = bootstrap.Modal.getInstance(modalElement);
+                    bootstrapModal.hide();
+                });
+
+                // Type event listener para aceitar apenas numeros no campo de CPF
+                var inputCpf = document.getElementById("cpf-colaborador");
+
+                inputCpf.addEventListener("keydown", function (event) {
+                    // Verifica se a tecla pressionada é um número
+                    if (event.key !== "Backspace" && isNaN(Number(event.key))) {
+                        event.preventDefault();
+                    }
+                });
+
+                function logout() {
+                    fetch("/logout", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
                     })
-                    .catch(error => {
-                        console.error("Erro na solicitação", error);
-                        alert("Erro na solicitação");
-                    });
-
-                // Limpa os valores dos inputs
-                document.getElementById("nome-completo").value = '';
-                document.getElementById("cpf-colaborador").value = '';
-                document.getElementById("data-nascimento").value = '';
-
-                // Feche o modal
-                var modalElement = document.getElementById("exampleModal");
-                var bootstrapModal = bootstrap.Modal.getInstance(modalElement);
-                bootstrapModal.hide();
-            });
-
-            // Type event listener para aceitar apenas numeros no campo de CPF
-            var inputCpf = document.getElementById("cpf-colaborador");
-
-            inputCpf.addEventListener("keydown", function (event) {
-                // Verifica se a tecla pressionada é um número
-                if (event.key !== "Backspace" && isNaN(Number(event.key))) {
-                    event.preventDefault();
+                        .then(response => {
+                            if (response.ok) {
+                                console.log("Logou realizado com sucesso");
+                                window.location.href = "/";
+                            } else {
+                                console.log("Erro ao realizar logout");
+                            }
+                        })
+                        .catch(error => {
+                            console.log("erro em logout", error);
+                        });
                 }
-            });
 
-            function logout() {
-                fetch("/logout", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            console.log("Logou realizado com sucesso");
-                            window.location.href = "/";
-                        } else {
-                            console.log("Erro ao realizar logout");
-                        }
-                    })
-                    .catch(error => {
-                        console.log("erro em logout", error);
-                    });
-            }
-
-        </script>
+            </script>
 </body>
 
 </html>
