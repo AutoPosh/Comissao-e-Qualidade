@@ -853,6 +853,95 @@ def rota_painel():
         return redirect(url_for('index'))
 
 
+@app.route('/painel/premiacao_2', methods=['POST', 'GET'])
+@proteger_rota(['Administrador'])
+def acao_premio2():
+    data = request.get_json()
+    action = data.get('action', None)
+    
+    # Dados enviados na requisição AJAX
+    colaborador_name = data.get('colaborador', None)
+    mes = data.get('mes', None)
+    agenda = data.get('agenda', None)
+    ponto = data.get('ponto', None)
+    print(colaborador_name, mes, agenda, ponto)
+
+    ano_atual = datetime.now().year
+    ano_atual = str(ano_atual)
+
+    # Aqui você pode adicionar a lógica para processar a ação recebida e retornar a resposta apropriada
+    if action == 'simular':
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT nota_avaliacao FROM comissao WHERE status_avaliacao = "Avaliado" AND (id_colaborador_1 = "{colaborador_name}" OR id_colaborador_2 = "{colaborador_name}" or id_colaborador_3 = "{colaborador_name}") AND mes = "{mes}" AND ano = "2023"')
+        retorno = cursor.fetchall()
+
+        items = []
+        print("Retorno: ", retorno)
+        for i in retorno:
+            items.append(i[0])
+        
+        nota_media = sum(items)/len(items)
+        print('media: ', nota_media)
+    
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT comissao_colab_1, total_possivel_1, premio_1_colab_1 FROM comissao WHERE id_colaborador_1 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta = cursor.fetchall()
+
+        cursor.execute(f"SELECT comissao_colab_2, total_possivel_2, premio_1_colab_2 FROM comissao WHERE id_colaborador_2 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta_2 = cursor.fetchall()
+
+        cursor.execute(f"SELECT comissao_colab_3, total_possivel_3, premio_1_colab_3 FROM comissao WHERE id_colaborador_3 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta_3 = cursor.fetchall()
+
+        print(f"Resposta 1: ", resposta)
+        print(f"Resposta 2: ", resposta_2)
+        print(f"Resposta 3: ", resposta_3)
+
+        comissao_fixa = []
+        total_possivel = []
+        premio_1 = []
+
+        for i in resposta:
+            comissao_fixa.append(i[0])
+            if i[1] is not None and i[2] is not None:
+                total_possivel.append(i[1])
+                premio_1.append(i[2])
+
+        for j in resposta_2:
+            comissao_fixa.append(j[0])
+            if j[1] is not None and j[2] is not None:
+                total_possivel.append(j[1])
+                premio_1.append(j[2])
+
+        for k in resposta_3:
+            comissao_fixa.append(k[0])
+            if k[1] is not None and k[2] is not None:
+                total_possivel.append(k[1])
+                premio_1.append(k[2])
+
+        print("Nota Média: ", nota_media)
+        print("Comissão Fixa:", sum(comissao_fixa))
+        print("Total Possível: ", sum(total_possivel))
+        print("premio_1: ", sum(premio_1))
+
+        valor_comissao_fixa = sum(comissao_fixa)
+        max_premio_1 = sum(total_possivel)
+        real_premio_1 = sum(premio_1)
+
+        resultado = {'resultado': 'Simulação realizada com sucesso', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media}
+
+    elif action == 'salvar':
+        resultado = {'resultado': 'Prêmio salvo com sucesso'}
+    else:
+        resultado = {'resultado': 'Ação não reconhecida'}
+
+    return jsonify(resultado)
+
+
 @app.route('/painel/cadastro-colaborador', methods=['POST', 'GET'])
 @proteger_rota(['Administrador'])
 def cadastro_colaborador():

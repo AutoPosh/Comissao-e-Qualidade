@@ -15,7 +15,7 @@
     place-content: center;
 }
 
-.btn-danger{
+.btn-danger {
     position: absolute;
     right: 10px;
 }
@@ -60,7 +60,7 @@ body {
     z-index: 999;
 }
 
-.add-colab-btn::after{
+.add-colab-btn::after {
     content: '';
     background-color: rgb(0, 140, 255) !important;
     position: absolute;
@@ -73,13 +73,13 @@ body {
     transition: all 500ms ease;
 }
 
-.add-colab-btn:hover::after{
+.add-colab-btn:hover::after {
     transform: translateX(130%);
     background-color: #BF213E !important;
     transition: all 400ms ease-in-out;
 }
 
-.add-colab-btn:hover{
+.add-colab-btn:hover {
     background-color: rgb(0, 140, 255) !important;
 }
 
@@ -94,21 +94,128 @@ body {
     width: 100%;
 }
 
-.body-cadastro{
+.body-cadastro {
     padding: 10px;
     background-color: ghostwhite;
 }
 
-.cargo-container, .grade-container, .nivel-container {
+.cargo-container,
+.grade-container,
+.nivel-container {
     position: relative;
     display: grid;
 }
 
+.call_indicadores {
+    background-color: #BF213E;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    padding-inline: 30%;
+}
 
-@media(max-width: 700px){
-    .img-logo{
+.select_colaborador,
+.select_mes,
+.agenda,
+.ponto_container {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    color: ghostwhite;
+}
+
+.select_colaborador>input,
+.select_mes>select,
+.agenda>input,
+.ponto_container>input {
+    width: 150px;
+}
+
+.action-btns {
+    background-color: #BF213E;
+    padding-block: 10px;
+    display: flex;
+    gap: 15px;
+    place-items: center;
+    justify-content: center;
+}
+
+.btn-action {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.comissao {
+    display: flex;
+    background-color: #DC3545;
+    color: ghostwhite;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-resumo {
+    display: flex;
+    padding-left: 50px;
+    padding-block: 20px;
+    gap: 20px;
+    width: 100%;
+    margin: 20px auto auto auto;
+    position: relative;
+    place-content: center;
+    align-items: center;
+}
+
+.container-resumo h1 {
+    font-size: 14pt;
+    position: relative;
+}
+
+.comissao > h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14pt;
+}
+
+@media(max-width: 700px) {
+    .img-logo {
         justify-content: space-between;
         transition: 400ms ease;
     }
-}
 
+    .call_indicadores {
+        flex-direction: column;
+    }
+
+    .select_colaborador>input,
+    .select_mes>select,
+    .agenda>input,
+    .ponto_container>input {
+        text-align: center;
+    }
+
+    /* Estilos para o container-resumo e itens internos */
+    .container-resumo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+        /* Center the items horizontally */
+        align-items: center;
+        /* Center the items vertically */
+        padding-right: 50px;
+    }
+
+}
