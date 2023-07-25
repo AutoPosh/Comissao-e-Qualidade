@@ -927,7 +927,14 @@ def acao_premio2():
         print("Comissão Fixa:", sum(comissao_fixa))
         print("Total Possível: ", sum(total_possivel))
         print("premio_1: ", sum(premio_1))
-
+        agenda = int(agenda)/100
+        ponto = int(ponto)/100
+        media_total = (agenda + ponto + nota_media)/3
+        print(agenda, ponto, nota_media)
+        media_total = media_total*100
+        media_total = f'{media_total:.4f}'
+        print('Média Total: ', media_total)
+        print(type(media_total))
         valor_comissao_fixa = sum(comissao_fixa)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
