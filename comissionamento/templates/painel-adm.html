@@ -167,7 +167,7 @@
             <div class="valor-6">
                 <div class="comissao">
                     <h3>Tabela (%)</h3>
-                    <h1 id="tabela-%"> - %</h1>
+                    <h1 id="porc_tabela"> - %</h1>
                 </div>
             </div>
             <div class="valor-7">
@@ -325,8 +325,11 @@
                         $('#resultado-acao').text("Resultado da Ação: " + data.resultado);
                         $('#comissao-valor').text("R$ " + data.comissao);
                         $('#real-premio').text("R$ " + data.real_premio_1);
-                        $('#med-avaliacao').text(data.media_avaliacao);
+                        $('#med-avaliacao').text(data.media_avaliacao + "%");
                         $('#max-premio').text("R$ " + data.max_premio1);
+                        $('#porc_tabela').text(data.porc_tabela + "%");
+                        $('#premio-2').text("R$ " + data.premio_2);
+                        $('#total-valores').text("R$ " + data.valor_total)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário

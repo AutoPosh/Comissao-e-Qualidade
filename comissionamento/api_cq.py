@@ -934,12 +934,47 @@ def acao_premio2():
         media_total = media_total*100
         media_total = f'{media_total:.4f}'
         print('Média Total: ', media_total)
+        media_total = float(media_total)
         print(type(media_total))
         valor_comissao_fixa = sum(comissao_fixa)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
 
-        resultado = {'resultado': 'Simulação realizada com sucesso', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media}
+
+        if media_total >= 98:
+            porc_paga = 0.35
+        elif media_total <= 97.99 and media_total >= 95:
+            porc_paga = 0.30
+        elif media_total <= 94.99 and media_total >= 90:
+            porc_paga = 0.25
+        elif media_total <= 89.99 and media_total >= 85:
+            porc_paga = 0.20
+        elif media_total <= 84.99 and media_total >= 80:
+            porc_paga = 0.15
+        elif media_total <= 79.99 and media_total >= 70:
+            porc_paga = 0.15
+        else:
+            porc_paga = 0
+
+        if porc_paga != 0:
+            real_premio_1 = float(real_premio_1)
+            premio_2 = real_premio_1*porc_paga
+        else:
+            premio_2 = 0
+        print(f'Comissão Fixa: {valor_comissao_fixa}')
+        print(f'Prêmio 1 Pago: {real_premio_1}')
+        print(f'Porcentagem paga: {porc_paga}')
+        print(f'Prêmio 2: {premio_2}')
+
+        porc_tabela = porc_paga*100
+
+        total_valores = float(valor_comissao_fixa) + real_premio_1 + premio_2
+        print(f'Total a ser Pago: {total_valores}')
+
+        nota_media = nota_media*100
+
+        
+        resultado = {'resultado': 'Simulação realizada com sucesso', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media, 'porc_tabela': porc_tabela, 'premio_2': premio_2, 'valor_total': total_valores}
 
     elif action == 'salvar':
         resultado = {'resultado': 'Prêmio salvo com sucesso'}
