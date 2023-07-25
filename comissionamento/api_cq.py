@@ -392,16 +392,16 @@ def rota_consulta():
 
         soma_comissao = sum(comissao_fixa)
         total_distintos = len(set(ordens))
-        print('prêmio 1:', premio_1)
-        print('Max Premio:', total_possivel)
+        #print('prêmio 1:', premio_1)
+        #print('Max Premio:', total_possivel)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
-        print('Máximo: ', max_premio_1)
-        print('Real: ', real_premio_1)
+        #print('Máximo: ', max_premio_1)
+        #print('Real: ', real_premio_1)
 
         cursor.execute(f"SELECT nota_avaliacao FROM comissao WHERE (id_colaborador_1 = '{usuario}' or id_colaborador_2 = '{usuario}' or id_colaborador_3 = '{usuario}') AND mes = '{mes_atual}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
         notas_resposta = cursor.fetchall()
-        print('RESPOSTA CURSOR: ', notas_resposta)
+        #print('RESPOSTA CURSOR: ', notas_resposta)
 
         notas_avaliacao = []
         for l in notas_resposta:
@@ -446,7 +446,21 @@ def rota_consulta():
         resposta_grade = f'Grade {resposta_grade[0][1]} - {resposta_grade[0][2]}'
         conn.commit()
 
-        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1, grade = resposta_grade, nota_avaliacao = avaliacao)
+        cursor.execute(f"SELECT valor_premio_2, valor_total FROM premio_2 WHERE nome_colaborador = '{usuario}' AND mes = '{mes_atual}' and ano = '{ano_atual}'")
+        resposta_premio_2 = cursor.fetchall()
+        #print("Prêmio 2", resposta_premio_2)
+
+        if resposta_premio_2:
+            valor_premio_2 = resposta_premio_2[0][0]
+            soma_total = resposta_premio_2[0][1]
+
+        else:
+            valor_premio_2 = 0
+            soma_total = soma_comissao + real_premio_1
+
+        conn.close()
+
+        return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1, grade = resposta_grade, nota_avaliacao = avaliacao, premio_2 = valor_premio_2)
     else:
         return redirect(url_for('index'))
 
@@ -491,7 +505,7 @@ def comissionamento():
     #Adicionar depois: Nível de grade, tabela da premiação 2, valores de todos os indicadores e média.
 
     # Retorna a resposta em formato JSON para o AJAX
-    return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1], 'max_premio_1': comissao[2], 'real_premio_1': comissao[3], 'nota_avaliacao': comissao[4]})
+    return jsonify({'comissao': comissao[0], 'mes':mes, 'total_distintos': comissao[1], 'max_premio_1': comissao[2], 'real_premio_1': comissao[3], 'nota_avaliacao': comissao[4], 'valor_premio_2': comissao[5], 'soma_total': comissao[6]})
 
 
 def obter_comissao(month, mes):
@@ -563,8 +577,19 @@ def obter_comissao(month, mes):
 
     avaliacao = str(nota_avaliacao)+'%'
     #print(avaliacao)
+    cursor.execute(f"SELECT valor_premio_2, valor_total FROM premio_2 WHERE nome_colaborador = '{usuario}' AND mes = '{month}' and ano = '{year}'")
+    resposta_premio_2 = cursor.fetchall()
+    #print("Prêmio 2", resposta_premio_2)
 
-    return soma_comissao, total_distintos, max_premio_1, real_premio_1, avaliacao
+    if resposta_premio_2:
+        valor_premio_2 = resposta_premio_2[0][0]
+        soma_total = resposta_premio_2[0][1]
+    else:
+        valor_premio_2 = 0
+        soma_total = soma_comissao + real_premio_1
+    conn.close()
+
+    return soma_comissao, total_distintos, max_premio_1, real_premio_1, avaliacao, valor_premio_2, soma_total
 
 
 @app.route('/qualidade', methods=['POST', 'GET'])
@@ -927,8 +952,8 @@ def acao_premio2():
         print("Comissão Fixa:", sum(comissao_fixa))
         print("Total Possível: ", sum(total_possivel))
         print("premio_1: ", sum(premio_1))
-        agenda = int(agenda)/100
-        ponto = int(ponto)/100
+        agenda = float(agenda)/100
+        ponto = float(ponto)/100
         media_total = (agenda + ponto + nota_media)/3
         print(agenda, ponto, nota_media)
         media_total = media_total*100
@@ -970,14 +995,127 @@ def acao_premio2():
 
         total_valores = float(valor_comissao_fixa) + real_premio_1 + premio_2
         print(f'Total a ser Pago: {total_valores}')
-
+        total_valores = f'{total_valores:.2f}'
         nota_media = nota_media*100
+        print('Mês: ', mes)
+        premio_2 = f'{premio_2:.2f}'
 
-        
+
         resultado = {'resultado': 'Simulação realizada com sucesso', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media, 'porc_tabela': porc_tabela, 'premio_2': premio_2, 'valor_total': total_valores}
 
     elif action == 'salvar':
-        resultado = {'resultado': 'Prêmio salvo com sucesso'}
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(f'SELECT nota_avaliacao FROM comissao WHERE status_avaliacao = "Avaliado" AND (id_colaborador_1 = "{colaborador_name}" OR id_colaborador_2 = "{colaborador_name}" or id_colaborador_3 = "{colaborador_name}") AND mes = "{mes}" AND ano = "2023"')
+        retorno = cursor.fetchall()
+
+        items = []
+        print("Retorno: ", retorno)
+        for i in retorno:
+            items.append(i[0])
+        
+        nota_media = sum(items)/len(items)
+        print('media: ', nota_media)
+    
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(f"SELECT comissao_colab_1, total_possivel_1, premio_1_colab_1 FROM comissao WHERE id_colaborador_1 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta = cursor.fetchall()
+
+        cursor.execute(f"SELECT comissao_colab_2, total_possivel_2, premio_1_colab_2 FROM comissao WHERE id_colaborador_2 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta_2 = cursor.fetchall()
+
+        cursor.execute(f"SELECT comissao_colab_3, total_possivel_3, premio_1_colab_3 FROM comissao WHERE id_colaborador_3 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
+        resposta_3 = cursor.fetchall()
+
+        print(f"Resposta 1: ", resposta)
+        print(f"Resposta 2: ", resposta_2)
+        print(f"Resposta 3: ", resposta_3)
+
+        comissao_fixa = []
+        total_possivel = []
+        premio_1 = []
+
+        for i in resposta:
+            comissao_fixa.append(i[0])
+            if i[1] is not None and i[2] is not None:
+                total_possivel.append(i[1])
+                premio_1.append(i[2])
+
+        for j in resposta_2:
+            comissao_fixa.append(j[0])
+            if j[1] is not None and j[2] is not None:
+                total_possivel.append(j[1])
+                premio_1.append(j[2])
+
+        for k in resposta_3:
+            comissao_fixa.append(k[0])
+            if k[1] is not None and k[2] is not None:
+                total_possivel.append(k[1])
+                premio_1.append(k[2])
+
+        print("Nota Média: ", nota_media)
+        print("Comissão Fixa:", sum(comissao_fixa))
+        print("Total Possível: ", sum(total_possivel))
+        print("premio_1: ", sum(premio_1))
+        agenda = float(agenda)/100
+        ponto = float(ponto)/100
+        media_total = (agenda + ponto + nota_media)/3
+        print(agenda, ponto, nota_media)
+        media_total = media_total*100
+        media_total = f'{media_total:.4f}'
+        print('Média Total: ', media_total)
+        media_total = float(media_total)
+        print(type(media_total))
+        valor_comissao_fixa = sum(comissao_fixa)
+        max_premio_1 = sum(total_possivel)
+        real_premio_1 = sum(premio_1)
+
+
+        if media_total >= 98:
+            porc_paga = 0.35
+        elif media_total <= 97.99 and media_total >= 95:
+            porc_paga = 0.30
+        elif media_total <= 94.99 and media_total >= 90:
+            porc_paga = 0.25
+        elif media_total <= 89.99 and media_total >= 85:
+            porc_paga = 0.20
+        elif media_total <= 84.99 and media_total >= 80:
+            porc_paga = 0.15
+        elif media_total <= 79.99 and media_total >= 70:
+            porc_paga = 0.15
+        else:
+            porc_paga = 0
+
+        if porc_paga != 0:
+            real_premio_1 = float(real_premio_1)
+            premio_2 = real_premio_1*porc_paga
+        else:
+            premio_2 = 0
+        print(f'Comissão Fixa: {valor_comissao_fixa}')
+        print(f'Prêmio 1 Pago: {real_premio_1}')
+        print(f'Porcentagem paga: {porc_paga}')
+        print(f'Prêmio 2: {premio_2}')
+
+        porc_tabela = porc_paga*100
+
+        total_valores = float(valor_comissao_fixa) + real_premio_1 + premio_2
+        print(f'Total a ser Pago: {total_valores}')
+        total_valores = f'{total_valores:.2f}'
+        nota_media = nota_media*100
+        print('Mês: ', mes)
+        premio_2 = f'{premio_2:.2f}'
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"UPDATE premio_2 SET media_avaliacao = {nota_media}, agenda_rotina = {agenda*100}, controle_ponto = {ponto*100}, comissao_fixa = {valor_comissao_fixa}, premio_1 = {real_premio_1}, porc_paga = {porc_tabela} ,valor_premio_2 = {premio_2}, valor_total = {total_valores} WHERE nome_colaborador = '{colaborador_name}' AND mes = '{mes}' AND ano = '{2023}'")
+        conn.commit()
+        conn.close()
+
+        resultado = {'resultado': 'Itens Salvos com Sucesso!', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media, 'porc_tabela': porc_tabela, 'premio_2': premio_2, 'valor_total': total_valores}
+
     else:
         resultado = {'resultado': 'Ação não reconhecida'}
 

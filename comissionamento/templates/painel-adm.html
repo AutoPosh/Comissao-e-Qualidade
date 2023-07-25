@@ -97,7 +97,6 @@
                 </div>
             </div>
         </div>
-        <br>
         <div class="call_indicadores">
             <div class="select_colaborador">
                 <label for="colab3">Colaborador</label>
@@ -137,7 +136,6 @@
             <button class="btn-simular btn-action">Simular Prêmio</button>
             <button class="btn-salvar btn-action">Salvar Prêmio</button>
         </div>
-        <span id="resultado-acao">Resultado da Ação:</span>
         <div class="container-resumo">
             <div class="valor-1">
                 <div class="comissao">
@@ -177,7 +175,10 @@
                 </div>
             </div>
         </div>
-        <div class="total" style="background-color: brown; padding: 10px; display: flex; place-items: center; justify-content: center; color: ghostwhite;">
+        <div class="total-label">
+           <p>TOTAL</p>
+        </div>
+        <div class="total">
             <span id="total-valores">R$ - </span>
         </div>
         <script src="../static/painel.js"></script>
@@ -308,6 +309,12 @@
                 var mes = $('#select-meses').val();
                 var agenda = $('#id_agenda').val();
                 var ponto = $('#id_ponto').val();
+
+                // Checa se agenda e ponto estão vazios ou são iguais a 0
+                if (!agenda || !ponto || agenda === '0' || ponto === '0') {
+                    alert('Preencha os campos de ID de Agenda e ID de Ponto antes de continuar.');
+                    return; // Para a execução se alguns dos campos for igual a 0
+                }
 
                 $.ajax({
                     url: '/painel/premiacao_2', // Substitua pela URL correta da sua API Flask

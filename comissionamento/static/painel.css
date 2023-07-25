@@ -108,7 +108,7 @@ body {
 
 .call_indicadores {
     background-color: #BF213E;
-    padding: 10px;
+    padding: 35px 10px 10px 10px;
     display: flex;
     justify-content: space-around;
     padding-inline: 30%;
@@ -187,6 +187,40 @@ body {
 .comissao > h3 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 14pt;
+}
+
+.total-label{
+    padding: 10px;
+    margin-top: 50px;
+    background-color: rgb(49, 153, 49);
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+.total{
+    margin-top: 0;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+}
+
+#total-valores {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+    background-color: rgb(49, 153, 49);
+    width: 350px;
+    padding: 10px; 
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    border-radius: 0 0 5px 5px;
 }
 
 @media(max-width: 700px) {

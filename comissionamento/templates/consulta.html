@@ -112,15 +112,8 @@
 
         <div class="valor-3">
             <div class="comissao">
-                <h3>Prêmio 1</h3>
+                <h3>Prêmio 1 Recebido</h3>
                 <h1 id="real-premio">R$ {{real_premio_1}}</h1>
-            </div>
-        </div>
-
-        <div class="valor-4">
-            <div class="comissao">
-                <h3>Máximo Prêmio 1</h3>
-                <h1 id="max-premio">R$ {{total_possivel_1}}</h1>
             </div>
         </div>
         <div class="valor-5">
@@ -129,9 +122,21 @@
                 <h1 id="med-avaliacao">{{nota_avaliacao}}</h1>
             </div>
         </div>
+        <div class="valor-4">
+            <div class="comissao">
+                <h3>Máximo do Prêmio 1</h3>
+                <h1 id="max-premio">R$ {{total_possivel_1}}</h1>
+            </div>
+        </div>
+        <div class="valor-7">
+            <div class="comissao">
+                <h3>Prêmio 2</h3>
+                <h1 id="premio-2">R$ {{premio_2}}</h1>
+            </div>
+        </div>
     </div>
 
-    <div class="detalhamento-form">
+    <div class="detalhamento-form" style="display: none;">
         <select id="detalhamento-mes">
             <option value="January">Janeiro</option>
             <option value="February">Fevereiro</option>
@@ -191,6 +196,7 @@
                         $('#total-distintos').text(response.total_distintos);
                         $('#med-avaliacao').text(response.nota_avaliacao);
                         console.log(response.comissao, response.real_premio_1, response.max_premio_1, response.total_distintos, response.nota_avaliacao)
+                        $('#premio-2').text("R$ " + response.valor_premio_2)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário

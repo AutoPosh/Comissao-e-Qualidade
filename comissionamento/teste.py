@@ -23,6 +23,20 @@ def get_db_connection():
 
 conn = get_db_connection()
 cursor = conn.cursor()
+
+usuario = 'Lailson Ramon'
+month = 'July'
+year = '2023'
+
+cursor.execute(f"SELECT valor_premio_2, valor_total FROM premio_2 WHERE nome_colaborador = '{usuario}' AND mes = '{month}' and ano = '{year}'")
+resposta_premio_2 = cursor.fetchall()
+
+print(resposta_premio_2)
+print(resposta_premio_2[0][0])
+print(resposta_premio_2[0][1])
+
+'''conn = get_db_connection()
+cursor = conn.cursor()
 cursor.execute(f'SELECT nome FROM colaboradores WHERE cargo = "Operacional"')
 retorno = cursor.fetchall()
 
@@ -69,7 +83,7 @@ for colaborador in colaboradores:
 with open('resultados.json', 'w', encoding='utf8') as arquivo_json:
     json.dump(medias_colaboradores, arquivo_json, indent=4,ensure_ascii=False)
 
-print("Resultados foram escritos no arquivo 'resultados.json'.")
+print("Resultados foram escritos no arquivo 'resultados.json'.")'''
 
 '''#estabelece a conexão
 conn = get_db_connection()
