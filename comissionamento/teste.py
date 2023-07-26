@@ -28,12 +28,14 @@ usuario = 'Lailson Ramon'
 month = 'July'
 year = '2023'
 
-cursor.execute(f"SELECT valor_premio_2, valor_total FROM premio_2 WHERE nome_colaborador = '{usuario}' AND mes = '{month}' and ano = '{year}'")
-resposta_premio_2 = cursor.fetchall()
+cursor.execute(f"SELECT tempo_inicio, tempo_fim, valor_pausa FROM servicos WHERE id_servico = 1 OR id_servico = 12")
+resposta = cursor.fetchall()
 
-print(resposta_premio_2)
-print(resposta_premio_2[0][0])
-print(resposta_premio_2[0][1])
+for i in resposta:
+    print(i)
+
+    #tempo_gasto = (tempo_fim - tempo_inicio) - valor_pausa
+    #print(tempo_gasto)
 
 '''conn = get_db_connection()
 cursor = conn.cursor()

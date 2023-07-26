@@ -32,9 +32,8 @@
                 <button type="button" class="btn add-colab-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class=" fa-solid fa-plus fa-lg"></i><span class="botoes"> Colaborador</span>
                 </button>
-
-                <button class="toolbar-item comissao-btn btn add-colab-btn">
-                    <i class="fa-solid fa-plus fa-lg"></i><span> Comissão Sys</span>
+                <button class="toolbar-item comissao-btn btn add-colab-btn comissao-btn-item">
+                    <i class="fa-regular fa-eye" style="color: #ffffff;"></i><span> Ver Comissões </span>
                 </button>
 
             </div>
@@ -97,93 +96,101 @@
                 </div>
             </div>
         </div>
-        <div class="call_indicadores">
-            <div class="select_colaborador">
-                <label for="colab3">Colaborador</label>
-                <select name="colab3" id="colab3" class="select">
-                    {% for colaborador in funcionarios %}
-                    <option value="{{colaborador[0]}}">{{colaborador[0]}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="select_mes">
-                <label for="select-meses">Mês</label>
-                <select name="meses" id="select-meses">
-                    <option value="January">Janeiro</option>
-                    <option value="February">Fevereiro</option>
-                    <option value="March">Março</option>
-                    <option value="April">Abril</option>
-                    <option value="May">Maio</option>
-                    <option value="June">Junho</option>
-                    <option value="July">Julho</option>
-                    <option value="August">Agosto</option>
-                    <option value="September">Setembro</option>
-                    <option value="October">Outubro</option>
-                    <option value="November">Novembro</option>
-                    <option value="December">Dezembro</option>
-                </select>
-            </div>
-            <div class="agenda">
-                <label for="id_agenda">Agenda de Rotina</label>
-                <input type="text" name="id_agenda" class="agenda_rotina" id="id_agenda">
-            </div>
-            <div class="ponto_container">
-                <label for="id_ponto"> Controle de Ponto</label>
-                <input type="text" name="id_ponto" class="ponto_eletronico" id="id_ponto">
-            </div>
-        </div>
-        <div class="action-btns">
-            <button class="btn-simular btn-action">Simular Prêmio</button>
-            <button class="btn-salvar btn-action">Salvar Prêmio</button>
-        </div>
-        <div class="container-resumo">
-            <div class="valor-1">
-                <div class="comissao">
-                    <h3>Comissão Fixa</h3>
-                    <h1 id="comissao-valor">R$ - </h1>
+        <div class="container-sys inactive-sys" id="container-sys">
+            <div class="call_indicadores">
+                <div class="select_colaborador">
+                    <label for="colab3">Colaborador</label>
+                    <select name="colab3" id="colab3" class="select">
+                        {% for colaborador in funcionarios %}
+                        <option value="{{colaborador[0]}}">{{colaborador[0]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="select_mes">
+                    <label for="select-meses">Mês</label>
+                    <select name="meses" id="select-meses">
+                        <option value="January">Janeiro</option>
+                        <option value="February">Fevereiro</option>
+                        <option value="March">Março</option>
+                        <option value="April">Abril</option>
+                        <option value="May">Maio</option>
+                        <option value="June">Junho</option>
+                        <option value="July">Julho</option>
+                        <option value="August">Agosto</option>
+                        <option value="September">Setembro</option>
+                        <option value="October">Outubro</option>
+                        <option value="November">Novembro</option>
+                        <option value="December">Dezembro</option>
+                    </select>
+                </div>
+                <div class="agenda">
+                    <label for="id_agenda">Agenda de Rotina</label>
+                    <input type="text" name="id_agenda" class="agenda_rotina" id="id_agenda">
+                </div>
+                <div class="ponto_container">
+                    <label for="id_ponto"> Controle de Ponto</label>
+                    <input type="text" name="id_ponto" class="ponto_eletronico" id="id_ponto">
                 </div>
             </div>
+            <div class="action-btns">
+                <button class="btn-simular btn-action">Simular Prêmio</button>
+                <button class="btn-salvar btn-action">Salvar Prêmio</button>
+            </div>
+            <div class="container-resumo">
+                <div class="valor-1">
+                    <div class="comissao">
+                        <h3>Comissão Fixa</h3>
+                        <h1 id="comissao-valor">R$ - </h1>
+                    </div>
+                </div>
 
-            <div class="valor-3">
-                <div class="comissao">
-                    <h3>Prêmio 1</h3>
-                    <h1 id="real-premio">R$ - </h1>
+                <div class="valor-3">
+                    <div class="comissao">
+                        <h3>Prêmio 1</h3>
+                        <h1 id="real-premio">R$ - </h1>
+                    </div>
+                </div>
+                <div class="valor-4">
+                    <div class="comissao">
+                        <h3>Max Prêmio 1</h3>
+                        <h1 id="max-premio">R$ - </h1>
+                    </div>
+                </div>
+                <div class="valor-5">
+                    <div class="comissao">
+                        <h3>Média Qualidade</h3>
+                        <h1 id="med-avaliacao"> - %</h1>
+                    </div>
+                </div>
+                <div class="valor-6">
+                    <div class="comissao">
+                        <h3>Tabela (%)</h3>
+                        <h1 id="porc_tabela"> - %</h1>
+                    </div>
+                </div>
+                <div class="valor-7">
+                    <div class="comissao">
+                        <h3>Prêmio 2</h3>
+                        <h1 id="premio-2">R$ - </h1>
+                    </div>
                 </div>
             </div>
-            <div class="valor-4">
-                <div class="comissao">
-                    <h3>Max Prêmio 1</h3>
-                    <h1 id="max-premio">R$ - </h1>
-                </div>
-            </div>
-            <div class="valor-5">
-                <div class="comissao">
-                    <h3>Média Qualidade</h3>
-                    <h1 id="med-avaliacao"> - %</h1>
-                </div>
-            </div>
-            <div class="valor-6">
-                <div class="comissao">
-                    <h3>Tabela (%)</h3>
-                    <h1 id="porc_tabela"> - %</h1>
-                </div>
-            </div>
-            <div class="valor-7">
-                <div class="comissao">
-                    <h3>Prêmio 2</h3>
-                    <h1 id="premio-2">R$ - </h1>
-                </div>
+            <div class="total-label">
+                <p class="total">TOTAL</p>
+                <p id="total-valores">R$ - </p>
             </div>
         </div>
-        <div class="total-label">
-           <p>TOTAL</p>
-        </div>
-        <div class="total">
-            <span id="total-valores">R$ - </span>
-        </div>
+
         <script src="../static/painel.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
+
+            //Homepage
+            const botao = document.querySelector(".img-logo");
+
+            botao.addEventListener("click", function () {
+                location.href = "/homepage";
+            });
 
             // Remover a classe d-none do modal com o clique no botão
             document.querySelector(".add-colab-btn").addEventListener("click", function () {
@@ -303,6 +310,22 @@
                     });
             }
 
+
+            // Capturando o botão e o elemento pelo DOM
+            const botaoComissao = document.querySelector('.comissao-btn-item');
+            const containerSys = document.getElementById('container-sys');
+
+            // Adicionando um ouvinte de evento ao botão
+            botaoComissao.addEventListener('click', function () {
+                // Verificando se o container possui a classe 'inactive-sys'
+                if (containerSys.classList.contains('inactive-sys')) {
+                    // Removendo a classe 'inactive-sys' e adicionando a classe 'active-sys'
+                    containerSys.classList.remove('inactive-sys');
+                    containerSys.classList.add('active-sys');
+                }
+            });
+
+
             // Função para realizar a chamada AJAX com base na ação e dados selecionados
             function performAjaxRequest(action) {
                 var colaborador = $('#colab3').val(); // Obtem o valor selecionado no <select>
@@ -312,7 +335,7 @@
 
                 // Checa se agenda e ponto estão vazios ou são iguais a 0
                 if (!agenda || !ponto || agenda === '0' || ponto === '0') {
-                    alert('Preencha os campos de ID de Agenda e ID de Ponto antes de continuar.');
+                    alert('Preencha todos os campos de Agenda e Ponto antes de continuar.');
                     return; // Para a execução se alguns dos campos for igual a 0
                 }
 
@@ -337,6 +360,7 @@
                         $('#porc_tabela').text(data.porc_tabela + "%");
                         $('#premio-2').text("R$ " + data.premio_2);
                         $('#total-valores').text("R$ " + data.valor_total)
+                        alert(data.resultado)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário

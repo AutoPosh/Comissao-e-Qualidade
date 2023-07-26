@@ -168,7 +168,18 @@ h3 {
     background-color: rgba(3, 182, 206, 0.678);
     border-radius: 5px;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
+}
+.controle > select{
+    width: 250px;
+    padding-block: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.controle #mes, .controle #ano{
+    font-weight: 600;
+    
 }
 
 .cabecalho {
@@ -200,6 +211,40 @@ h3 {
 .detalhamento-form > #detalhamento-mes {
     width: 150px;
     cursor: pointer;
+}
+
+.total-label{
+    margin-top: 30px;
+    padding-top: 10px;
+    background-color: rgb(49, 153, 49);
+    display: flex; 
+    flex-direction: column;
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+.total{
+    margin-top: 0;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+}
+
+#total-valores {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+    background-color: rgb(49, 153, 49);
+    width: auto;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    border-radius: 0 0 5px 5px;
 }
 
 

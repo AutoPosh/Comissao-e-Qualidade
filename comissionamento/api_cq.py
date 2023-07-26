@@ -55,9 +55,7 @@ def get_db_connection():
     conn = mysql.connector.connect(**db_config)
     return conn
 
-
 app.secret_key = SECRET_KEY
-
 
 #Rota principal <- Tela de Login
 @app.route('/')
@@ -889,7 +887,7 @@ def acao_premio2():
     mes = data.get('mes', None)
     agenda = data.get('agenda', None)
     ponto = data.get('ponto', None)
-    print(colaborador_name, mes, agenda, ponto)
+    #print(colaborador_name, mes, agenda, ponto)
 
     ano_atual = datetime.now().year
     ano_atual = str(ano_atual)
@@ -902,13 +900,15 @@ def acao_premio2():
         retorno = cursor.fetchall()
 
         items = []
-        print("Retorno: ", retorno)
+        #print("Retorno: ", retorno)
         for i in retorno:
             items.append(i[0])
         
-        nota_media = sum(items)/len(items)
-        print('media: ', nota_media)
-    
+        if len(items) > 0:
+            nota_media = sum(items)/len(items)
+            #print('media: ', nota_media)
+        else:
+            nota_media = 0    
 
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -922,9 +922,9 @@ def acao_premio2():
         cursor.execute(f"SELECT comissao_colab_3, total_possivel_3, premio_1_colab_3 FROM comissao WHERE id_colaborador_3 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
         resposta_3 = cursor.fetchall()
 
-        print(f"Resposta 1: ", resposta)
-        print(f"Resposta 2: ", resposta_2)
-        print(f"Resposta 3: ", resposta_3)
+        #print(f"Resposta 1: ", resposta)
+        #print(f"Resposta 2: ", resposta_2)
+        #print(f"Resposta 3: ", resposta_3)
 
         comissao_fixa = []
         total_possivel = []
@@ -948,19 +948,19 @@ def acao_premio2():
                 total_possivel.append(k[1])
                 premio_1.append(k[2])
 
-        print("Nota Média: ", nota_media)
-        print("Comissão Fixa:", sum(comissao_fixa))
-        print("Total Possível: ", sum(total_possivel))
-        print("premio_1: ", sum(premio_1))
+        #print("Nota Média: ", nota_media)
+        #print("Comissão Fixa:", sum(comissao_fixa))
+        #print("Total Possível: ", sum(total_possivel))
+        #print("premio_1: ", sum(premio_1))
         agenda = float(agenda)/100
         ponto = float(ponto)/100
         media_total = (agenda + ponto + nota_media)/3
-        print(agenda, ponto, nota_media)
+        #print(agenda, ponto, nota_media)
         media_total = media_total*100
         media_total = f'{media_total:.4f}'
-        print('Média Total: ', media_total)
+        #print('Média Total: ', media_total)
         media_total = float(media_total)
-        print(type(media_total))
+        #print(type(media_total))
         valor_comissao_fixa = sum(comissao_fixa)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
@@ -986,20 +986,22 @@ def acao_premio2():
             premio_2 = real_premio_1*porc_paga
         else:
             premio_2 = 0
-        print(f'Comissão Fixa: {valor_comissao_fixa}')
-        print(f'Prêmio 1 Pago: {real_premio_1}')
-        print(f'Porcentagem paga: {porc_paga}')
-        print(f'Prêmio 2: {premio_2}')
+        #print(f'Comissão Fixa: {valor_comissao_fixa}')
+        #print(f'Prêmio 1 Pago: {real_premio_1}')
+        #print(f'Porcentagem paga: {porc_paga}')
+        #print(f'Prêmio 2: {premio_2}')
 
         porc_tabela = porc_paga*100
 
         total_valores = float(valor_comissao_fixa) + real_premio_1 + premio_2
-        print(f'Total a ser Pago: {total_valores}')
+        #print(f'Total a ser Pago: {total_valores}')
         total_valores = f'{total_valores:.2f}'
         nota_media = nota_media*100
-        print('Mês: ', mes)
+        #print('Mês: ', mes)
         premio_2 = f'{premio_2:.2f}'
 
+        #Criar log para a função
+        print("Simulação OK")
 
         resultado = {'resultado': 'Simulação realizada com sucesso', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media, 'porc_tabela': porc_tabela, 'premio_2': premio_2, 'valor_total': total_valores}
 
@@ -1010,12 +1012,12 @@ def acao_premio2():
         retorno = cursor.fetchall()
 
         items = []
-        print("Retorno: ", retorno)
+        #print("Retorno: ", retorno)
         for i in retorno:
             items.append(i[0])
         
         nota_media = sum(items)/len(items)
-        print('media: ', nota_media)
+        #print('media: ', nota_media)
     
 
         conn = get_db_connection()
@@ -1030,9 +1032,9 @@ def acao_premio2():
         cursor.execute(f"SELECT comissao_colab_3, total_possivel_3, premio_1_colab_3 FROM comissao WHERE id_colaborador_3 = '{colaborador_name}' AND mes = '{mes}' AND ano = '{ano_atual}' AND status_avaliacao = 'Avaliado'")
         resposta_3 = cursor.fetchall()
 
-        print(f"Resposta 1: ", resposta)
-        print(f"Resposta 2: ", resposta_2)
-        print(f"Resposta 3: ", resposta_3)
+        #print(f"Resposta 1: ", resposta)
+        #print(f"Resposta 2: ", resposta_2)
+        #print(f"Resposta 3: ", resposta_3)
 
         comissao_fixa = []
         total_possivel = []
@@ -1056,19 +1058,19 @@ def acao_premio2():
                 total_possivel.append(k[1])
                 premio_1.append(k[2])
 
-        print("Nota Média: ", nota_media)
-        print("Comissão Fixa:", sum(comissao_fixa))
-        print("Total Possível: ", sum(total_possivel))
-        print("premio_1: ", sum(premio_1))
+        #print("Nota Média: ", nota_media)
+        #print("Comissão Fixa:", sum(comissao_fixa))
+        #print("Total Possível: ", sum(total_possivel))
+        #print("premio_1: ", sum(premio_1))
         agenda = float(agenda)/100
         ponto = float(ponto)/100
         media_total = (agenda + ponto + nota_media)/3
-        print(agenda, ponto, nota_media)
+        #print(agenda, ponto, nota_media)
         media_total = media_total*100
         media_total = f'{media_total:.4f}'
-        print('Média Total: ', media_total)
+        #print('Média Total: ', media_total)
         media_total = float(media_total)
-        print(type(media_total))
+        #print(type(media_total))
         valor_comissao_fixa = sum(comissao_fixa)
         max_premio_1 = sum(total_possivel)
         real_premio_1 = sum(premio_1)
@@ -1094,18 +1096,18 @@ def acao_premio2():
             premio_2 = real_premio_1*porc_paga
         else:
             premio_2 = 0
-        print(f'Comissão Fixa: {valor_comissao_fixa}')
-        print(f'Prêmio 1 Pago: {real_premio_1}')
-        print(f'Porcentagem paga: {porc_paga}')
-        print(f'Prêmio 2: {premio_2}')
+        #print(f'Comissão Fixa: {valor_comissao_fixa}')
+        #print(f'Prêmio 1 Pago: {real_premio_1}')
+        #print(f'Porcentagem paga: {porc_paga}')
+        #print(f'Prêmio 2: {premio_2}')
 
         porc_tabela = porc_paga*100
 
         total_valores = float(valor_comissao_fixa) + real_premio_1 + premio_2
-        print(f'Total a ser Pago: {total_valores}')
+        #print(f'Total a ser Pago: {total_valores}')
         total_valores = f'{total_valores:.2f}'
         nota_media = nota_media*100
-        print('Mês: ', mes)
+        #print('Mês: ', mes)
         premio_2 = f'{premio_2:.2f}'
 
         conn = get_db_connection()
@@ -1115,6 +1117,9 @@ def acao_premio2():
         conn.close()
 
         resultado = {'resultado': 'Itens Salvos com Sucesso!', 'comissao': valor_comissao_fixa, 'max_premio1': max_premio_1, 'real_premio_1': real_premio_1, 'colaborador': colaborador_name, 'media_avaliacao': nota_media, 'porc_tabela': porc_tabela, 'premio_2': premio_2, 'valor_total': total_valores}
+
+        #Criar log para a função
+        print("Salvo com sucesso")
 
     else:
         resultado = {'resultado': 'Ação não reconhecida'}

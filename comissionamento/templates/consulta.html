@@ -76,9 +76,9 @@
     <div class="container-value">
         <div class="controle">
             <div class="spans">
-            <span id="mes">{{ mes }}</span>
-            <span>{{ano}}</span>
-        </div>
+                <span id="mes">{{ mes }}</span>
+                <span id="ano">{{ano}}</span>
+            </div>
             <select id="filtro-mes">
                 <option value="January">Janeiro</option>
                 <option value="February">Fevereiro</option>
@@ -135,8 +135,12 @@
             </div>
         </div>
     </div>
+    <div class="total-label">
+        <p class="total">TOTAL</p>
+        <p id="total-valores">R$ - </p>
+    </div>
 
-    <div class="detalhamento-form" style="display: none;">
+    <!--div class="detalhamento-form" style="display: none;">
         <select id="detalhamento-mes">
             <option value="January">Janeiro</option>
             <option value="February">Fevereiro</option>
@@ -152,7 +156,7 @@
             <option value="December">Dezembro</option>
         </select>
         <button id="btn-detalhar">Detalhar Mês</button>
-    </div>
+    </div-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
@@ -171,7 +175,16 @@
                 data: { month: currentMonth },
                 success: function (response) {
                     // Atualiza o conteúdo da <h1> com a resposta recebida
+                    $('#mes').text(response.mes);
                     $('#comissao-valor').text("R$ " + response.comissao);
+                    $('#real-premio').text("R$ " + response.real_premio_1);
+                    $('#max-premio').text("R$ " + response.max_premio_1);
+                    $('#total-distintos').text(response.total_distintos);
+                    $('#med-avaliacao').text(response.nota_avaliacao);
+                    $('#premio-2').text("R$ " + response.valor_premio_2);
+                    $('#total-valores').text("R$ " + response.soma_total)
+
+
                 },
                 error: function (xhr, status, error) {
                     console.log(error); // Lida com erros, se necessário
@@ -195,8 +208,9 @@
                         $('#max-premio').text("R$ " + response.max_premio_1);
                         $('#total-distintos').text(response.total_distintos);
                         $('#med-avaliacao').text(response.nota_avaliacao);
-                        console.log(response.comissao, response.real_premio_1, response.max_premio_1, response.total_distintos, response.nota_avaliacao)
+                        console.log(response.comissao, response.real_premio_1, response.max_premio_1, response.total_distintos, response.nota_avaliacao);
                         $('#premio-2').text("R$ " + response.valor_premio_2)
+                        $('#total-valores').text("R$ " + response.soma_total)
                     },
                     error: function (xhr, status, error) {
                         console.log(error); // Lida com erros, se necessário
