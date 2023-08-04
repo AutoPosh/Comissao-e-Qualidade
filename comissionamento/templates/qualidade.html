@@ -129,6 +129,32 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="../static/qualidade.js"></script>
+    <script>
+        // Função para comparar os valores os-data para ordenação
+        function compararOsData(a, b) {
+            const osDataA = parseInt(a.querySelector('.os-data').textContent);
+            const osDataB = parseInt(b.querySelector('.os-data').textContent);
+
+            return osDataA - osDataB;
+        }
+
+        // Obter todos os elementos data-values
+        const elementosDataValues = document.querySelectorAll('.data-values');
+
+        // Converter NodeList para Array para facilitar a ordenação
+        const arrayDataValues = Array.from(elementosDataValues);
+
+        // Ordenar os elementos data-values com base no valor os-data
+        arrayDataValues.sort(compararOsData);
+
+        // Anexar os elementos ordenados de volta ao container
+        const containerTables = document.querySelector('.container-tables');
+        arrayDataValues.forEach((dataValue) => {
+            containerTables.appendChild(dataValue);
+        });
+    </script>
+
+</script>
 </body>
 
 </html>

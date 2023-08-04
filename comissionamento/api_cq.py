@@ -1183,5 +1183,5 @@ def send_pesquisa():
 
 
 if __name__ == '__main__':
-    app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
+    app.run(host = os.getenv("WORK_IP"), port=5001, debug=True)
 
