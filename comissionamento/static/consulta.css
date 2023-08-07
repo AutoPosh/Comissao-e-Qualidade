@@ -64,7 +64,6 @@ header {
     place-content: center;
     height: 70px;
     background-color: var(--main-color);
-    margin-bottom: 30px;
 }
 
 .img-logo {
@@ -195,17 +194,29 @@ h3 {
 .detalhamento-form {
     background-color: #DC3545;
     display: flex;
-    place-content: center;
+    place-items: center;
+    justify-content: center;
     gap: 15px;
     padding-block: 10px;
+}
+
+span.detalhes-label {
+    font-weight: 600;
+    font-style: normal;
+    color: whitesmoke;
 }
 
 .detalhamento-form > #btn-detalhar{
     padding: 5px;
     padding-inline: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: none;
     cursor: pointer;
+}
+
+#btn-detalhar{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
 }
 
 .detalhamento-form > #detalhamento-mes {

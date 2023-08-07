@@ -67,6 +67,31 @@
             </div>
         </div>
     </div>
+    
+    <div class="detalhamento-form">
+        <span class="titulo-detalhes detalhes-label">Listar Serviços</span>
+        <select id="detalhamento-mes">
+            <option value="January">Janeiro</option>
+            <option value="February">Fevereiro</option>
+            <option value="March">Março</option>
+            <option value="April">Abril</option>
+            <option value="May">Maio</option>
+            <option value="June">Junho</option>
+            <option value="July">Julho</option>
+            <option value="August">Agosto</option>
+            <option value="September">Setembro</option>
+            <option value="October">Outubro</option>
+            <option value="November">Novembro</option>
+            <option value="December">Dezembro</option>
+        </select>
+        <select id="detalhamento-ano">
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+        </select>
+        <button id="btn-detalhar">Detalhar Mês</button>
+    </div>
     <div class="cabecalho">
         <div class="container-values">
             <span id="username">{{ usuario }}</span>
@@ -139,24 +164,6 @@
         <p class="total">TOTAL</p>
         <p id="total-valores">R$ - </p>
     </div>
-
-    <!--div class="detalhamento-form" style="display: none;">
-        <select id="detalhamento-mes">
-            <option value="January">Janeiro</option>
-            <option value="February">Fevereiro</option>
-            <option value="March">Março</option>
-            <option value="April">Abril</option>
-            <option value="May">Maio</option>
-            <option value="June">Junho</option>
-            <option value="July">Julho</option>
-            <option value="August">Agosto</option>
-            <option value="September">Setembro</option>
-            <option value="October">Outubro</option>
-            <option value="November">Novembro</option>
-            <option value="December">Dezembro</option>
-        </select>
-        <button id="btn-detalhar">Detalhar Mês</button>
-    </div-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
