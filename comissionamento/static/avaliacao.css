@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.cabecalho {
+    padding-left: 20px;
+}
+
+.img-logo {
+    width: 125px;
+    place-self: left !important;
+    margin-left: 30px;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+nav {
+    padding-block: 10px 0;
+    height: 70px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    background-color: black;
+}
+
+.div-nav {
+    margin: 16px auto 0 auto;
+    padding: 0;
+}
+
+.ul-nav {
+    margin: auto auto 0 auto;
+    padding: 0;
+    display: inline-flex;
+    gap: 5px;
+    list-style: none;
+    transform: translateX(0);
+}
+
+.li-nav {
+    padding: 10px 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.a-nav {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: ghostwhite;
+}
+
+.li-nav:hover {
+    background-color: brown;
+    transition: 350ms ease-in-out;
+}
+
+.btn-danger {
+    background-color: #BB2D3B;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 50px;
+    cursor: pointer;
+    color: ghostwhite;
+    padding-inline: 10px;
+    user-select: none;
+}
+
+.perguntas {
+    width: 80%;
+    margin: 2px auto 2px auto;
+    background-color: rgba(0, 217, 255, 0.144);
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #BB2D3B;
+}
+
+.perguntas-conteudo {
+    padding-bottom: 10px;
+}
+
+.container-inputs {
+    background-color: rgb(235, 69, 69);
+    padding: 5px 0 10px 0;
+}
+
+label{
+    font-size: 12pt;
+}
+
+.inputs {
+    width: 220px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.input-df {
+    user-select: none;
+    display: grid;
+}
+
+/* Esconde o input nativo */
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 0 auto;
+}
+
+/* Estiliza o círculo do rádio quando selecionado */
+input[type="radio"]:checked {
+    background-color: #000;
+    /* Cor do preenchimento quando selecionado */
+}
+
+.input-df.checked {
+    /* Estilos quando o rádio estiver marcado */
+    background-color: #ff0000;
+}
+
+.container-btns {
+    margin: 0 auto 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.btn-save, .btn-cancel{
+    width: 150px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.btn-save{
+    color: ghostwhite;
+    background-color: rgb(0, 99, 0);
+    transition: 0.3s ease;
+}
+
+.btn-save:hover{
+    background-color: rgb(0, 163, 0);
+    transition: 0.3s ease;
+}
+
+.btn-cancel {
+    color: ghostwhite;
+    background-color: rgb(180, 0, 0);
+}
+
+.btn-cancel:hover {
+    background-color: #ec0000ef;
+    transition: 0.3s ease-in-out;
+}
+
+@media(max-width: 850px) {
+    .buttons-svc img {
+        width: 9rem;
+        margin-inline: 10px;
+    }
+
+    #painel {
+        height: 144px;
+    }
+
+    .text-flutuante {
+        width: 144px;
+    }
+
+    .perguntas {
+        width: 95%;
+        margin: 2px auto 2px auto;
+        margin-bottom: 20px;
+    }
+    .btn-danger{
+        position: absolute;
+        right: 0px;
+    }
+}
+
+@media(max-width: 850px) {
+
+    /* Responsividade para celular de toda a tela, não deixar margem para rolar */
+
+    .div-nav {
+        display: none;
+    }
+
+    .img-logo {
+        margin-left: 0;
+        transform: translate(-70px);
+        padding-left: 0;
+    }
+
+    header,
+    nav {
+        height: 100px;
+    }
+
+}

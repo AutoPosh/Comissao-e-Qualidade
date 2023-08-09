@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&display=swap');
+
+:root {
+    --bg-color: rgb(242, 242, 252);
+    --main-color: rgb(19, 20, 29);
+    --btn-color: rgb(21, 136, 36);
+    --font-color-light: ghostwhite;
+    --font-color-dark: rgb(11, 12, 20);
+    --menu-toggled: 0;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+body {
+    background: url('../static/src/imgs/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    place-items: center;
+    place-content: center;
+    height: 70px;
+    background-color: var(--main-color);
+}
+
+.img-logo {
+    width: 125px;
+    place-self: left !important;
+    margin-left: 30px;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+nav {
+    padding-block: 10px 0;
+    height: 70px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+.div-nav {
+    margin: 16px auto 0 auto;
+    padding: 0;
+}
+
+.btn-danger {
+    margin-right: 100px;
+}
+
+.ul-nav {
+    margin: auto auto 0 auto;
+    padding: 0;
+    display: inline-flex;
+    gap: 5px;
+    list-style: none;
+    transform: translateX(0);
+}
+
+.li-nav {
+    padding: 10px 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.a-nav {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: var(--font-color-light);
+}
+
+.li-nav:hover {
+    background-color: brown;
+    transition: 350ms ease-in-out;
+}
+
+.buttons-svc {
+    margin: 50px auto;
+    max-width: 600px;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-weight: bold;
+    color: brown;
+}
+/* Remove o user select */
+.buttons-svc {
+   user-select: none;
+  -webkit-touch-callout: none; /* Desativa a seleção no iOS Safari */
+  -webkit-user-select: none; /* Desativa a seleção no iOS Safari */
+  -moz-user-select: none; /* Desativa a seleção no Firefox */
+  -ms-user-select: none; /* Desativa a seleção no Internet Explorer */
+}
+
+.buttons-svc img {
+    display: inline-block;
+    object-fit: contain;
+    margin-inline: 20px;
+    margin-block: 10px;
+    width: 15rem;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.068);
+    padding: 10px;
+}
+
+.buttons-svc img:hover {
+    transform: scale(1.05);
+    background-color: rgba(165, 42, 42, 0.897);
+}
+
+.buttons-svc img:hover ~ .text-flutuante {
+    background-color: brown;
+    color: white;
+    
+}
+
+.text-flutuante {
+    width: 250px;
+    display: flex;
+    padding: 5px 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    place-content: center;
+    margin: -3px auto 0 auto;
+    transition: all 300ms ease-in-out;
+}
+
+#painel {
+    height: 240px;
+}
+
+
+@media(max-width: 550px) {
+    .buttons-svc img {
+        width: 9rem;
+        margin-inline: 10px;
+    }
+    #painel {
+        height: 144px;
+    }
+    .text-flutuante{
+        width: 144px;
+    }
+}
+
+
+@media(max-width: 850px) {
+
+    /* Responsividade para celular de toda a tela, não deixar margem para rolar */
+
+    .div-nav {
+        display: none;
+    }
+
+    .btn-danger {
+        margin-right: -30px;
+    }
+
+    .img-logo {
+        transform: translate(-60px);
+    }
+
+    header,
+    nav {
+        height: 100px;
+    }
+
+}

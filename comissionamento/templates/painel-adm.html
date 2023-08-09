@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/painel.css">
+
+    <!--------------------- BootStrap --------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/73cc2295d4.js" crossorigin="anonymous"></script>
+
+    <title>Painel do Administrador</title>
+</head>
+
+<body>
+    <header class="header">
+        <img class="img-logo" src="../static/src/icons/logo_branca.png" height="50px">
+        <button type="button" class="btn btn-danger btn-md" onclick="logout()">Finalizar Sessão</button>
+    </header>
+    <h1 class="titulo-painel">PAINEL DO ADMINISTRADOR</h1>
+    <div class="bar-place">
+        <div class="toolbar-items">
+            <div class="cad-colab">
+
+                <button type="button" class="btn add-colab-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class=" fa-solid fa-plus fa-lg"></i><span class="botoes"> Colaborador</span>
+                </button>
+                <button class="toolbar-item comissao-btn btn add-colab-btn comissao-btn-item">
+                    <i class="fa-regular fa-eye" style="color: #ffffff;"></i><span> Ver Comissões </span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal modal-dialog-2xl modal-dialog-centered fade d-none" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Colaborador</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body custom-modal-dialog">
+                            <div class="cadastro-colab">
+                                <label for="nome-completo" class="label-cad">Nome (Nome e Sobrenome)</label>
+                                <input id="nome-completo" type="text" name="nome-completo" required>
+                                <label for="cpf-colaborador" class="label-cad">CPF</label>
+                                <input id="cpf-colaborador" type="text" inputmode="numeric" required>
+                                <label for="data-nascimento" class="label-cad" id="dt-nascimento">Data
+                                    Nascimento</label>
+                                <input id="data-nascimento" type="date" required>
+                            </div>
+                            <div class="body-cadastro">
+                                <div class="cargo-container">
+                                    <label for="select-cargo" id="grade-label">Selecione o Cargo</label>
+                                    <select id="select-cargo" class="select-cargo">
+                                        <option value="Operacional">Operacional</option>
+                                        <option value="Qualidade">Qualidade</option>
+                                        <option value="Supervisor">Supervisor</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select>
+                                </div>
+                                <div class="grade-container">
+                                    <label for="select-grade" id="grade-label">Selecione a Grade</label>
+                                    <select id="select-grade" class="select-grade">
+                                        <option value="1">Grade 1</option>
+                                        <option value="2">Grade 2</option>
+                                        <option value="3">Grade 3</option>
+                                    </select>
+                                </div>
+                                <div class="nivel-container">
+                                    <label for="select-nivel" id="grade-label">Selecione o Nível</label>
+                                    <select id="select-nivel" class="select-nivel">
+                                        <option value="Junior">Junior</option>
+                                        <option value="Pleno">Pleno</option>
+                                        <option value="Senior">Sênior</option>
+                                        <option value="Especialista">Especialista</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                            <button type="button" class="btn btn-primary" id="saveChangesBtn">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-sys inactive-sys" id="container-sys">
+            <div class="call_indicadores">
+                <div class="select_colaborador">
+                    <label for="colab3">Colaborador</label>
+                    <select name="colab3" id="colab3" class="select">
+                        {% for colaborador in funcionarios %}
+                        <option value="{{colaborador[0]}}">{{colaborador[0]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="select_mes">
+                    <label for="select-meses">Mês</label>
+                    <select name="meses" id="select-meses">
+                        <option value="January">Janeiro</option>
+                        <option value="February">Fevereiro</option>
+                        <option value="March">Março</option>
+                        <option value="April">Abril</option>
+                        <option value="May">Maio</option>
+                        <option value="June">Junho</option>
+                        <option value="July">Julho</option>
+                        <option value="August">Agosto</option>
+                        <option value="September">Setembro</option>
+                        <option value="October">Outubro</option>
+                        <option value="November">Novembro</option>
+                        <option value="December">Dezembro</option>
+                    </select>
+                </div>
+                <div class="agenda">
+                    <label for="id_agenda">Agenda de Rotina</label>
+                    <input type="text" name="id_agenda" class="agenda_rotina" id="id_agenda">
+                </div>
+                <div class="ponto_container">
+                    <label for="id_ponto"> Controle de Ponto</label>
+                    <input type="text" name="id_ponto" class="ponto_eletronico" id="id_ponto">
+                </div>
+            </div>
+            <div class="action-btns">
+                <button class="btn-simular btn-action">Simular Prêmio</button>
+                <button class="btn-salvar btn-action">Salvar Prêmio</button>
+            </div>
+            <div class="container-resumo">
+                <div class="valor-1">
+                    <div class="comissao">
+                        <h3>Comissão Fixa</h3>
+                        <h1 id="comissao-valor">R$ - </h1>
+                    </div>
+                </div>
+
+                <div class="valor-3">
+                    <div class="comissao">
+                        <h3>Prêmio 1</h3>
+                        <h1 id="real-premio">R$ - </h1>
+                    </div>
+                </div>
+                <div class="valor-4">
+                    <div class="comissao">
+                        <h3>Max Prêmio 1</h3>
+                        <h1 id="max-premio">R$ - </h1>
+                    </div>
+                </div>
+                <div class="valor-5">
+                    <div class="comissao">
+                        <h3>Média Qualidade</h3>
+                        <h1 id="med-avaliacao"> - %</h1>
+                    </div>
+                </div>
+                <div class="valor-6">
+                    <div class="comissao">
+                        <h3>Tabela (%)</h3>
+                        <h1 id="porc_tabela"> - %</h1>
+                    </div>
+                </div>
+                <div class="valor-7">
+                    <div class="comissao">
+                        <h3>Prêmio 2</h3>
+                        <h1 id="premio-2">R$ - </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="total-label">
+                <p class="total">TOTAL</p>
+                <p id="total-valores">R$ - </p>
+            </div>
+        </div>
+
+        <script src="../static/painel.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+
+            //Homepage
+            const botao = document.querySelector(".img-logo");
+
+            botao.addEventListener("click", function () {
+                location.href = "/homepage";
+            });
+
+            // Remover a classe d-none do modal com o clique no botão
+            document.querySelector(".add-colab-btn").addEventListener("click", function () {
+
+                var modalElement = document.getElementById("exampleModal");
+                modalElement.classList.remove("d-none");
+            });
+
+
+            // A função será executada quando o botão "Save changes" for clicado
+            document.getElementById("saveChangesBtn").addEventListener("click", function () {
+
+                // Obtenha o valor do input no modal
+                var nomeCompleto = document.getElementById("nome-completo").value;
+                var cpf = document.getElementById("cpf-colaborador").value;
+                var dataNascimento = document.getElementById("data-nascimento").value;
+
+                var optionsElement = document.getElementById("select-cargo");
+                var selectCargo = optionsElement.value;
+
+                var optionsGrade = document.getElementById("select-grade");
+                var selectGrade = optionsGrade.value;
+
+                var optionsNivel = document.getElementById("select-nivel");
+                var selectNivel = optionsNivel.value;
+
+
+                if (nomeCompleto === '' || cpf === '' || dataNascimento === '') {
+                    alert('Todos os campos devem ser preenchidos')
+                    return; // Sai da função se o inputValue estiver vazio
+                }
+
+                var dataAtual = new Date();
+
+                // Obtém as informações da data
+                var dia = dataAtual.getDate();
+                var mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de zero, por isso é adicionado +1
+                var ano = dataAtual.getFullYear();
+
+                // Formata a data como string (no formato dd/mm/aaaa)
+                var dataAtualFormatada = ano + '-' + mes + '-' + dia;
+                var senha = cpf.substring(0, 4);
+                // Faça o que desejar com o valor do input, por exemplo, exiba-o no console
+                console.log(`Valores do input: ${nomeCompleto}, ${cpf}, ${senha}, ${dataNascimento}, ${selectCargo}, ${selectGrade}, ${selectNivel}, ${dataAtualFormatada}`);
+
+                let dados = {
+                    nomeCompleto,
+                    senha,
+                    selectCargo,
+                    selectGrade,
+                    selectNivel
+                }
+
+                //settings da solicitação
+                const options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dados)
+                };
+
+                //envia solicitação
+                fetch("/painel/cadastro-colaborador", options)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Verifica se a resposta foi bem sucedida
+                        if (data.sucess) {
+                            alert("Usuário Cadastrado");
+                        } else {
+                            alert("Erro ao cadastrar usuário");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erro na solicitação", error);
+                        alert("Erro na solicitação");
+                    });
+
+                // Limpa os valores dos inputs
+                document.getElementById("nome-completo").value = '';
+                document.getElementById("cpf-colaborador").value = '';
+                document.getElementById("data-nascimento").value = '';
+
+                // Feche o modal
+                var modalElement = document.getElementById("exampleModal");
+                var bootstrapModal = bootstrap.Modal.getInstance(modalElement);
+                bootstrapModal.hide();
+            });
+
+            // Type event listener para aceitar apenas numeros no campo de CPF
+            var inputCpf = document.getElementById("cpf-colaborador");
+
+            inputCpf.addEventListener("keydown", function (event) {
+                // Verifica se a tecla pressionada é um número
+                if (event.key !== "Backspace" && isNaN(Number(event.key))) {
+                    event.preventDefault();
+                }
+            });
+
+            function logout() {
+                fetch("/logout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Logou realizado com sucesso");
+                            window.location.href = "/";
+                        } else {
+                            console.log("Erro ao realizar logout");
+                        }
+                    })
+                    .catch(error => {
+                        console.log("erro em logout", error);
+                    });
+            }
+
+
+            // Capturando o botão e o elemento pelo DOM
+            const botaoComissao = document.querySelector('.comissao-btn-item');
+            const containerSys = document.getElementById('container-sys');
+
+            // Adicionando um ouvinte de evento ao botão
+            botaoComissao.addEventListener('click', function () {
+                // Verificando se o container possui a classe 'inactive-sys'
+                if (containerSys.classList.contains('inactive-sys')) {
+                    // Removendo a classe 'inactive-sys' e adicionando a classe 'active-sys'
+                    containerSys.classList.remove('inactive-sys');
+                    containerSys.classList.add('active-sys');
+                }
+            });
+
+
+            // Função para realizar a chamada AJAX com base na ação e dados selecionados
+            function performAjaxRequest(action) {
+                var colaborador = $('#colab3').val(); // Obtem o valor selecionado no <select>
+                var mes = $('#select-meses').val();
+                var agenda = $('#id_agenda').val();
+                var ponto = $('#id_ponto').val();
+
+                // Checa se agenda e ponto estão vazios ou são iguais a 0
+                if (!agenda || !ponto || agenda === '0' || ponto === '0') {
+                    alert('Preencha todos os campos de Agenda e Ponto antes de continuar.');
+                    return; // Para a execução se alguns dos campos for igual a 0
+                }
+
+                $.ajax({
+                    url: '/painel/premiacao_2', // Substitua pela URL correta da sua API Flask
+                    method: 'POST', // Use o método HTTP apropriado para a sua API (pode ser GET, POST, PUT, DELETE, etc.)
+                    contentType: 'application/json', // Define o cabeçalho 'Content-Type' como 'application/json'
+                    data: JSON.stringify({
+                        action: action,
+                        colaborador: colaborador,
+                        mes: mes,
+                        agenda: agenda,
+                        ponto: ponto
+                    }), // Envia os dados selecionados no corpo da requisição como JSON
+                    success: function (data) {
+                        // Atualiza o conteúdo do elemento no HTML com a resposta recebida
+                        $('#resultado-acao').text("Resultado da Ação: " + data.resultado);
+                        $('#comissao-valor').text("R$ " + data.comissao);
+                        $('#real-premio').text("R$ " + data.real_premio_1);
+                        $('#med-avaliacao').text(data.media_avaliacao + "%");
+                        $('#max-premio').text("R$ " + data.max_premio1);
+                        $('#porc_tabela').text(data.porc_tabela + "%");
+                        $('#premio-2').text("R$ " + data.premio_2);
+                        $('#total-valores').text("R$ " + data.valor_total)
+                        alert(data.resultado)
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error); // Lida com erros, se necessário
+                    }
+                });
+            }
+
+            // Evento de clique para o botão "Simular Prêmio"
+            $('.btn-simular').click(function () {
+                console.log("Botão 'Simular Prêmio' pressionado!");
+                performAjaxRequest('simular');
+            });
+
+            // Evento de clique para o botão "Salvar Prêmio"
+            $('.btn-salvar').click(function () {
+                console.log("Botão 'Salvar Prêmio' pressionado!");
+                performAjaxRequest('salvar');
+            });
+
+        </script>
+</body>
+
+</html>

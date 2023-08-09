@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'sans serif';
+}
+
+.header {
+    display: flex;
+    position: relative;
+    background-color: #1a1c27;
+    padding-block: 10px;
+    place-content: center;
+}
+
+.btn-danger {
+    position: absolute;
+    right: 10px;
+}
+
+.img-logo {
+    place-content: center;
+    cursor: pointer;
+}
+
+body {
+    background-color: ghostwhite;
+}
+
+.titulo-painel {
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    font-size: 20px;
+    background-color: #BF213E;
+    color: ghostwhite;
+}
+
+.toolbar-items {
+    display: flex;
+    place-content: center;
+    padding-block: 5px;
+    z-index: -1;
+    background-color: #BF213E;
+}
+
+.add-colab-btn {
+    background-color: transparent !important;
+    position: relative;
+    color: ghostwhite !important;
+    border: 1px solid rgba(128, 128, 128, 0.712) !important;
+    background-color: #1b1f30ec !important;
+}
+
+.add-colab-btn span {
+    background-color: transparent;
+    color: ghostwhite;
+    z-index: 999;
+}
+
+.add-colab-btn::after {
+    content: '';
+    background-color: rgb(0, 140, 255) !important;
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    border-radius: 10px;
+    width: 40px;
+    height: 5px;
+    transform: translateX(0);
+    transition: all 500ms ease;
+}
+
+.add-colab-btn:hover::after {
+    transform: translateX(130%);
+    background-color: #BF213E !important;
+    transition: all 400ms ease-in-out;
+}
+
+.add-colab-btn:hover {
+    background-color: rgb(0, 140, 255) !important;
+}
+
+.cadastro-colab {
+    background-color: ghostwhite;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-modal-dialog {
+    width: 100%;
+}
+
+.body-cadastro {
+    padding: 10px;
+    background-color: ghostwhite;
+}
+
+.cargo-container,
+.grade-container,
+.nivel-container {
+    position: relative;
+    display: grid;
+}
+
+.call_indicadores {
+    background-color: #BF213E;
+    padding: 35px 10px 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    padding-inline: 30%;
+}
+
+.select_colaborador,
+.select_mes,
+.agenda,
+.ponto_container {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    color: ghostwhite;
+}
+
+.select_colaborador>input,
+.select_mes>select,
+.agenda>input,
+.ponto_container>input {
+    width: 150px;
+}
+
+.action-btns {
+    background-color: #BF213E;
+    padding-block: 10px;
+    display: flex;
+    gap: 15px;
+    place-items: center;
+    justify-content: center;
+}
+
+.btn-action {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.comissao {
+    display: flex;
+    background-color: #DC3545;
+    color: ghostwhite;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-resumo {
+    display: flex;
+    padding-left: 50px;
+    padding-block: 20px;
+    gap: 20px;
+    width: 100%;
+    margin: 20px auto auto auto;
+    position: relative;
+    place-content: center;
+    align-items: center;
+}
+
+.container-resumo h1 {
+    font-size: 14pt;
+    position: relative;
+}
+
+.comissao > h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 14pt;
+}
+
+.total-label{
+    margin-top: 30px;
+    padding-top: 10px;
+    background-color: rgb(49, 153, 49);
+    display: flex; 
+    flex-direction: column;
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+.total{
+    margin-top: 0;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+}
+
+#total-valores {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+    background-color: rgb(49, 153, 49);
+    width: auto;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    border-radius: 0 0 5px 5px;
+}
+
+.action-btns > button{
+    width: 150px;
+    font-weight: 600;
+    background-color: #f5f7fa;
+    transition: 300ms;
+}
+
+.action-btns > button:hover{
+    background-color: #1a1c27;
+    color: ghostwhite;
+    transition: 300ms ease;
+}
+
+.inactive-sys {
+    opacity: 0;
+    pointer-events: none;
+    transition: 300ms ease;
+}
+
+.active-sys {
+    opacity: 1;
+    pointer-events: all;
+    transition: 300ms ease;
+}
+
+@media(max-width: 700px) {
+    .img-logo {
+        justify-content: space-between;
+        margin-left: -200px;
+        transition: 400ms ease;
+    }
+    .btn-danger{
+        margin-top: 8px;
+    }
+
+    .call_indicadores {
+        flex-direction: column;
+    }
+
+    .select_colaborador>input,
+    .select_mes>select,
+    .agenda>input,
+    .ponto_container>input {
+        text-align: center;
+    }
+
+    /* Estilos para o container-resumo e itens internos */
+    .container-resumo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+        /* Center the items horizontally */
+        align-items: center;
+        /* Center the items vertically */
+        padding-right: 50px;
+    }
+
+}

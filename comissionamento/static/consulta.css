@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Poppins:wght@500&display=swap');
+
+:root {
+    --bg-color: rgb(242, 242, 252);
+    --main-color: rgb(19, 20, 29);
+    --btn-color: rgb(21, 136, 36);
+    --progress-color: rgba(251, 255, 18, 0.801);
+    --pause-color: rgb(0, 217, 255);
+    --stop-color: rgba(0, 184, 24, 0.664);
+    --font-color-light: ghostwhite;
+    --font-color-dark: rgb(11, 12, 20);
+    --menu-toggled: 0;
+}
+
+.container-itens {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    background-color: var(--main-color);
+    border-radius: 0 10px 10px 0;
+    width: 200px;
+    transform: translateX(0);
+    z-index: 900;
+    overflow: hidden;
+}
+
+.logout {
+    position: absolute;
+    right: 40px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.janela-title {
+    background-color: var(--main-color);
+    color: ghostwhite;
+}
+
+
+.janela-title h4 {
+    margin-left: 2%;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', 'sans serif';
+    overflow-x: hidden;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+header {
+    place-items: center;
+    place-content: center;
+    height: 70px;
+    background-color: var(--main-color);
+}
+
+.img-logo {
+    width: 125px;
+    margin-left: 30px;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+nav {
+    padding-block: 10px 0;
+    height: 70px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+.close {
+    padding: 0 0 0 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    background-color: transparent;
+    border-radius: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30pt;
+    font-weight: 800;
+    transition: all 300ms ease;
+}
+
+.modal-header {
+    padding: 0 16px;
+    background-color: #DC3545;
+}
+
+.modal-footer {
+    background-color: rgb(58 58 58);
+    padding-block: 5px;
+}
+
+.btn-fechar-modal {
+    transition: all 300ms ease;
+}
+
+.btn-fechar-modal:hover {
+    transform: scale(1.1);
+    background-color: #DC3545;
+    transition: 300ms ease;
+}
+
+.close:hover {
+    transform: rotate(-90deg);
+    transition: all 300ms ease;
+}
+
+.container-resumo {
+    display: flex;
+    padding-left: 50px;
+    padding-block: 20px;
+    gap: 20px;
+    width: 100%;
+    margin: 20px auto auto auto;
+    position: relative;
+    place-content: center;
+    align-items: center;
+}
+
+.container-resumo h1 {
+    font-size: 14pt;
+    position: relative;
+}
+
+h3 {
+    overflow: hidden;
+    font-size: 14pt;
+}
+
+
+.comissao {
+    display:flex;
+    background-color: #DC3545;
+    color: ghostwhite;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controle {
+    background-color: rgba(3, 182, 206, 0.678);
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+}
+.controle > select{
+    width: 250px;
+    padding-block: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.controle #mes, .controle #ano{
+    font-weight: 600;
+    
+}
+
+.cabecalho {
+    padding-left: 60px;
+}
+
+.container-values {
+    display: grid;
+    width: fit-content;
+    padding: 10px;
+}
+
+.detalhamento-form {
+    background-color: #DC3545;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-block: 10px;
+}
+
+span.detalhes-label {
+    font-weight: 600;
+    font-style: normal;
+    color: whitesmoke;
+}
+
+.detalhamento-form > #btn-detalhar{
+    padding: 5px;
+    padding-inline: 10px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-detalhar{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.detalhamento-form > #detalhamento-mes {
+    width: 150px;
+    cursor: pointer;
+}
+
+.total-label{
+    margin-top: 30px;
+    padding-top: 10px;
+    background-color: rgb(49, 153, 49);
+    display: flex; 
+    flex-direction: column;
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+.total{
+    margin-top: 0;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+}
+
+#total-valores {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+    background-color: rgb(49, 153, 49);
+    width: auto;
+    display: flex; 
+    place-items: center; 
+    justify-content: center; 
+    color: ghostwhite;
+    border-radius: 0 0 5px 5px;
+}
+
+
+@media(max-width: 850px) {
+
+    /* Responsividade para celular de toda a tela, não deixar margem para rolar */
+    .img-logo {
+        transform: translate(-120px);
+        float: left;
+        transition: all 500ms ease;
+    }
+
+    header,
+    nav {
+        height: 80px;
+    }
+
+    /* Estilos para o container-resumo e itens internos */
+    .container-resumo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center; /* Center the items horizontally */
+        align-items: center; /* Center the items vertically */
+        padding-right: 50px;
+    }
+
+}
