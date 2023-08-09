@@ -67,31 +67,6 @@
             </div>
         </div>
     </div>
-    
-    <div class="detalhamento-form">
-        <span class="titulo-detalhes detalhes-label">Listar Serviços</span>
-        <select id="detalhamento-mes">
-            <option value="January">Janeiro</option>
-            <option value="February">Fevereiro</option>
-            <option value="March">Março</option>
-            <option value="April">Abril</option>
-            <option value="May">Maio</option>
-            <option value="June">Junho</option>
-            <option value="July">Julho</option>
-            <option value="August">Agosto</option>
-            <option value="September">Setembro</option>
-            <option value="October">Outubro</option>
-            <option value="November">Novembro</option>
-            <option value="December">Dezembro</option>
-        </select>
-        <select id="detalhamento-ano">
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-        </select>
-        <button id="btn-detalhar">Detalhar Mês</button>
-    </div>
     <div class="cabecalho">
         <div class="container-values">
             <span id="username">{{ usuario }}</span>
@@ -137,7 +112,7 @@
 
         <div class="valor-3">
             <div class="comissao">
-                <h3>Prêmio 1 Recebido</h3>
+                <h3>Prêmio Qualidade Recebido</h3>
                 <h1 id="real-premio">R$ {{real_premio_1}}</h1>
             </div>
         </div>
@@ -149,13 +124,13 @@
         </div>
         <div class="valor-4">
             <div class="comissao">
-                <h3>Máximo do Prêmio 1</h3>
+                <h3>Máx Premio Qualidade</h3>
                 <h1 id="max-premio">R$ {{total_possivel_1}}</h1>
             </div>
         </div>
         <div class="valor-7">
             <div class="comissao">
-                <h3>Prêmio 2</h3>
+                <h3>Prêmio PAPA</h3>
                 <h1 id="premio-2">R$ {{premio_2}}</h1>
             </div>
         </div>
@@ -164,6 +139,24 @@
         <p class="total">TOTAL</p>
         <p id="total-valores">R$ - </p>
     </div>
+
+    <!--div class="detalhamento-form" style="display: none;">
+        <select id="detalhamento-mes">
+            <option value="January">Janeiro</option>
+            <option value="February">Fevereiro</option>
+            <option value="March">Março</option>
+            <option value="April">Abril</option>
+            <option value="May">Maio</option>
+            <option value="June">Junho</option>
+            <option value="July">Julho</option>
+            <option value="August">Agosto</option>
+            <option value="September">Setembro</option>
+            <option value="October">Outubro</option>
+            <option value="November">Novembro</option>
+            <option value="December">Dezembro</option>
+        </select>
+        <button id="btn-detalhar">Detalhar Mês</button>
+    </div-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="

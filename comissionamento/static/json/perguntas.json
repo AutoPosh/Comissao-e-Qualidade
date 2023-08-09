@@ -254,11 +254,11 @@
         "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "41": [
-        "A proteção / hidratante da Seção Superior (pintura, cantoneiras, antena, rack do teto, teto solar, couro, Chassi) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "A proteção / hidratante no VOLANTE foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "42": [
-        "A proteção / hidratante da Seção Superior (pintura, cantoneiras, antena, rack do teto, teto solar, couro, Chassi) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "A proteção / hidratante no CAPACETE foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "43": [
@@ -359,10 +359,12 @@
     ],
     "49": [
         "A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
-        "Seção Superior - as bordas das peças), que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
+        "As bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "50": [
-        "A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "RETROVISORES - A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "VELOCÍMETRO - A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "BOLHA DIANTEIRA - A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "51": [
@@ -462,7 +464,7 @@
         "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "57": [
-        "A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "VOLANTE - A proteção / hidratante foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "58": [
@@ -634,7 +636,7 @@
         "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "70": [
-        "A proteção / hidratante da capota marítima foi bem aplicada de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "A proteção / hidratante da CAPOTA MARÍTIMA foi bem aplicada de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças que não receberam a proteção / hidratante, estão devidamente preservadas e sem resquícios de produto?"
     ],
     "71": [
@@ -750,7 +752,7 @@
         "Seção Traseira - as bordas das peças/ partes do Motor, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "78": [
-        "A proteção / hidratante da Seção Superior (pintura, cantoneiras, antena, rack do teto, teto solar, couro, Chassi) foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
+        "A proteção / hidratante no VOLANTE foi bem aplicado de forma uniforme, preenchendo toda a superfície e sua remoção foi bem executado ficando sem manchas na peça?",
         "As bordas das peças, que não receberam a proteção / hidratante, estão devidamente preservadas, sem resquícios de produto da proteção / hidratante? "
     ],
     "79": [
@@ -1034,13 +1036,16 @@
         "Em conversíveis a capota de tecido, incluindo suas bordas, está bem limpa sem resquícios de sujeira como areia, pó, lama e barro e composto polidor?"
     ],
     "113": [
-        "Par de faróis dianteiros estão bem limpos, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
+        "FAROL DIANTEIRO ESQUERDO está bem limpo, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?",
+        "FAROL DIANTEIRO DIREITO está bem limpo, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
     ],
     "114": [
-        "Par de lanternas traseiras estão bem limpas, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
+        "LANTERNA TRASEIRA ESQUERDA está bem limpa, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?",
+        "LANTERNA TRASEIRA DIREITA está bem limpa, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
     ],
     "115": [
-        "Paralamas dianteiros estão bem limpos, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
+        "PARALAMA DIANTEIRO ESQUERDO está bem limpos, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?",
+        "PARALAMA DIANTEIRO DIREITO está bem limpos, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
     ],
     "116": [
         "Paralamas traseiros estão bem limpos, sem resquícios de sujeira como areia, pó, lama, barro, insetos de estrada, piche e composto polidor?"
@@ -1499,7 +1504,11 @@
         "Parte interna do porta-malas (lateral e tampa sobre o estepe) estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "186": [
-        "Teto, colunas dianteiras, centrais e traseiras, cintos de segurança dianteiros e traseiros, estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
+        "Teto, está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "Colunas dianteiras estão bem limpas sem resquícios de sujeira como areia, pó e manchas?",
+        "Colunas centrais estão bem limpas sem resquícios de sujeira como areia, pó e manchas?",
+        "Colunas traseiras estão bem limpas sem resquícios de sujeira como areia, pó e manchas?",
+        "Cintos de segurança dianteiros e traseiros estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "187": [
         "Capacete está está bem limpo sem resquícios de sujeira como areia, pó e manchas?"
@@ -1508,17 +1517,24 @@
         "Celular está bem limpo sem resquícios de sujeira e/ou manchas"
     ],
     "189": [
-        "Estofados (encosto de cabeça, estrutura metálica ou cromada do encosto de cabeça, parte central, superior e lateral do encosto, parte traseira do encosto, incluindo a bolsa de porta objetos das costas do encosto, assento, comandos do movimento elétrico, extensão das coxas, console central e descanso de braço móvel) estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
+        "Estofados dianteiros (encosto de cabeça, estrutura metálica ou cromada do encosto de cabeça, parte central, superior e lateral do encosto, parte traseira do encosto, incluindo a bolsa de porta objetos das costas do encosto, assento, comandos do movimento elétrico, extensão das coxas, console central e descanso de braço móvel) estão bem limpos sem resquícios de sujeira como areia, pó e manchas?",
+        "Estofados traseiros estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "190": [
         "Estofados da seção dianteira estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "191": [
-        "2 lugares - Os estofados estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
+        "2 LUGARES - O estofado 1 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "2 LUGARES - O estofado 2 está bem limpo sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "192": [
-        "5 à 7 lugares - Os estofados 1 e 2 estão bem limpos sem resquicios de sujeira como areia, pó e manchas?",
-        "5 à 7  lugares - Os outros estofados estão bem limpos sem resquícios de sujeira como areia, pó e manchas?"
+        "5 à 7 lugares - O estofados 1 está bem limpo sem resquicios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 2 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 3 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 4 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 5 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 6 está bem limpo sem resquícios de sujeira como areia, pó e manchas?",
+        "5 à 7  lugares - O estofado 7 está bem limpo sem resquícios de sujeira como areia, pó e manchas?"
     ],
     "193": [
         "Zona Grande - A higienização localizada foi bem realizada, não apresentando manchas ou sujeira no local?"

@@ -455,7 +455,7 @@ def rota_consulta():
         else:
             valor_premio_2 = 0
             soma_total = soma_comissao + real_premio_1
-
+        
         conn.close()
 
         return render_template('consulta.html', usuario = usuario, soma_comissao = soma_comissao, ordens = total_distintos, mes = mes_atual, ano=ano_atual, total_possivel_1 = max_premio_1, real_premio_1 = real_premio_1, grade = resposta_grade, nota_avaliacao = avaliacao, premio_2 = valor_premio_2)
@@ -1183,5 +1183,5 @@ def send_pesquisa():
 
 
 if __name__ == '__main__':
-    app.run(host = os.getenv("WORK_IP"), port=5001, debug=True)
+    app.run(host = os.getenv("WORK_IP"), port=5000, debug=True)
 
